@@ -1,7 +1,11 @@
 target=sheet.html
 source=(
-    body.html
-    script.html
+    pcsheet.html
+    quickstartsheet.html
+    npcsheet.html
+    workerstart.html
+    workers.js
+    workerend.html
     rolltemplates.html
 )
 
