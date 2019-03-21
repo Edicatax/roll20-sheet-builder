@@ -3,11 +3,15 @@ source=(
     head.html
     newpcsheet.html
     personaltab.html
+    personaltabsummary.html
+    personaltabstats.html
+    divend.html
     skillstab.html
     magictab.html
     combattab.html
     geartab.html
     divend.html
+    rolltemplates.html
     foot.html
 )
 

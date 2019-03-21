@@ -1,0 +1,76 @@
+<div class="sheet-bb sheet-p-1s sheet-pos-rel">
+  <input id="toggle_edit_personals" type="checkbox" value="1" class="sheet-toggle-visible sheet-d-no sheet-pos-abs" />
+  <label for="toggle_edit_personals" class="sheet-pos-abs sheet-t-5 sheet-r-n5 sheet-w-a sheet-curs-p sheet-toggle-child-1 sheet-font-pictos">p</label>
+  <label for="toggle_edit_personals" class="sheet-pos-abs sheet-t-5 sheet-r-n5 sheet-w-a sheet-curs-p sheet-toggle-child-2 sheet-font-pictos">*</label>
+  <div class="sheet-toggle-child-1 sheet-d-fl sheet-jc-c">
+    <div class="sheet-d-fl sheet-fl-col sheet-w-33p sheet-jc-fe">
+      <div>
+        <span>Born </span><span name="attr_character_birth_year" class="sheet-fs-16"></span>
+      </div>
+      <div>
+        <span name="attr_character_clan" class="sheet-fs-16"></span><span> Clan</span>
+      </div>
+      <div>
+        <span name="attr_character_tribe" class="sheet-fs-16"></span><span> Tribe</span>
+      </div>
+    </div>
+    <div class="sheet-d-fl sheet-fl-col sheet-ta-c sheet-fg-1 sheet-jc-fe">
+      <div>
+        <span name="attr_character_name" class="sheet-fs-30"></span>
+      </div>
+      <div>
+        <span name="attr_character_age" class="sheet-fs-16"></span><span> year old </span><span name="attr_character_gender"></span><span> </span><span name="attr_character_occupation" class="sheet-fs-16"></span><span> from </span><span name="attr_character_homeland" class="sheet-fs-16"></span>
+      </div>
+    </div>
+    <div class="sheet-d-fl sheet-w-33p sheet-jc-fe sheet-ta-e sheet-fs-12">
+      <div class="sheet-d-fl sheet-fl-col sheet-mr-1s">
+        <button id="button_reputation" type="roll" class="sheet-d-no" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{character_reputation}]]}} {{fumble=[[{(101-(round((100-(@{character_reputation}))/20))),100}kl1]]}} {{crit=[[round(([[(@{character_reputation})]])/20)+1]]}}  {{special=[[round(([[(@{character_reputation})]])/5)+1]]}} {{success=[[(@{character_reputation})]]}} {{roll=[[1d100]]}} {{skillname=Reputation}}">
+        </button>
+        <span>Standard of living</span>
+        <span name="attr_character_living_standard" class="sheet-fs-16"></span>
+        <label for="button_reputation" class="sheet-ta-e sheet-curs-p sheet-td-u-h">
+          <div>Reputation</div>
+          <span name="attr_character_reputation" class="sheet-fs-16"></span>
+        </label>
+      </div>
+      <div class="sheet-d-fl sheet-fl-col">
+        <span>Base income</span>
+        <span name="attr_character_base_income" class="sheet-fs-16"></span>
+        <span>Ransom</span>
+        <span name="attr_character_ransom" class="sheet-fs-16"></span>
+      </div>
+    </div>
+  </div>
+  <div class="sheet-toggle-child-2 sheet-d-fl">
+    <div class="sheet-d-fl sheet-fl-col sheet-mr-1s sheet-fg-1">
+      <label for="character_name" class="sheet-py-5">Name</label>
+      <input id="character_name" type="text" name="attr_character_name" class="sheet-bb sheet-p-5 sheet-w-90p" />
+      <label for="character_age" class="sheet-py-5">Age</label>
+      <input id="character_age" type="number" name="attr_character_age" value="21" class="sheet-bb sheet-p-5 sheet-w-90p" />
+      <label for="character_gender" class="sheet-py-5">Gender</label>
+      <input id="character_gender" type="text" name="attr_character_gender" class="sheet-bb sheet-p-5 sheet-w-90p" />
+      <label for="character_homeland" class="sheet-py-5">Homeland</label>
+      <input id="character_homeland" type="text" name="attr_character_homeland" class="sheet-bb sheet-p-5 sheet-w-90p" />
+    </div>
+    <div class="sheet-d-fl sheet-fl-col sheet-mr-1s sheet-fg-1">
+      <label for="character_occupation" class="sheet-py-5">Occupation</label>
+      <input id="character_occupation" type="text" name="attr_character_occupation" class="sheet-bb sheet-p-5 sheet-w-90p" />
+      <label for="character_tribe" class="sheet-py-5">Tribe</label>
+      <input id="character_tribe" type="text" name="attr_character_tribe" class="sheet-bb sheet-p-5 sheet-w-90p" />
+      <label for="character_clan" class="sheet-py-5">Clan</label>
+      <input id="character_clan" type="text" name="attr_character_clan" class="sheet-bb sheet-p-5 sheet-w-90p" />
+      <label for="character_birth_year" class="sheet-py-5">Birth year</label>
+      <input id="character_birth_year" type="number" name="attr_character_birth_year" value="1603" class="sheet-bb sheet-p-5 sheet-w-90p" />
+    </div>
+    <div class="sheet-d-fl sheet-fl-col sheet-mr-1s sheet-fg-1">
+      <label for="character_base_income" class="sheet-py-5">Base income</label>
+      <input id="character_base_income" type="text" name="attr_character_base_income" class="sheet-bb sheet-p-5 sheet-w-90p" />
+      <label for="character_living_standard" class="sheet-py-5">Standard of living</label>
+      <input id="character_living_standard" type="text" name="attr_character_living_standard" class="sheet-bb sheet-p-5 sheet-w-90p" />
+      <label for="character_ransom" class="sheet-py-5">Ransom</label>
+      <input id="character_ransom" type="number" name="attr_character_ransom" class="sheet-bb sheet-p-5 sheet-w-90p" />
+      <label for="character_reputation" class="sheet-py-5">Reputation</label>
+      <input id="character_reputation" type="number" name="attr_character_reputation" value="0" class="sheet-bb sheet-p-5 sheet-w-90p" />
+    </div>
+  </div>
+</div>
