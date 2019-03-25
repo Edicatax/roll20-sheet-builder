@@ -1,0 +1,36 @@
+<div class="sheet-d-fl sheet-jc-sb">
+  <div class="sheet-d-fl sheet-fl-col sheet-w-50p sheet-p-1s">
+    <div class="sheet-fs-18 sheet-p-5 sheet-ta-c">Passions</div>
+    <fieldset class="repeating_passions">
+      <div class="sheet-d-fl sheet-mb-10">
+        <input type="checkbox" name="attr_passionExp" />
+        <input type="text" name="attr_passion" placeholder="Passion" class="sheet-fg-1 sheet-bb sheet-p-5 sheet-mx-1s" />
+        <input type="text" name="attr_value" value="60" class="sheet-bb sheet-w-10p sheet-ta-c sheet-p-5 sheet-mx-1s" />
+        <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[(@{value})]]}} {{fumble=[[ceil(95+([[(@{value})]])/20))]]}} {{crit=[[round(([[(@{value})]])/20)+1]]}}  {{special=[[round(([[(@{value})]])/5)+1]]}}    {{success=[[(@{value})]]}} {{roll=[[1d100]]}} {{skillname=@{Passion}}}"></button>
+      </div>
+    </fieldset>
+  </div>
+  <div class="sheet-d-fl sheet-fl-col sheet-w-50p sheet-p-1s">
+    <div class="sheet-fs-18 sheet-p-5 sheet-ta-c">Cults</div>
+    <fieldset class="repeating_cults3">
+      <div class="sheet-d-fl sheet-fl-col sheet-fg-1 sheet-p-5 sheet-bb">
+        <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+          <span>Cult </span>
+          <input type="text" name="attr_cult" class="sheet-bb sheet-p-5 sheet-w-90p" />
+        </div>
+        <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+          <span>Rank </span>
+          <input type="text" name="attr_rank" class="sheet-bb sheet-p-5 sheet-w-90p" />
+        </div>
+        <div class="sheet-d-fl sheet-fl-col sheet-jc-sb sheet-ai-c">
+          <span class="sheet-p-5">Notes</span>
+          <textarea name="attr_cult_notes" rows="2" class="sheet-bb sheet-p-5 sheet-h-a sheet-bgc-gray" ></textarea>
+        </div>
+        <div class="sheet-d-no">
+          <input type="text" name="attr_cur_rune_pts" value="0" class="sheet-w-90p sheet-ta-c sheet-p-5 sheet-fs-24" />
+          <input type="text" name="attr_rune_pts" value="0" class="sheet-w-90p sheet-ta-c sheet-p-5" />
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

@@ -92,6 +92,9 @@ b,strong {
 .sheet-w-14p {
     width:14%
 }
+.sheet-w-10p {
+    width:10%
+}
 .sheet-w-100 {
     width:10rem
 }
@@ -107,8 +110,14 @@ b,strong {
 .sheet-w-255 {
     width:25.5rem
 }
+.sheet-h-a {
+    height:auto
+}
 .sheet-h-20 {
     height:2rem
+}
+.sheet-h-25 {
+    height:2.5rem
 }
 .sheet-h-275 {
     height:27.5rem
@@ -1057,7 +1066,7 @@ input.sheet-tab5:checked ~ div.sheet-tab5 {
     display: block;
 }
 
-input.sheet-tab:checked + label {
+input.sheet-tab:checked + span {
     border-bottom-color: transparent;
     border-top: 1px solid #d8d8d8;
     border-left: 1px solid #d8d8d8;
