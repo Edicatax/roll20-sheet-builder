@@ -276,6 +276,9 @@ b,strong {
 .sheet-t-5 {
     top:.5rem
 }
+.sheet-t-10 {
+    top:1rem
+}
 .sheet-t-0s {
     top:0
 }
@@ -1039,6 +1042,9 @@ b,strong {
 }
 .sheet-br-2 {
     border-radius:.2rem
+}
+.sheet-br-4 {
+    border-radius:.4rem
 }
 .sheet-br-10 {
     border-radius:1rem
