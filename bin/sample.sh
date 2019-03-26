@@ -7,6 +7,7 @@ source=(
     personaltabstats.html
     personalrepeatingsections.html
     personalfamily.html
+    personalholdings.html
     divend.html
     skillstab.html
     magictab.html

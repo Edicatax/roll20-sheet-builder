@@ -80,6 +80,9 @@ b,strong {
 .sheet-w-90p {
     width:90%
 }
+.sheet-w-60p {
+    width:60%
+}
 .sheet-w-50p {
     width:50%
 }
@@ -1103,4 +1106,7 @@ input.sheet-tab:checked + span {
 }
 input[type="number"].sheet-w-90p {
     width:90%
+}
+input.sheet-h-30 {
+    height:3rem
 }
