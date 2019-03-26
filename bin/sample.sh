@@ -6,6 +6,7 @@ source=(
     personaltabsummary.html
     personaltabstats.html
     personalrepeatingsections.html
+    personalfamily.html
     divend.html
     skillstab.html
     magictab.html
