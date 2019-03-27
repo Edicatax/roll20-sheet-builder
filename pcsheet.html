@@ -873,7 +873,11 @@
 							<input type="text" class="sheet-text_input sheet-skillName" name="attr_skill" />
 							<input type="text" value="0" class="sheet-text_input sheet-skill_values2" value="0" name="attr_base"/>
 							<input type="text" value="0" class="sheet-text_input sheet-skill_values2"  value="0" style="display:none" name="attr_base2"/>
-							<input type="text" value="0" class="sheet-text_input sheet-skill_values2" value="0" name="attr_skillValue"/><input type="text" value="0" class="sheet-text_input sheet-skill_values2" value="0" readonly name="attr_skillTotal" /><button type="roll" class="sheet-d100_roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[(@{skillTotal})]]}} {{fumble=[[{(101-(round((100-(@{skillTotal}+@{skill_mod}))/20))),100}kl1]]}} {{crit=[[round(([[(@{skillTotal}+@{skill_mod})]])/20)+1]]}}  {{special=[[round(([[(@{skillTotal}+@{skill_mod})]])/5)+1]]}}    {{success=[[(@{skillTotal}+@{skill_mod})]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  ><img class="sheet-d100_image" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/luck.png" /></button>
+							<input type="text" value="0" class="sheet-text_input sheet-skill_values2" value="0" name="attr_skillValue"/>
+              <input type="text" value="0" class="sheet-text_input sheet-skill_values2" value="0" readonly name="attr_skillTotal" />
+              <button type="roll" class="sheet-d100_roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[(@{skillTotal})]]}} {{fumble=[[{(101-(round((100-(@{skillTotal}+@{skill_mod}))/20))),100}kl1]]}} {{crit=[[round(([[(@{skillTotal}+@{skill_mod})]])/20)+1]]}}  {{special=[[round(([[(@{skillTotal}+@{skill_mod})]])/5)+1]]}}    {{success=[[(@{skillTotal}+@{skill_mod})]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
+                <img class="sheet-d100_image" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/luck.png" />
+              </button>
 							<input  type="checkbox" style="display:none" checked class="sheet-check-toggle1" name="attr_sp_toggle1"  />							
 							<div class="sheet-exp-toggle1">
 								<input type="checkbox" name="attr_expCheck" />

@@ -1,43 +1,42 @@
-<div class="sheet-tab5">
-  <div class="sheet-fs-24 sheet-ta-c sheet-p-5">Gear</div>
-  <div class="sheet-d-fl sheet-jc-sb">
+<div class="sheet-tab5 sheet-d-no sheet-p-5">
+  <div class="sheet-d-fl sheet-jc-sb sheet-pb-1s sheet-mb-1s sheet-bb">
     <div class="sheet-d-fl sheet-fl-col">
-      <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-60p">
+      <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-100p">
         <span>Max Enc</span>
-        <input class="sheet-w-33p sheet-ml-1s sheet-p-5 sheet-bb" value="0" type="text" name="attr_carry_max2"/>
+        <input class="sheet-w-33p sheet-ml-1s sheet-p-5 sheet-bb" value="0" type="number" name="attr_carry_max2"/>
       </div>
-      <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-60p">
+      <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-100p">
         <span>Total Enc</span>								
-        <input class="sheet-w-33p sheet-ml-1s sheet-p-5 sheet-bb" value="0" type="text" name="attr_carry_total2"/>
+        <input class="sheet-w-33p sheet-ml-1s sheet-p-5 sheet-bb" value="0" step="0.25" type="number" name="attr_carry_total2"/>
       </div>
     </div>
     <div class="sheet-d-fl">
       <div class="sheet-d-fl sheet-fl-col sheet-w-20p sheet-p-5 sheet-ai-c">
         <span class="sheet-p-5">Wheels (W)</span>
-        <input class="sheet-w-100p sheet-p-5 sheet-bb" value="0" type="text" name="attr_wheels"/>
+        <input class="sheet-w-90p sheet-p-5 sheet-bb sheet-ta-c" value="0" type="number" name="attr_wheels"/>
       </div>
       <div class="sheet-d-fl sheet-fl-col sheet-w-20p sheet-p-5 sheet-ai-c">
         <span class="sheet-p-5">Lunars (L)</span>
-        <input class="sheet-w-100p sheet-p-5 sheet-bb" value="0" type="text" name="attr_lunars"/>						
+        <input class="sheet-w-90p sheet-p-5 sheet-bb sheet-ta-c" value="0" type="number" name="attr_lunars"/>						
       </div>
       <div class="sheet-d-fl sheet-fl-col sheet-w-20p sheet-p-5 sheet-ai-c">
         <span class="sheet-p-5">Clacks (C)</span>
-        <input class="sheet-w-100p sheet-p-5 sheet-bb" value="0" type="text" name="attr_clacks"/>												
+        <input class="sheet-w-90p sheet-p-5 sheet-bb sheet-ta-c" value="0" type="number" name="attr_clacks"/>												
       </div>
       <div class="sheet-d-fl sheet-fl-col sheet-w-20p sheet-p-5 sheet-ai-c">
         <span class="sheet-p-5">Bolgs (B) </span>
-        <input class="sheet-w-100p sheet-p-5 sheet-bb" value="0" type="text" name="attr_bolgs"/>							
+        <input class="sheet-w-90p sheet-p-5 sheet-bb sheet-ta-c" value="0" type="number" name="attr_bolgs"/>							
       </div>
       <div class="sheet-d-fl sheet-fl-col sheet-w-20p sheet-p-5 sheet-ai-c">
         <span class="sheet-p-5">Goods (L)</span>
-        <input class="sheet-w-100p sheet-p-5 sheet-bb" value="0" type="text" name="attr_goods"/>							
+        <input class="sheet-w-90p sheet-p-5 sheet-bb sheet-ta-c" value="0" type="number" name="attr_goods"/>							
       </div>
     </div>
   </div>
-  <div class="sheet-d-fl sheet-ai-c sheet-mt-1s sheet-mb-10">
-    <span class="sheet-p-5">Carried</span>
+  <div class="sheet-d-fl sheet-ai-c sheet-mt-1s sheet-mb-10 sheet-fs-14 sheet-fw-bold">
+    <span class="sheet-py-5">Carried</span>
     <span class="sheet-w-90p sheet-p-5 sheet-mx-1s">Item</span>
-    <span class="sheet-w-10p sheet-p-5">Enc.</span>
+    <span class="sheet-w-14p sheet-py-5 sheet-px-1s">Enc.</span>
   </div>
   <fieldset class="repeating_equipment2">
     <div class="sheet-d-fl sheet-ai-c sheet-mb-10">
@@ -47,7 +46,7 @@
         <span class="sheet-toggle-child-2">Carried</span>
       </label>
       <input class="sheet-p-5 sheet-bb sheet-w-90p sheet-mx-1s" type="text" name="attr_equipment_type"/>
-      <input class="sheet-p-5 sheet-bb sheet-w-10p" type="text" value="0" name="attr_equipment_weight"/>
+      <input class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" type="number" value="0" step="0.25" name="attr_equipment_weight"/>
     </div>
   </fieldset>	
   <div class="sheet-w-100p sheet-mt-1s sheet-bb"></div>

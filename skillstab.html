@@ -1,3 +1,34 @@
-<div class="sheet-tab2 sheet-d-no sheet-w-100p">
-  <span>Skills</span>
+<div class="sheet-tab2 sheet-d-no sheet-p-5">
+  <div class="sheet-d-fl sheet-jc-c sheet-ai-c sheet-my-1s">
+    <span>Enc Mod</span>
+    <input class="sheet-p-5 sheet-bb sheet-w-5p sheet-mx-1s sheet-ta-c"  value="0" type="text" readonly name="attr_enc_mod2"/>	
+    <span>Dodge Mod</span>
+    <input class="sheet-p-5 sheet-bb sheet-w-5p sheet-mx-1s sheet-ta-c"  value="0"  type="text"  readonly  name="attr_dodge_mod2"/>
+    <span>Swim Mod</span>
+    <input class="sheet-p-5 sheet-bb sheet-w-5p sheet-mx-1s sheet-ta-c"  value="0"  type="text"  readonly  name="attr_swim_mod2"/>
+    <span>Skill Mod</span>
+    <input class="sheet-p-5 sheet-bb sheet-w-5p sheet-mx-1s sheet-ta-c"  value="0"  type="text"   name="attr_skill_mod"/>			
+  </div>
+  <div class="sheet-d-fl sheet-fl-col sheet-w-33p">
+    <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-1s">
+      <div class="sheet-fs-16 sheet-p-5">Agility</div>
+      <label class="sheet-w-a">
+        <span>Modifier</span>
+        <input type="number" value="0" class="sheet-p-5 sheet-bb" readonly name="attr_agility_mod"/>
+      </label>
+    </div>
+    <div class="sheet-d-fl sheet-fl-col sheet-mb-1s">
+      <fieldset class="repeating_agilitySkills">
+        <div class="sheet-d-fl sheet-ai-c sheet-mb-10">
+          <input type="checkbox" name="attr_expCheck" />
+          <input type="text" class="sheet-p-5 sheet-bb" name="attr_skill" placeholder="skill" />
+          <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_base2"/>
+          <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_skillValue"/>
+          <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" readonly name="attr_skillTotal" />
+          <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[(@{skillTotal})]]}} {{fumble=[[{(101-(round((100-(@{skillTotal}+@{skill_mod}))/20))),100}kl1]]}} {{crit=[[round(([[(@{skillTotal}+@{skill_mod})]])/20)+1]]}}  {{special=[[round(([[(@{skillTotal}+@{skill_mod})]])/5)+1]]}}    {{success=[[(@{skillTotal}+@{skill_mod})]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
+          </button>
+        </div>
+      </fieldset>
+    </div>
+  </div>
 </div>
