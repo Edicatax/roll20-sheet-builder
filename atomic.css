@@ -207,6 +207,9 @@ b,strong {
 .sheet-pos-fix {
     position:fixed
 }
+.sheet-pos-stk {
+    position:sticky
+}
 .sheet-fl-col,.sheet-fl-row {
     -webkit-box-orient:horizontal;
     -webkit-box-direction:normal;
@@ -617,8 +620,14 @@ b,strong {
 .sheet-mt-a {
     margin-top:auto
 }
+.sheet-ml-n20p {
+    margin-left:-20%
+}
 .sheet-mt-n2s {
     margin-top:-3rem
+}
+.sheet-mb-n10 {
+    margin-bottom:-1rem
 }
 .sheet-mb-n2s {
     margin-bottom:-3rem
@@ -1069,6 +1078,12 @@ b,strong {
     -webkit-transform:translateY(-50%);
     transform:translateY(-50%)
 }
+.sheet-cent-hv {
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%)
+}
 .sheet-overflow-scrolling-touch {
     -webkit-overflow-scrolling:touch
 }
@@ -1082,6 +1097,9 @@ b,strong {
 /**
  *  Utilities
  */
+.sheet-t-stroke {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
 input.sheet-tab1:checked ~ div.sheet-tab1,
 input.sheet-tab2:checked ~ div.sheet-tab2,
 input.sheet-tab3:checked ~ div.sheet-tab3,
@@ -1110,6 +1128,14 @@ input.sheet-tab:checked + span {
 input[type="number"].sheet-w-90p {
     width:90%
 }
+input[type="number"].sheet-w-50p {
+    width:50%
+}
 input.sheet-h-30 {
     height:3rem
+}
+.charsheet input,
+.charsheet textarea {
+    font-family: "Shadows Into Light";
+    letter-spacing: 0.1rem;
 }
