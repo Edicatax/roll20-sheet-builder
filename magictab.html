@@ -1,135 +1,273 @@
 <div class="sheet-tab3 sheet-d-no sheet-w-100p">
-  <div class="sheet-bb sheet-d-fl sheet-jc-sb sheet-p-1s sheet-w-100p">
+  <div class="sheet-d-fl sheet-jc-sb sheet-p-1s sheet-w-100p">
     <div class="sheet-w-14p sheet-pos-rel">
       <label class="sheet-d-fl sheet-curs-p">
-        <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{air_rune}]]}} {{fumble=[[{(101-(round((100-(@{air_rune}+?{Mods|0}))/20))),100}kl1]]}}  {{crit=[[round((@{air_rune}+?{Mods|0})/20)+1]]}} {{special=[[round((@{air_rune}+?{Mods|0})/5)+1]]}}         {{success=[[@{air_rune}+?{Mods|0}]]}} {{roll=[[1d100]]}} {{skillname=Air Rune}}  " class="sheet-d-no">
+        <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{air_rune}]]}} {{fumble=[[{(101-(round((100-(@{air_rune}+?{Modifiers|0}))/20))),100}kl1]]}}  {{crit=[[round((@{air_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{air_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{air_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Air Rune}}  " class="sheet-d-no">
         </button>
         <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/air rune.jpg" width="80%" height="auto" class="sheet-mr-a sheet-ml-a" />
       </label>
-      <input type="number" class="sheet-pos-abs sheet-cent-hv sheet-c-white sheet-t-stroke sheet-ta-c sheet-fs-30 sheet-bgc-transparent sheet-w-50p" value="0" name="attr_air_rune" />
+      <input type="number" class="sheet-d-bl sheet-ml-a sheet-mr-a sheet-ta-c sheet-fs-30 sheet-w-50p sheet-bb" value="0" name="attr_air_rune" />
       <input type="checkbox" class="sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_air-runeExp" />
     </div>
     <div class="sheet-w-14p sheet-pos-rel">
       <label class="sheet-d-fl sheet-curs-p">
-        <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{fire_rune}]]}} {{fumble=[[{(101-(round((100-(@{fire_rune}+?{Mods|0}))/20))),100}kl1]]}}  {{crit=[[round((@{fire_rune}+?{Mods|0})/20)+1]]}} {{special=[[round((@{fire_rune}+?{Mods|0})/5)+1]]}}         {{success=[[@{fire_rune}+?{Mods|0}]]}} {{roll=[[1d100]]}} {{skillname=Fire Rune}}  " class="sheet-d-no">
+        <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{fire_rune}]]}} {{fumble=[[{(101-(round((100-(@{fire_rune}+?{Modifiers|0}))/20))),100}kl1]]}}  {{crit=[[round((@{fire_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{fire_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{fire_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Fire Rune}}  " class="sheet-d-no">
         </button>
         <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/fire rune.jpg" width="80%" height="auto" class="sheet-mr-a sheet-ml-a" />
       </label>
-      <div class="sheet-pos-abs sheet-cent-v sheet-d-fl sheet-jc-c sheet-ai-c sheet-w-100p">
-        <input type="number" class="sheet-w-33p sheet-b-dgray" value="0" name="attr_fire_rune" />
-        <input type="checkbox" class="sheet-ml-10" value="1" name="attr_fire-runeExp" />
-      </div>
+      <input type="number" class="sheet-d-bl sheet-ml-a sheet-mr-a sheet-ta-c sheet-fs-30 sheet-w-50p sheet-bb" value="0" name="attr_fire_rune" />
+      <input type="checkbox" class="sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_fire-runeExp" />
     </div>
     <div class="sheet-w-14p sheet-pos-rel">
       <label class="sheet-d-fl sheet-curs-p">
-        <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{dark_rune}]]}} {{fumble=[[{(101-(round((100-(@{dark_rune}+?{Mods|0}))/20))),100}kl1]]}}  {{crit=[[round((@{dark_rune}+?{Mods|0})/20)+1]]}} {{special=[[round((@{dark_rune}+?{Mods|0})/5)+1]]}}         {{success=[[@{dark_rune}+?{Mods|0}]]}} {{roll=[[1d100]]}} {{skillname=Darkness Rune}}  " class="sheet-d-no">
+        <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{dark_rune}]]}} {{fumble=[[{(101-(round((100-(@{dark_rune}+?{Modifiers|0}))/20))),100}kl1]]}}  {{crit=[[round((@{dark_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{dark_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{dark_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Darkness Rune}}  " class="sheet-d-no">
         </button>
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/darkness rune.jpg" width="80%" height="auto" class="sheet-mr-a sheet-ml-a" />
+        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/dark rune.jpg" width="80%" height="auto" class="sheet-mr-a sheet-ml-a" />
       </label>
-      <div class="sheet-pos-abs sheet-cent-v sheet-d-fl sheet-jc-c sheet-ai-c sheet-w-100p">
-        <input type="number" class="sheet-w-33p sheet-b-dgray" value="0" name="attr_dark_rune" />
-        <input type="checkbox" class="sheet-ml-10" value="1" name="attr_dark-runeExp" />
-      </div>
+      <input type="number" class="sheet-d-bl sheet-ml-a sheet-mr-a sheet-ta-c sheet-fs-30 sheet-w-50p sheet-bb" value="0" name="attr_dark_rune" />
+      <input type="checkbox" class="sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_dark-runeExp" />
     </div>
     <div class="sheet-w-14p sheet-pos-rel">
       <label class="sheet-d-fl sheet-curs-p">
-        <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{water_rune}]]}} {{fumble=[[{(101-(round((100-(@{water_rune}+?{Mods|0}))/20))),100}kl1]]}}  {{crit=[[round((@{water_rune}+?{Mods|0})/20)+1]]}} {{special=[[round((@{water_rune}+?{Mods|0})/5)+1]]}}         {{success=[[@{water_rune}+?{Mods|0}]]}} {{roll=[[1d100]]}} {{skillname=Water Rune}}  " class="sheet-d-no">
+        <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{water_rune}]]}} {{fumble=[[{(101-(round((100-(@{water_rune}+?{Modifiers|0}))/20))),100}kl1]]}}  {{crit=[[round((@{water_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{water_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{water_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Water Rune}}  " class="sheet-d-no">
         </button>
         <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/water rune.jpg" width="80%" height="auto" class="sheet-mr-a sheet-ml-a" />
       </label>
-      <div class="sheet-pos-abs sheet-cent-v sheet-d-fl sheet-jc-c sheet-ai-c sheet-w-100p">
-        <input type="number" class="sheet-w-33p sheet-b-dgray" value="0" name="attr_water_rune" />
-        <input type="checkbox" class="sheet-ml-10" value="1" name="attr_water-runeExp" />
-      </div>
+      <input type="number" class="sheet-d-bl sheet-ml-a sheet-mr-a sheet-ta-c sheet-fs-30 sheet-w-50p sheet-bb" value="0" name="attr_water_rune" />
+      <input type="checkbox" class="sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_water-runeExp" />
     </div>
     <div class="sheet-w-14p sheet-pos-rel">
       <label class="sheet-d-fl sheet-curs-p">
-        <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{earth_rune}]]}} {{fumble=[[{(101-(round((100-(@{earth_rune}+?{Mods|0}))/20))),100}kl1]]}}  {{crit=[[round((@{earth_rune}+?{Mods|0})/20)+1]]}} {{special=[[round((@{earth_rune}+?{Mods|0})/5)+1]]}}         {{success=[[@{earth_rune}+?{Mods|0}]]}} {{roll=[[1d100]]}} {{skillname=Earth Rune}}  " class="sheet-d-no">
+        <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{earth_rune}]]}} {{fumble=[[{(101-(round((100-(@{earth_rune}+?{Modifiers|0}))/20))),100}kl1]]}}  {{crit=[[round((@{earth_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{earth_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{earth_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Earth Rune}}  " class="sheet-d-no">
         </button>
         <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/earth rune.jpg" width="80%" height="auto" class="sheet-mr-a sheet-ml-a" />
       </label>
-      <div class="sheet-pos-abs sheet-cent-v sheet-d-fl sheet-jc-c sheet-ai-c sheet-w-100p">
-        <input type="number" class="sheet-w-33p sheet-b-dgray" value="0" name="attr_earth_rune" />
-        <input type="checkbox" class="sheet-ml-10" value="1" name="attr_earth-runeExp" />
-      </div>
+      <input type="number" class="sheet-d-bl sheet-ml-a sheet-mr-a sheet-ta-c sheet-fs-30 sheet-w-50p sheet-bb" value="0" name="attr_earth_rune" />
+      <input type="checkbox" class="sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_earth-runeExp" />
     </div>
     <div class="sheet-w-14p sheet-pos-rel">
       <label class="sheet-d-fl sheet-curs-p">
-        <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{moon_rune}]]}} {{fumble=[[{(101-(round((100-(@{moon_rune}+?{Mods|0}))/20))),100}kl1]]}}  {{crit=[[round((@{moon_rune}+?{Mods|0})/20)+1]]}} {{special=[[round((@{moon_rune}+?{Mods|0})/5)+1]]}}         {{success=[[@{moon_rune}+?{Mods|0}]]}} {{roll=[[1d100]]}} {{skillname=Moon Rune}}  " class="sheet-d-no">
+        <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{moon_rune}]]}} {{fumble=[[{(101-(round((100-(@{moon_rune}+?{Modifiers|0}))/20))),100}kl1]]}}  {{crit=[[round((@{moon_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{moon_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{moon_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Moon Rune}}  " class="sheet-d-no">
         </button>
         <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/moon rune.jpg" width="80%" height="auto" class="sheet-mr-a sheet-ml-a" />
       </label>
-      <div class="sheet-pos-abs sheet-cent-v sheet-d-fl sheet-jc-c sheet-ai-c sheet-w-100p">
-        <input type="number" class="sheet-w-33p sheet-b-dgray" value="0" name="attr_moon_rune" />
-        <input type="checkbox" class="sheet-ml-10" value="1" name="attr_moon-runeExp" />
-      </div>
+      <input type="number" class="sheet-d-bl sheet-ml-a sheet-mr-a sheet-ta-c sheet-fs-30 sheet-w-50p sheet-bb" value="0" name="attr_moon_rune" />
+      <input type="checkbox" class="sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_moon-runeExp" />
     </div>
   </div>
-  <div class="sheet-w-50p">
-    <div class="sheet-fs-14 sheet-p-5">Rune points</div>
-    <div class="sheet-d-fl sheet-fl-col sheet-pb-1s sheet-mb-1s sheet-bb">
-      <fieldset class="repeating_cults3">
-        <div class="sheet-d-fl sheet-p-5">
-          <div class="sheet-d-fl sheet-jc-sb sheet-fg-1 sheet-ai-c">
-            <span>Cult </span>
-            <input type="text" name="attr_cult" class="sheet-bb sheet-p-5 sheet-w-90p sheet-ml-10" />
+  <div class="sheet-d-fl sheet-jc-sb">
+    <div class="sheet-w-50p sheet-py-1s sheet-pr-1s sheet-bt">
+      <div class="sheet-fs-14 sheet-p-5">Rune points</div>
+      <div class="sheet-d-fl sheet-fl-col sheet-pb-1s sheet-mb-1s sheet-bb">
+        <fieldset class="repeating_cults3">
+          <div class="sheet-d-fl sheet-p-5">
+            <div class="sheet-d-fl sheet-jc-sb sheet-fg-1 sheet-ai-c">
+              <span>Cult </span>
+              <input type="text" name="attr_cult" class="sheet-bb sheet-p-5 sheet-w-90p sheet-ml-10" />
+            </div>
+            <div class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-20p">
+              <input type="number" name="attr_cur_rune_pts" value="0" class="sheet-w-50p sheet-ta-c sheet-p-5 sheet-fs-24" />
+              <span> / </span>
+              <input type="text" name="attr_rune_pts" value="0" class="sheet-w-33p sheet-ta-c sheet-p-5" />
+            </div>
+            <div class="sheet-d-no">
+              <input type="text" name="attr_rank" class="sheet-bb sheet-p-5 sheet-w-90p" />
+              <textarea name="attr_cult_notes" rows="2" class="sheet-bb sheet-p-5 sheet-h-a sheet-bgc-gray" ></textarea>
+            </div>
           </div>
-          <div class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-20p">
-            <input type="number" name="attr_cur_rune_pts" value="0" class="sheet-w-50p sheet-ta-c sheet-p-5 sheet-fs-24" />
-            <span> / </span>
-            <input type="text" name="attr_rune_pts" value="0" class="sheet-w-33p sheet-ta-c sheet-p-5" />
-          </div>
-          <div class="sheet-d-no">
-            <input type="text" name="attr_rank" class="sheet-bb sheet-p-5 sheet-w-90p" />
-            <textarea name="attr_cult_notes" rows="2" class="sheet-bb sheet-p-5 sheet-h-a sheet-bgc-gray" ></textarea>
-          </div>
-        </div>
-      </fieldset>
-    </div>
-    <div class="sheet-fs-14 sheet-p-5">Magic points</div>
-    <div class="sheet-d-fl sheet-fl-col sheet-pb-1s sheet-mb-1s sheet-bb">
-      <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
-        <span class="sheet-p-5 sheet-w-90p">Personal</span>
-        <div class="sheet-d-fl sheet-w-33p sheet-ai-c sheet-jc-fe">
-          <input type="number" value="0" class="sheet-w-50p sheet-p-5 sheet-fs-24 sheet-ta-c" name="attr_curmp"/>
-          <span> / </span>
-          <input type="text" value="0" class="sheet-w-33p sheet-p-5 sheet-ta-c sheet-bgc-transparent" readonly name="attr_curpow"/>
-        </div>
-      </div>   
-      <fieldset class="repeating_mp_storage">
+        </fieldset>
+      </div>
+      <div class="sheet-fs-14 sheet-p-5">Magic points</div>
+      <div class="sheet-d-fl sheet-fl-col sheet-pb-1s sheet-mb-1s sheet-bb">
         <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
-          <input type="text" class="sheet-p-5 sheet-bb sheet-w-90p" placeholder="Storage" name="attr_mp_location"/>
+          <span class="sheet-p-5 sheet-w-90p">Personal</span>
           <div class="sheet-d-fl sheet-w-33p sheet-ai-c sheet-jc-fe">
             <input type="number" value="0" class="sheet-w-50p sheet-p-5 sheet-fs-24 sheet-ta-c" name="attr_curmp"/>
             <span> / </span>
-            <input type="text" value="0" class="sheet-w-33p sheet-p-5 sheet-ta-c" name="attr_maxmp"/>
+            <input type="text" value="0" class="sheet-w-33p sheet-p-5 sheet-ta-c sheet-bgc-transparent" readonly name="attr_curpow"/>
+          </div>
+        </div>   
+        <fieldset class="repeating_mp_storage">
+          <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+            <input type="text" class="sheet-p-5 sheet-bb sheet-w-90p" placeholder="Storage" name="attr_mp_location"/>
+            <div class="sheet-d-fl sheet-w-33p sheet-ai-c sheet-jc-fe">
+              <input type="number" value="0" class="sheet-w-50p sheet-p-5 sheet-fs-24 sheet-ta-c" name="attr_curmp"/>
+              <span> / </span>
+              <input type="text" value="0" class="sheet-w-33p sheet-p-5 sheet-ta-c" name="attr_maxmp"/>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="sheet-d-fl sheet-fl-col sheet-jc-sb sheet-py-1s sheet-pl-1s sheet-w-50p sheet-bl sheet-bb">
+      <div class="sheet-d-fl sheet-ai-c sheet-w-100p">
+        <div class="sheet-d-fl sheet-jc-sb sheet-w-50p">
+          <input type="checkbox" class="sheet-p-5 sheet-bb"  value="1" name="attr_man-runeExp" />	
+          <input type="number" class="sheet-w-50p sheet-p-5 sheet-bb sheet-ta-c" value="0" name="attr_man_rune" />
+          <label class="sheet-w-20p sheet-curs-p">
+            <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{man_rune}]]}} {{fumble=[[{(101-(round((100-(@{man_rune}+?{Modifiers|0}))/20))),100}kl1]]}} {{crit=[[round((@{man_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{man_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{man_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Man Rune}} " class="sheet-d-no">
+            </button>
+            <img class="sheet-d-bl sheet-mr-a sheet-ml-a" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/man rune.png">
+          </label>
+        </div>
+        <div class="sheet-bgc-dgray sheet-w-10p sheet-mx-1s" style="height:1px"></div>
+        <div class="sheet-d-fl sheet-jc-sb sheet-w-50p">
+          <label class="sheet-w-20p sheet-curs-p">
+            <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{beast_rune}]]}} {{fumble=[[{(101-(round((100-(@{beast_rune}+?{Modifiers|0}))/20))),100}kl1]]}} {{crit=[[round((@{beast_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{beast_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{beast_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Beast Rune}} " class="sheet-d-no">
+            </button>
+            <img class="sheet-d-bl sheet-mr-a sheet-ml-a" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/beast rune.png">
+          </label>
+          <input type="number" class="sheet-w-50p sheet-p-5 sheet-bb sheet-ta-c" value="0" name="attr_beast_rune" />
+          <input type="checkbox" class="sheet-p-5 sheet-bb"  value="1" name="attr_beast-runeExp" />	
+        </div>
+      </div>
+      <div class="sheet-d-fl sheet-ai-c sheet-w-100p">
+        <div class="sheet-d-fl sheet-jc-sb sheet-w-50p">
+          <input type="checkbox" class="sheet-p-5 sheet-bb"  value="1" name="attr_fertility-runeExp" />	
+          <input type="number" class="sheet-w-50p sheet-p-5 sheet-bb sheet-ta-c" value="0" name="attr_fertility_rune" />
+          <label class="sheet-w-20p sheet-curs-p">
+            <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{fertility_rune}]]}} {{fumble=[[{(101-(round((100-(@{fertility_rune}+?{Modifiers|0}))/20))),100}kl1]]}} {{crit=[[round((@{fertility_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{fertility_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{fertility_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Fertility Rune}} " class="sheet-d-no">
+            </button>
+            <img class="sheet-d-bl sheet-mr-a sheet-ml-a" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/fertility rune.png">
+          </label>
+        </div>
+        <div class="sheet-bgc-dgray sheet-w-10p sheet-mx-1s" style="height:1px"></div>
+        <div class="sheet-d-fl sheet-jc-sb sheet-w-50p">
+          <label class="sheet-w-20p sheet-curs-p">
+            <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{death_rune}]]}} {{fumble=[[{(101-(round((100-(@{death_rune}+?{Modifiers|0}))/20))),100}kl1]]}} {{crit=[[round((@{death_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{death_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{death_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Death Rune}} " class="sheet-d-no">
+            </button>
+            <img class="sheet-d-bl sheet-mr-a sheet-ml-a" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/death rune.png">
+          </label>
+          <input type="number" class="sheet-w-50p sheet-p-5 sheet-bb sheet-ta-c" value="0" name="attr_death_rune" />
+          <input type="checkbox" class="sheet-p-5 sheet-bb"  value="1" name="attr_death-runeExp" />	
+        </div>
+      </div>
+      <div class="sheet-d-fl sheet-ai-c sheet-w-100p">
+        <div class="sheet-d-fl sheet-jc-sb sheet-w-50p">
+          <input type="checkbox" class="sheet-p-5 sheet-bb"  value="1" name="attr_harmony-runeExp" />	
+          <input type="number" class="sheet-w-50p sheet-p-5 sheet-bb sheet-ta-c" value="0" name="attr_harmony_rune" />
+          <label class="sheet-w-20p sheet-curs-p">
+            <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{harmony_rune}]]}} {{fumble=[[{(101-(round((100-(@{harmony_rune}+?{Modifiers|0}))/20))),100}kl1]]}} {{crit=[[round((@{harmony_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{harmony_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{harmony_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Harmony Rune}} " class="sheet-d-no">
+            </button>
+            <img class="sheet-d-bl sheet-mr-a sheet-ml-a" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/harmony rune.png">
+          </label>
+        </div>
+        <div class="sheet-bgc-dgray sheet-w-10p sheet-mx-1s" style="height:1px"></div>
+        <div class="sheet-d-fl sheet-jc-sb sheet-w-50p">
+          <label class="sheet-w-20p sheet-curs-p">
+            <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{disorder_rune}]]}} {{fumble=[[{(101-(round((100-(@{disorder_rune}+?{Modifiers|0}))/20))),100}kl1]]}} {{crit=[[round((@{disorder_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{disorder_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{disorder_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Disorder Rune}} " class="sheet-d-no">
+            </button>
+            <img class="sheet-d-bl sheet-mr-a sheet-ml-a" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/disorder rune.png">
+          </label>
+          <input type="number" class="sheet-w-50p sheet-p-5 sheet-bb sheet-ta-c" value="0" name="attr_disorder_rune" />
+          <input type="checkbox" class="sheet-p-5 sheet-bb"  value="1" name="attr_disorder-runeExp" />	
+        </div>
+      </div>
+      <div class="sheet-d-fl sheet-ai-c sheet-w-100p">
+        <div class="sheet-d-fl sheet-jc-sb sheet-w-50p">
+          <input type="checkbox" class="sheet-p-5 sheet-bb"  value="1" name="attr_truth-runeExp" />	
+          <input type="number" class="sheet-w-50p sheet-p-5 sheet-bb sheet-ta-c" value="0" name="attr_truth_rune" />
+          <label class="sheet-w-20p sheet-curs-p">
+            <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{truth_rune}]]}} {{fumble=[[{(101-(round((100-(@{truth_rune}+?{Modifiers|0}))/20))),100}kl1]]}} {{crit=[[round((@{truth_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{truth_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{truth_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Truth Rune}} " class="sheet-d-no">
+            </button>
+            <img class="sheet-d-bl sheet-mr-a sheet-ml-a" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/truth rune.png">
+          </label>
+        </div>
+        <div class="sheet-bgc-dgray sheet-w-10p sheet-mx-1s" style="height:1px"></div>
+        <div class="sheet-d-fl sheet-jc-sb sheet-w-50p">
+          <label class="sheet-w-20p sheet-curs-p">
+            <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{illusion_rune}]]}} {{fumble=[[{(101-(round((100-(@{illusion_rune}+?{Modifiers|0}))/20))),100}kl1]]}} {{crit=[[round((@{illusion_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{illusion_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{illusion_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Illusion Rune}} " class="sheet-d-no">
+            </button>
+            <img class="sheet-d-bl sheet-mr-a sheet-ml-a" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/illusion rune.png">
+          </label>
+          <input type="number" class="sheet-w-50p sheet-p-5 sheet-bb sheet-ta-c" value="0" name="attr_illusion_rune" />
+          <input type="checkbox" class="sheet-p-5 sheet-bb"  value="1" name="attr_illusion-runeExp" />	
+        </div>
+      </div>
+      <div class="sheet-d-fl sheet-ai-c sheet-w-100p">
+        <div class="sheet-d-fl sheet-jc-sb sheet-w-50p">
+          <input type="checkbox" class="sheet-p-5 sheet-bb"  value="1" name="attr_stasis-runeExp" />	
+          <input type="number" class="sheet-w-50p sheet-p-5 sheet-bb sheet-ta-c" value="0" name="attr_stasis_rune" />
+          <label class="sheet-w-20p sheet-curs-p">
+            <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{stasis_rune}]]}} {{fumble=[[{(101-(round((100-(@{stasis_rune}+?{Modifiers|0}))/20))),100}kl1]]}} {{crit=[[round((@{stasis_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{stasis_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{stasis_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Stasis Rune}} " class="sheet-d-no">
+            </button>
+            <img class="sheet-d-bl sheet-mr-a sheet-ml-a" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/stasis rune.png">
+          </label>
+        </div>
+        <div class="sheet-bgc-dgray sheet-w-10p sheet-mx-1s" style="height:1px"></div>
+        <div class="sheet-d-fl sheet-jc-sb sheet-w-50p">
+          <label class="sheet-w-20p sheet-curs-p">
+            <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{movement_rune}]]}} {{fumble=[[{(101-(round((100-(@{movement_rune}+?{Modifiers|0}))/20))),100}kl1]]}} {{crit=[[round((@{movement_rune}+?{Modifiers|0})/20)+1]]}} {{special=[[round((@{movement_rune}+?{Modifiers|0})/5)+1]]}}         {{success=[[@{movement_rune}+?{Modifiers|0}]]}} {{roll=[[1d100]]}} {{skillname=Movement Rune}} " class="sheet-d-no">
+            </button>
+            <img class="sheet-d-bl sheet-mr-a sheet-ml-a" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/movement rune.png">
+          </label>
+          <input type="number" class="sheet-w-50p sheet-p-5 sheet-bb sheet-ta-c" value="0" name="attr_movement_rune" />
+          <input type="checkbox" class="sheet-p-5 sheet-bb"  value="1" name="attr_movement-runeExp" />	
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <span>Spirit Combat</span>
+    <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+      <input type="text" value="0" name="attr_spirit_combat1" />
+      <button type="roll" value="&{template:skillRoll} {{name=@{otherworld1_name}}} {{skillvalue=[[(@{spirit_combat1})]]}} {{fumble=[[ceil(95+([[(@{spirit_combat1})]])/20))]]}} {{crit=[[round(([[(@{spirit_combat1})]])/20)+1]]}} {{special=[[round(([[(@{spirit_combat1})]])/5)+1]]}} {{success=[[(@{spirit_combat1})]]}} {{roll=[[1d100]]}} {{skillname=Spirit Combat}}" ></button>
+      <div>Damage</div>
+      <input type="text" placeholder="Spirit combat damage" name="attr_sprt_cmbt_damage" />
+      <button type="roll" value="[[@{sprt_cmbt_damage1}]]"></button>
+    </div>
+    <span>Sorcery</span>
+  </div>
+  <div class="sheet-d-fl">
+    <div class="sheet-d-fl sheet-fl-col sheet-w-50p sheet-py-1s sheet-pr-1s">
+      <span>Spirit Magic</span>
+      <fieldset class="repeating_spiritMagic">
+        <div class="sheet-pos-rel sheet-d-fl sheet-fl-col sheet-w-100p sheet-mb-1s">
+          <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-5 sheet-l-0s sheet-curs-p sheet-op-0 sheet-z-1" name="attr_spell_expanded" />
+          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-1 sheet-font-pictos">J</span>
+          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-2 sheet-font-pictos">`</span>
+          <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+            <input type="text" class="sheet-p-5 sheet-bb sheet-w-90p sheet-ml-1s" placeholder="Spell name" name="attr_spell_name" />
+            <input type="number"class="sheet-p-5 sheet-bb sheet-mx-1s"  value="0" name="attr_spell_cost" />
+            <label class="sheet-w-a sheet-curs-p">
+              <span class="sheet-font-pictos sheet-fs-20">w</span>
+              <button type="roll" class="sheet-d-no" value="&{template:spell} {{name=@{spell_name}}} {{keywords=@{spell_keywords}}} {{cost=@{spell_cost}}} {{point_type=Magic}} {{description=@{spell_description}}}"></button>
+            </label>
+          </div>
+          <div class="sheet-d-fl sheet-fl-col sheet-toggle-child-1">
+            <input type="text"class="sheet-p-5 sheet-bb sheet-w-100p" placeholder="Keywords" name="attr_spell_keywords" />
+            <div class="sheet-ta-c">Description</div>
+            <textarea rows="1" class="sheet-bgc-gray sheet-h-a sheet-p-5" name="attr_spell_description"></textarea>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="sheet-d-fl sheet-fl-col sheet-w-50p sheet-py-1s sheet-pl-1s">
+      <span>Rune Magic</span>
+      <fieldset class="repeating_runeMagic">
+        <div class="sheet-pos-rel sheet-d-fl sheet-fl-col sheet-w-100p sheet-mb-1s">
+          <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-5 sheet-l-0s sheet-curs-p sheet-op-0 sheet-z-1" name="attr_spell_expanded" />
+          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-1 sheet-font-pictos">J</span>
+          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-2 sheet-font-pictos">`</span>
+          <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+            <input type="text" class="sheet-p-5 sheet-bb sheet-w-90p sheet-ml-1s" placeholder="Spell name" name="attr_spell_name" />
+            <input type="number"class="sheet-p-5 sheet-bb sheet-mx-1s"  value="0" name="attr_spell_cost" />
+            <label class="sheet-w-a sheet-curs-p">
+              <span class="sheet-font-pictos sheet-fs-20">w</span>
+              <button type="roll" class="sheet-d-no" value="&{template:spell} {{name=@{spell_name}}} {{keywords=@{spell_keywords}}} {{cost=@{spell_cost}}} {{point_type=Rune}} {{description=@{spell_description}}}"></button>
+            </label>
+          </div>
+          <div class="sheet-d-fl sheet-fl-col sheet-toggle-child-1">
+            <input type="text"class="sheet-p-5 sheet-bb sheet-w-100p" placeholder="Keywords" name="attr_spell_keywords" />
+            <div class="sheet-ta-c">Description</div>
+            <textarea rows="1" class="sheet-bgc-gray sheet-h-a sheet-p-5" name="attr_spell_description"></textarea>
           </div>
         </div>
       </fieldset>
     </div>
   </div>
-  <div class="sheet-d-fl sheet-jc-sb sheet-w-50p">
-    <div class="sheet-d-fl sheet-ai-c sheet-w-100p">
-      <div class="sheet-d-fl sheet-jc-sb sheet-w-50p">
-        <input type="checkbox" class="sheet-p-5 sheet-bb"  value="1" name="attr_man-runeExp" />	
-        <input type="number" class="sheet-w-50p sheet-p-5 sheet-bb" value="0" name="attr_man_rune" />
-      </div>
-      <div class="sheet-bgc-dgray sheet-w-10p sheet-mx-1s" style="height:1px"></div>
-      <div class="sheet-d-fl sheet-jc-sb sheet-w-50p">
-        <input type="checkbox" class="sheet-p-5 sheet-bb"  value="1" name="attr_beast-runeExp" />	
-        <input type="number" class="sheet-w-50p sheet-p-5 sheet-bb" value="0" name="attr_beast_rune" />
-      </div>
-    </div>
-  </div>
   <div>
-    <span>Spirit Magic</span>
-    <span>Rune Magic</span>
-  </div>
-  <div>
-    <span>Spirit Combat</span>
-    <span>Sorcery</span>
-  </div>
-  <div>
-    <span>Notes</span>
+    <div class="sheet-ta-c">Notes</div>
+    <textarea rows="3" class="sheet-bgc-gray sheet-h-a sheet-p-5" name="attr_magic_notes"></textarea>
   </div>
 </div>
