@@ -86,6 +86,9 @@ b,strong {
 .sheet-w-50p {
     width:50%
 }
+.sheet-w-40p {
+    width:40%
+}
 .sheet-w-33p {
     width:calc(100%/3)
 }
@@ -287,6 +290,9 @@ b,strong {
 }
 .sheet-t-10 {
     top:1rem
+}
+.sheet-t-20 {
+    top:2rem
 }
 .sheet-t-0s {
     top:0
@@ -622,6 +628,9 @@ b,strong {
 }
 .sheet-ml-n20p {
     margin-left:-20%
+}
+.sheet-ml-n10p {
+    margin-left:-10%
 }
 .sheet-mt-n2s {
     margin-top:-3rem
@@ -1141,4 +1150,5 @@ input.sheet-h-30 {
 .charsheet textarea {
     font-family: "Shadows Into Light";
     letter-spacing: 0.1rem;
+    font-weight: bold;
 }
