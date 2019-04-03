@@ -207,23 +207,25 @@
       </div>
     </div>
   </div>
-  <div class="sheet-pos-rel sheet-d-fl sheet-fw-w sheet-py-1s sheet-mb-1s sheet-bb">
-    <div class="sheet-w-40p sheet-d-fl sheet-jc-sb sheet-ai-c">
-      <span>POW</span>
+  <div class="sheet-pos-rel sheet-d-fl sheet-ai-c sheet-fw-w sheet-py-1s sheet-mb-1s sheet-bb">
+    <div class="sheet-w-90p sheet-d-fl sheet-jc-sb sheet-ai-c">
+      <span>Power</span>
       <span name="attr_basepow"></span>
-      <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[((@{basepow}+@{modpow})*5)]]}} {{fumble=[[{(101-(round((100-((@{basepow}+@{modpow})*5))/20))),100}kl1]]}} {{crit=[[round(([[((@{basepow}+@{modpow})*5)]])/20)+1]]}} {{special=[[round(([[((@{basepow}+@{modpow})*5)]])/5)+1]]}} {{success=[[((@{basepow}+@{modpow})*5)]]}} {{roll=[[1d100]]}} {{skillname=Magic}}"></button>
+      <button type="roll" class="value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[((@{basepow}+@{modpow})*5)]]}} {{fumble=[[{(101-(round((100-((@{basepow}+@{modpow})*5))/20))),100}kl1]]}} {{crit=[[round(([[((@{basepow}+@{modpow})*5)]])/20)+1]]}} {{special=[[round(([[((@{basepow}+@{modpow})*5)]])/5)+1]]}} {{success=[[((@{basepow}+@{modpow})*5)]]}} {{roll=[[1d100]]}} {{skillname=Magic}}"></button>
+      <span class="sheet-h-25 sheet-bgc-dgray sheet-mx-1s" style="width:1px"></span>
       <span>Resistance</span>
       <button type="roll" value="&{template:resistance} {{name=POW}} {{target=[[((@{basepow}+@{modpow})-?{Opponent POW|10})*5+50]]}} {{roll=[[1d100]]}}"></button>
-    </div>
-    <div class="sheet-w-50p sheet-d-fl sheet-jc-sb sheet-ai-c">
+      <span class="sheet-h-25 sheet-bgc-dgray sheet-mx-1s" style="width:1px"></span>
       <span>Spirit Combat</span>
       <input type="text" class="sheet-w-10p sheet-p-5 sheet-bb sheet-ta-c" value="0" name="attr_spirit_combat1" />
       <button type="roll" value="&{template:skillRoll} {{name=@{otherworld1_name}}} {{skillvalue=[[(@{spirit_combat1})]]}} {{fumble=[[ceil(95+([[(@{spirit_combat1})]])/20))]]}} {{crit=[[round(([[(@{spirit_combat1})]])/20)+1]]}} {{special=[[round(([[(@{spirit_combat1})]])/5)+1]]}} {{success=[[(@{spirit_combat1})]]}} {{roll=[[1d100]]}} {{skillname=Spirit Combat}}" ></button>
+      <span class="sheet-h-25 sheet-bgc-dgray sheet-mx-1s" style="width:1px"></span>
       <div>Damage</div>
-      <input type="text" class="sheet-w-20p sheet-p-5 sheet-bb sheet-ta-c" placeholder="Spirit combat damage" name="attr_sprt_cmbt_damage" />
+      <input type="text" class="sheet-w-10p sheet-p-5 sheet-bb sheet-ta-c" placeholder="Spirit combat damage" name="attr_sprt_cmbt_damage" />
       <button type="roll" value="[[@{sprt_cmbt_damage1}]]"></button>
+      <span class="sheet-h-25 sheet-bgc-dgray sheet-mx-1s" style="width:1px"></span>
     </div>
-    <span class="sheet-w-10p sheet-p-5">Sorcery</span>
+    <span class="sheet-w-10p">Sorcery</span>
     <input type="checkbox" value="1" class="sheet-toggle-visible sheet-w-10p sheet-curs-p sheet-op-0 sheet-ml-n10p sheet-z-1" name="attr_spell_expanded" />
     <span class="sheet-pos-abs sheet-t-20 sheet-r-0s sheet-toggle-child-1 sheet-font-pictos">`</span>
     <span class="sheet-pos-abs sheet-t-20 sheet-r-0s sheet-toggle-child-2 sheet-font-pictos">J</span>
