@@ -604,6 +604,9 @@ b,strong {
     margin-top:9rem;
     margin-bottom:9rem
 }
+.sheet-mb-5 {
+    margin-bottom:.5rem
+}
 .sheet-mb-10 {
     margin-bottom:1rem
 }
@@ -951,6 +954,9 @@ b,strong {
 }
 .sheet-fs-9 {
     font-size:.9rem
+}
+.sheet-fs-10 {
+    font-size:1rem
 }
 .sheet-fs-12 {
     font-size:1.2rem
