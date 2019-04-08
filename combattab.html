@@ -238,10 +238,10 @@
   </div>
   <div class="sheet-d-fl sheet-w-100p sheet-jc-c">
     <div class=" sheet-pos-rel sheet-d-fl sheet-fl-col sheet-w-50p">
-      <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-5 sheet-l-0s sheet-curs-p sheet-op-0 sheet-z-1" name="attr_spell_expanded" />
-      <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-1 sheet-font-pictos">J</span>
-      <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-2 sheet-font-pictos">`</span>
       <fieldset class="repeating_melee2">
+        <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-5 sheet-l-0s sheet-curs-p sheet-op-0 sheet-z-1" name="attr_spell_expanded" />
+        <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-1 sheet-font-pictos">J</span>
+        <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-2 sheet-font-pictos">`</span>
         <div class="sheet-d-fl sheet-w-90p sheet-ml-1s sheet-jc-sb">
           <input type="text" name="attr_weapon_type"  />
           <input type="text"  disabled name="attr_total_wpn_sr" value="[[@{wpn_sr}+@{melee_srm}]]" />
@@ -250,7 +250,7 @@
           <button type="roll" title="Add to turn order" value="@{add_sr}" ></button>
           <button type="roll" value="@{melee_value}" ></button>
         </div>
-        <div class="sheet-d-fl sheet-w-100p sheet-jc-sb">
+        <div class="sheet-toggle-child-1 sheet-d-fl sheet-w-100p sheet-jc-sb sheet-bgc-dgray">
           <input type="text"  name="attr_skillName" />
           <input type="checkbox" name="attr_skillDefault" />
           <input type="text" value="0"  name="attr_wpn_sr" />
