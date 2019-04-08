@@ -258,6 +258,11 @@ b,strong {
     -ms-flex-align:stretch;
     align-items:stretch
 }
+.sheet-ai-fe {
+    -webkit-box-align:end;
+    -ms-flex-align:end;
+    align-items:flex-end
+}
 .sheet-fw-w {
     -ms-flex-wrap:wrap;
     flex-wrap:wrap

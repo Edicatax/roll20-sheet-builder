@@ -1,6 +1,6 @@
 <div class="sheet-tab4 sheet-d-no">
-  <div class="sheet-d-fl sheet-w-100p sheet-p-5">
-    <div class="sheet-w-33p sheet-d-fl sheet-jc-sb sheet-fs-10">
+  <div class="sheet-d-fl sheet-w-100p sheet-p-5 sheet-jc-sb sheet-pb-2s sheet-mb-2s sheet-bb">
+    <div class="sheet-w-33p sheet-d-fl sheet-jc-sb sheet-fs-10 sheet-py-1s">
       <div class="sheet-d-fl sheet-fl-col sheet-jc-c">
         <div class="sheet-p-5 sheet-b-dgray sheet-br-4 sheet-mb-1s" >
           <label class="sheet-ta-c">R Arm 13-15</label>
@@ -142,35 +142,146 @@
       </div>
     </div>
     <div class="sheet-w-60p sheet-d-fl sheet-fl-col">
-      <div class="sheet-d-fl sheet-w-100p">
+      <div class="sheet-d-fl sheet-fl-col sheet-w-100p sheet-pt-1s sheet-pb-2s sheet-mb-2s sheet-bb">
+        <div class="sheet-d-fl sheet-jc-sb sheet-ai-fe">
+          <div class="sheet-w-20p">
+            <label class="sheet-ta-c">HP</label>
+            <input type="text" class="sheet-d-bl sheet-w-90p sheet-p-5 sheet-ta-c sheet-ml-a sheet-mr-a sheet-fs-30" value="0" name="attr_hp_cur" readonly />
+          </div>
+          <span>=</span>
+          <div class="sheet-w-10p">
+            <label class="sheet-ta-c">Max HP</label>
+            <input type="text" class="sheet-d-bl sheet-w-90p sheet-p-5 sheet-ta-c sheet-ml-a sheet-mr-a" value="0" name="attr_hp_max" readonly />
+          </div>
+          <span>-</span>
+          <div class="sheet-w-10p">
+            <label class="sheet-ta-c">Hit loc. Damage</label>
+            <input type="text" class="sheet-d-bl sheet-w-90p sheet-p-5 sheet-ta-c sheet-ml-a sheet-mr-a" value="0" name="attr_lhp_loss" readonly />
+          </div>
+          <span>-</span>
+          <span>(</span>
+          <div class="sheet-w-20p">
+            <label class="sheet-ta-c">General Wounds</label>					
+            <input type="text" class="sheet-d-bl sheet-w-90p sheet-p-5 sheet-ta-c sheet-ml-a sheet-mr-a sheet-bb" value="0+0" name="attr_thp_wnds" />
+          </div>	
+          <span>)</span>
+          <input type="text" class="sheet-d-no" value="0" name="attr_thp_loss" readonly />
+        </div>	 
+      </div>
+      <div class="sheet-d-fl sheet-w-100p sheet-fs-12 sheet-pb-2s sheet-mb-2s sheet-bb">
         <div class="sheet-d-fl sheet-fl-col sheet-p-5">
-          <div>Dam. Bonus</div>
-          <input type="text" class="sheet-w-90p sheet-p-5" name="attr_damagebonus" readonly />
+          <div class="sheet-mb-10">Dam. Bonus</div>
+          <input type="text" class="sheet-w-90p sheet-p-5 sheet-ta-c" name="attr_damagebonus" readonly />
           <input type="text" class="sheet-d-no" name="attr_mdamagebonus" readonly />
           <input type="text" class="sheet-d-no" name="attr_maxDb" readonly />
           <input type="text" class="sheet-d-no" name="attr_mmaxDb" readonly />
         </div>
-        <div class="sheet-d-fl sheet-fl-col sheet-p-5">
-          <div>Move Rate</div>
-          <input type="text" class="sheet-w-90p sheet-p-5" value="8" name="attr_move_rate" />
+        <div class="sheet-d-fl sheet-fl-col sheet-p-5 sheet-ai-c">
+          <div class="sheet-mb-10">Move Rate</div>
+          <input type="text" class="sheet-w-90p sheet-p-5 sheet-ta-c sheet-bb" value="8" name="attr_move_rate" />
         </div>	
-        <div class="sheet-d-fl sheet-fl-col sheet-p-5">
-          <div>Dex SRM</div>
-          <input type="text" class="sheet-w-90p sheet-p-5" value="0" name="attr_dex_srm" readonly />
+        <div class="sheet-d-fl sheet-fl-col sheet-p-5 sheet-ai-c">
+          <div class="sheet-mb-10">Dex SRM</div>
+          <input type="text" class="sheet-w-90p sheet-p-5 sheet-ta-c" value="0" name="attr_dex_srm" readonly />
         </div>	
-        <div class="sheet-d-fl sheet-fl-col sheet-p-5">
-          <div>Size SRM</div>
-          <input type="text" class="sheet-w-90p sheet-p-5" value="0" name="attr_siz_srm" readonly />
+        <div class="sheet-d-fl sheet-fl-col sheet-p-5 sheet-ai-c">
+          <div class="sheet-mb-10">Size SRM</div>
+          <input type="text" class="sheet-w-90p sheet-p-5 sheet-ta-c" value="0" name="attr_siz_srm" readonly />
         </div>		
-        <div class="sheet-d-fl sheet-fl-col sheet-p-5">
-          <div>Melee SRM</div>
-          <input type="text" class="sheet-w-90p sheet-p-5" value="0" name="attr_melee_srm" readonly />	
+        <div class="sheet-d-fl sheet-fl-col sheet-p-5 sheet-ai-c">
+          <div class="sheet-mb-10">Melee SRM</div>
+          <input type="text" class="sheet-w-90p sheet-p-5 sheet-ta-c" value="0" name="attr_melee_srm" readonly />	
         </div>				
-        <div class="sheet-d-fl sheet-fl-col sheet-p-5">
-          <div>Heal Rate</div>
-          <input type="text" class="sheet-w-90p sheet-p-5" value="0" name="attr_heal_rate" readonly />
+        <div class="sheet-d-fl sheet-fl-col sheet-p-5 sheet-ai-c">
+          <div class="sheet-mb-10">Heal Rate</div>
+          <input type="text" class="sheet-w-90p sheet-p-5 sheet-ta-c" value="0" name="attr_heal_rate" readonly />
         </div>		
       </div>		
+      <div class="sheet-d-fl sheet-fl-col sheet-w-100p">
+        <div class="sheet-d-fl sheet-jc-sb sheet-pb-1s">
+          <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-50p">
+            <div>Dodge</div>
+            <input type="text" class="sheet-w-50p sheet-p-5 sheet-ta-c" name="attr_dodge" readonly />
+            <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[(@{dodge})]]}} {{fumble=[[ceil(95+([[(@{dodge})]])/20))]]}} {{crit=[[round(([[(@{dodge})]])/20)+1]]}}  {{special=[[round(([[(@{dodge})]])/5)+1]]}}    {{success=[[(@{dodge})]]}} {{roll=[[1d100]]}} {{skillname=Dodge}}" >
+            </button>
+          </div>
+          <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-20p">
+            <div>Fumble</div>
+            <button type="roll" value="&{template:RQG-Fumble} {{roll=[[1d100]]}}">
+            </button>
+          </div>
+        </div>
+        <div class="sheet-d-fl sheet-jc-sb">
+          <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-60p">
+            <div>Hit Location</div>
+            <select class="sheet-w-50p sheet-bb" name="attr_creature_hit_location">
+              <option value="Four-Legged">Four-Legged</option>
+              <option value="Humanoid" selected>Humanoid</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-33p">
+            <div>Die</div>
+            <select class="sheet-w-50p sheet-bb" name="attr_selected_die_roll">
+              <option value="1d20">1d20</option>
+              <option value="1d10+10">1d10+10</option>
+              <option value="1d8+12">1d8+12</option>
+              <option value="1d10">1d10</option>
+              <option value="1d8">1d8</option>			   			   
+            </select>
+            <button type="roll" value="&{template:@{creature_hit_location}-Hit-Locations} {{roll=[[@{selected_die_roll}]]}}" >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sheet-d-fl sheet-w-100p sheet-jc-c">
+    <div class=" sheet-pos-rel sheet-d-fl sheet-fl-col sheet-w-50p">
+      <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-5 sheet-l-0s sheet-curs-p sheet-op-0 sheet-z-1" name="attr_spell_expanded" />
+      <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-1 sheet-font-pictos">J</span>
+      <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-2 sheet-font-pictos">`</span>
+      <fieldset class="repeating_melee2">
+        <div class="sheet-d-fl sheet-w-90p sheet-ml-1s sheet-jc-sb">
+          <input type="text" name="attr_weapon_type"  />
+          <input type="text"  disabled name="attr_total_wpn_sr" value="[[@{wpn_sr}+@{melee_srm}]]" />
+          <input type="text" readonly name="attr_skillTotal" />
+          <input type="text" value="0" name="attr_skillWpnMod" />
+          <button type="roll" title="Add to turn order" value="@{add_sr}" ></button>
+          <button type="roll" value="@{melee_value}" ></button>
+        </div>
+        <div class="sheet-d-fl sheet-w-100p sheet-jc-sb">
+          <input type="text"  name="attr_skillName" />
+          <input type="checkbox" name="attr_skillDefault" />
+          <input type="text" value="0"  name="attr_wpn_sr" />
+          <input type="text" name="attr_wpn_damage" />
+          <input type="checkbox"  name="attr_mntDbToggle" />
+          <input  type="text" name="attr_wpn_type" title="C,CT,H,I,S">
+          <select name="attr_wpn_spl">
+            <option value="0">I</option>
+            <option value="1">S</option>
+            <option value="2">C</option>
+          </select>
+          <input type="text" value="0" name="attr_wpn_hp" />/
+          <input type="text" value="0" name="attr_wpn_hpmax" />
+          <input type="checkbox" name="attr_skillcheck" />
+        </div>
+        <textarea class="sheet-d-no" name="attr_add_sr">
+        /em --
+
+Add @{character_name} to turn order
+@{weapon_type} SR [[@{total_wpn_sr} &{tracker}]]
+        </textarea>
+        <textarea class="sheet-d-no" name="attr_melee_value">&{template:melee-roll2} {{name=@{character_name}}} {{tot=[[@{wpn_damage}+@{damagebonus}]]}}{{skillvalue=(@{skillTotal})}} {{fumble=[[{(101-(round((100-((@{skillTotal}*@{skillReduct})+@{skillWpnMod}+@{skillMods}))/20))),100}kl1]]}}  {{crit=[[round([[ceil((@{skillTotal}*@{skillReduct}))+@{skillWpnMod}+@{skillMods}]]/20)+1]]}} {{special=[[round(([[ceil((@{skillTotal}*@{skillReduct}))+@{skillWpnMod}+@{skillMods}]])/5)+1]]}}   {{spclDam=[[@{spcldamage}+@{damagebonus}]]}}   {{crshDam=[[@{wpn_damage}+@{maxDb}+@{damagebonus}]]}}  {{critCrsh=[[@{critdamage}+@{maxDb}+@{damagebonus}]]}} {{critSI=[[@{critdamage}+@{damagebonus}]]}} {{type="[[@{wpn_spl}"]]}}  {{success=[[ceil(ceil((@{skillTotal}*@{skillReduct})))+@{skillWpnMod}+@{skillMods}]]}} {{roll=[[1d100]]}} {{skillname=@{weapon_type}}} {{mntTogVal=[[@{mntTogVal}]]}} {{mntTot=[[@{wpn_damage}+@{mountDB}]]}} {{mntSpcl=[[@{spcldamage}+@{mountDB}]]}} {{mntCrit=[[@{critdamage}+@{mountDB}]]}}
+
+&{template:@{creature_hit_location}-Hit-Locations}} {{roll=[[@{selected_die_roll}]]}}</textarea>
+        <input type="text" class="sheet-d-no" value="0" name="attr_minmod" readonly />
+        <input type="text" class="sheet-d-no" value="1" name="attr_skillReduct" />
+        <input type="text" class="sheet-d-no" name="attr_spcldamage" />
+        <input type="text" class="sheet-d-no" name="attr_critdamage" />
+        <input type="text" class="sheet-d-no" name="attr_maxdamage" />
+        <input type="text" class="sheet-d-no" value="0"  name="attr_mntTogVal" />
+      </fieldset>
     </div>
   </div>
 </div>
