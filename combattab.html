@@ -237,51 +237,134 @@
     </div>
   </div>
   <div class="sheet-d-fl sheet-w-100p sheet-jc-c">
-    <div class=" sheet-pos-rel sheet-d-fl sheet-fl-col sheet-w-50p">
+    <div class="sheet-d-fl sheet-fl-col sheet-w-50p sheet-mr-2s">
+      <div class="sheet-d-fl sheet-jc-sb sheet-py-10 sheet-fw-bold sheet-ta-c">Melee</div>
+      <div class="sheet-d-fl sheet-jc-sb sheet-py-10 sheet-fw-bold">
+        <div class="sheet-w-50p sheet-ml-2s">Weapon</div>
+        <div class="sheet-w-10p">SR</div>
+        <div class="sheet-w-10p">Skill</div>
+        <div class="sheet-w-10p">Mod</div>
+        <div class="sheet-w-14p"></div>
+      </div>
       <fieldset class="repeating_melee2">
-        <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-5 sheet-l-0s sheet-curs-p sheet-op-0 sheet-z-1" name="attr_spell_expanded" />
-        <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-1 sheet-font-pictos">J</span>
-        <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-2 sheet-font-pictos">`</span>
-        <div class="sheet-d-fl sheet-w-90p sheet-ml-1s sheet-jc-sb">
-          <input type="text" name="attr_weapon_type"  />
-          <input type="text"  disabled name="attr_total_wpn_sr" value="[[@{wpn_sr}+@{melee_srm}]]" />
-          <input type="text" readonly name="attr_skillTotal" />
-          <input type="text" value="0" name="attr_skillWpnMod" />
-          <button type="roll" title="Add to turn order" value="@{add_sr}" ></button>
-          <button type="roll" value="@{melee_value}" ></button>
-        </div>
-        <div class="sheet-toggle-child-1 sheet-d-fl sheet-w-100p sheet-jc-sb sheet-bgc-dgray">
-          <input type="text"  name="attr_skillName" />
-          <input type="checkbox" name="attr_skillDefault" />
-          <input type="text" value="0"  name="attr_wpn_sr" />
-          <input type="text" name="attr_wpn_damage" />
-          <input type="checkbox"  name="attr_mntDbToggle" />
-          <input  type="text" name="attr_wpn_type" title="C,CT,H,I,S">
-          <select name="attr_wpn_spl">
-            <option value="0">I</option>
-            <option value="1">S</option>
-            <option value="2">C</option>
-          </select>
-          <input type="text" value="0" name="attr_wpn_hp" />/
-          <input type="text" value="0" name="attr_wpn_hpmax" />
-          <input type="checkbox" name="attr_skillcheck" />
-        </div>
-        <textarea class="sheet-d-no" name="attr_add_sr">
-        /em --
+        <div class="sheet-pos-rel sheet-bb sheet-mb-10">
+          <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-5 sheet-l-0s sheet-curs-p sheet-op-0 sheet-z-1" name="attr_weapon_expanded" />
+          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-1 sheet-font-pictos">J</span>
+          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-2 sheet-font-pictos">`</span>
+          <div class="sheet-d-fl sheet-w-a sheet-ml-2s sheet-mb-10 sheet-jc-sb">
+            <input type="text" class="sheet-w-50p sheet-p-5 sheet-bb" name="attr_weapon_type"  />
+            <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" name="attr_total_wpn_sr" value="[[@{wpn_sr}+@{melee_srm}]]" disabled />
+            <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" name="attr_skillTotal" readonly />
+            <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" name="attr_skillWpnMod" value="0" />
+            <button type="roll" title="Add to turn order" value="@{add_sr}" ></button>
+            <button type="roll" value="@{melee_value}" ></button>
+          </div>
+          <div class="sheet-expand-child-1 sheet-d-fl sheet-fl-col sheet-w-100p sheet-jc-sb sheet-p-5 sheet-br-4 sheet-bgc-dgray">
+            <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-10">
+              <div>Skill</div>
+              <input type="text" class="sheet-w-50p sheet-p-5" name="attr_skillName" />
+              <div>Weapon SR</div>
+              <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" name="attr_wpn_sr" value="0" />
+            </div>
+            <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-10">
+              <div>Damage</div>
+              <input type="text" class="sheet-w-33p sheet-p-5 sheet-ta-c" name="attr_wpn_damage" />
+              <div>Type</div>
+              <select class="sheet-w-33p sheet-p-5 sheet-ta-c" name="attr_wpn_spl">
+                <option value="0">Impaling</option>
+                <option value="1">Slashing</option>
+                <option value="2">Crushing</option>
+              </select>
+            </div>
+            <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-10">
+              <div>HP</div>
+              <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" value="0" name="attr_wpn_hp" />
+              <div>/</div>
+              <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" value="0" name="attr_wpn_hpmax" />
+              <div>XP</div>
+              <input type="checkbox" name="attr_skillcheck" />
+              <div>Default</div>
+              <input type="checkbox" name="attr_skillDefault" />
+            </div>
+            <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+              <div>Use mount damage bonus</div>
+              <input type="checkbox" name="attr_mntDbToggle" />
+							<input type="text" class="sheet-w-20p sheet-p-5 sheet-bb" class="sheet-text_input" placeholder="1d6" title="Mount Damage Bonus" name="attr_mountDB"/>
+            </div>
+          </div>
+          <textarea class="sheet-d-no" name="attr_add_sr">
+          /em --
 
 Add @{character_name} to turn order
 @{weapon_type} SR [[@{total_wpn_sr} &{tracker}]]
-        </textarea>
-        <textarea class="sheet-d-no" name="attr_melee_value">&{template:melee-roll2} {{name=@{character_name}}} {{tot=[[@{wpn_damage}+@{damagebonus}]]}}{{skillvalue=(@{skillTotal})}} {{fumble=[[{(101-(round((100-((@{skillTotal}*@{skillReduct})+@{skillWpnMod}+@{skillMods}))/20))),100}kl1]]}}  {{crit=[[round([[ceil((@{skillTotal}*@{skillReduct}))+@{skillWpnMod}+@{skillMods}]]/20)+1]]}} {{special=[[round(([[ceil((@{skillTotal}*@{skillReduct}))+@{skillWpnMod}+@{skillMods}]])/5)+1]]}}   {{spclDam=[[@{spcldamage}+@{damagebonus}]]}}   {{crshDam=[[@{wpn_damage}+@{maxDb}+@{damagebonus}]]}}  {{critCrsh=[[@{critdamage}+@{maxDb}+@{damagebonus}]]}} {{critSI=[[@{critdamage}+@{damagebonus}]]}} {{type="[[@{wpn_spl}"]]}}  {{success=[[ceil(ceil((@{skillTotal}*@{skillReduct})))+@{skillWpnMod}+@{skillMods}]]}} {{roll=[[1d100]]}} {{skillname=@{weapon_type}}} {{mntTogVal=[[@{mntTogVal}]]}} {{mntTot=[[@{wpn_damage}+@{mountDB}]]}} {{mntSpcl=[[@{spcldamage}+@{mountDB}]]}} {{mntCrit=[[@{critdamage}+@{mountDB}]]}}
+          </textarea>
+          <textarea class="sheet-d-no" name="attr_melee_value">&{template:melee-roll2} {{name=@{character_name}}} {{tot=[[@{wpn_damage}+@{damagebonus}]]}}{{skillvalue=(@{skillTotal})}} {{fumble=[[{(101-(round((100-((@{skillTotal}*@{skillReduct})+@{skillWpnMod}+@{skillMods}))/20))),100}kl1]]}}  {{crit=[[round([[ceil((@{skillTotal}*@{skillReduct}))+@{skillWpnMod}+@{skillMods}]]/20)+1]]}} {{special=[[round(([[ceil((@{skillTotal}*@{skillReduct}))+@{skillWpnMod}+@{skillMods}]])/5)+1]]}}   {{spclDam=[[@{spcldamage}+@{damagebonus}]]}}   {{crshDam=[[@{wpn_damage}+@{maxDb}+@{damagebonus}]]}}  {{critCrsh=[[@{critdamage}+@{maxDb}+@{damagebonus}]]}} {{critSI=[[@{critdamage}+@{damagebonus}]]}} {{type="[[@{wpn_spl}"]]}}  {{success=[[ceil(ceil((@{skillTotal}*@{skillReduct})))+@{skillWpnMod}+@{skillMods}]]}} {{roll=[[1d100]]}} {{skillname=@{weapon_type}}} {{mntTogVal=[[@{mntTogVal}]]}} {{mntTot=[[@{wpn_damage}+@{mountDB}]]}} {{mntSpcl=[[@{spcldamage}+@{mountDB}]]}} {{mntCrit=[[@{critdamage}+@{mountDB}]]}}
 
 &{template:@{creature_hit_location}-Hit-Locations}} {{roll=[[@{selected_die_roll}]]}}</textarea>
-        <input type="text" class="sheet-d-no" value="0" name="attr_minmod" readonly />
-        <input type="text" class="sheet-d-no" value="1" name="attr_skillReduct" />
-        <input type="text" class="sheet-d-no" name="attr_spcldamage" />
-        <input type="text" class="sheet-d-no" name="attr_critdamage" />
-        <input type="text" class="sheet-d-no" name="attr_maxdamage" />
-        <input type="text" class="sheet-d-no" value="0"  name="attr_mntTogVal" />
+          <input type="text" class="sheet-d-no" value="0" name="attr_minmod" readonly />
+          <input type="text" class="sheet-d-no" value="1" name="attr_skillReduct" />
+          <input type="text" class="sheet-d-no" name="attr_spcldamage" />
+          <input type="text" class="sheet-d-no" name="attr_critdamage" />
+          <input type="text" class="sheet-d-no" name="attr_maxdamage" />
+          <input type="text" class="sheet-d-no" value="0"  name="attr_mntTogVal" />
+        </div>
       </fieldset>
+    </div>
+    <div class="sheet-d-fl sheet-fl-col sheet-w-50p">
+      <div class="sheet-d-fl sheet-jc-sb sheet-py-10 sheet-fw-bold sheet-ta-c">Missile</div>
+      <fieldset class="repeating_missle2">
+        <div class="sheet-pos-rel sheet-bb sheet-mb-10">
+          <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-5 sheet-l-0s sheet-curs-p sheet-op-0 sheet-z-1" name="attr_weapon_expanded" />
+          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-1 sheet-font-pictos">J</span>
+          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-2 sheet-font-pictos">`</span>
+          <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-10">
+            <input type="text" class="sheet-w-50p sheet-ml-2s sheet-bb sheet-p-5" name="attr_weapon_type" placeholder="Weapon" />
+            <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" name="attr_skillTotal" readonly />
+            <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c sheet-bb" value="0" name="attr_skillWpnMod" />
+            <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c sheet-bb" name="attr_wpn_rate" placeholder="S/MR" />
+            <input type="number" class="sheet-w-10p sheet-p-5 sheet-ta-c sheet-bb" value="0" name="attr_wpn_ammo" />
+            <button type="roll" value="@{melee_value}" ></button>
+          </div>
+          <div class="sheet-expand-child-1 sheet-d-fl sheet-fl-col sheet-w-100p sheet-jc-sb sheet-p-5 sheet-br-4 sheet-bgc-dgray">
+            <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-10">
+              <div>Skill</div>
+              <input type="text" class="sheet-w-50p sheet-p-5 sheet-bb" name="attr_skillName" placeholder="Skill" />
+              <div>Range</div>
+              <input type="text" class="sheet-w-20p sheet-p-5 sheet-ta-c sheet-bb" name="attr_wpn_range" />
+            </div>
+            <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-10">
+              <div>Damage</div>
+              <input type="text" class="sheet-w-33p sheet-p-5 sheet-ta-c sheet-bb" name="attr_wpn_damage" placeholder="Damage" />
+              <div>Type</div>
+              <select class="sheet-w-33p sheet-p-5 sheet-ta-c sheet-bb" name="attr_wpn_spl">
+                <option value="0">Impaling</option>
+                <option value="1">Slashing</option>
+                <option value="2">Crushing</option>
+              </select>
+            </div>
+            <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-10">
+              <div>HP</div>
+              <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c sheet-bb" name="attr_wpn_hp" />
+              <div>XP</div>
+              <input type="checkbox" name="attr_skillcheck" />
+              <div>Default</div>
+              <input type="checkbox" name="attr_skillDefault" />
+              <div>Damage bonus</div>
+              <input type="checkbox" name="attr_mdbtoggle" />
+            </div>
+          </div>
+          <textarea class="sheet-d-no" name="attr_melee_value">&{template:melee-roll2} {{name=@{character_name}}} {{tot=[[@{wpn_damage}+@{wpnmdb}]]}}{{skillvalue=(@{skillTotal})}} {{fumble=[[{(101-(round((100-((@{skillTotal}*@{skillReduct})+@{skillWpnMod}+@{skillMods}))/20))),100}kl1]]}} {{crit=[[round([[ceil((@{skillTotal}*@{skillReduct}))+@{skillWpnMod}+@{skillMods}]]/20)+1]]}} {{special=[[round(([[ceil((@{skillTotal}*@{skillReduct}))+@{skillWpnMod}+@{skillMods}]])/5)+1]]}}   {{spclDam=[[@{spcldamage}+@{wpnmdb}]]}}   {{crshDam=[[@{wpn_damage}+@{maxwpnmdb}+@{wpnmdb}]]}}  {{critCrsh=[[@{critdamage}+@{maxwpnmdb}+@{wpnmdb}]]}} {{critSI=[[@{critdamage}+@{wpnmdb}]]}} {{type="[[@{wpn_spl}"]]}}  {{success=[[ceil((@{skillTotal}*@{skillReduct}))+@{skillWpnMod}+@{skillMods}]]}} {{roll=[[1d100]]}} {{mntTogVal=[[0]]}}  {{skillname=@{weapon_type}}} 
+
+&{template:@{creature_hit_location}Melee}} {{roll=[[@{selected_die_roll}]]}}</textarea>
+          <input type="text" class="sheet-d-no" value="0" name="attr_minmod" readonly />
+          <input type="text" class="sheet-d-no" value="1" name="attr_skillReduct" />
+          <input type="text" class="sheet-d-no" name="attr_spcldamage" />
+          <input type="text" class="sheet-d-no" name="attr_critdamage" />
+          <input type="text" class="sheet-d-no" name="attr_maxdamage" />
+          <input type="text" class="sheet-d-no" value="0" name="attr_wpnmdb" />
+          <input type="text" class="sheet-d-no" value="0" name="attr_maxwpnmdb" />
+        </div>
+      </fieldset>		
     </div>
   </div>
 </div>
