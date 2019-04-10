@@ -14,22 +14,25 @@
     <div class="sheet-fs-18 sheet-p-5 sheet-ta-c">Cults</div>
     <fieldset class="repeating_cults3">
       <div class="sheet-d-fl sheet-fl-col sheet-fg-1 sheet-p-5 sheet-bb">
-        <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
-          <span>Cult </span>
-          <input type="text" name="attr_cult" class="sheet-bb sheet-p-5 sheet-w-90p" />
-        </div>
-        <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
-          <span>Rank </span>
-          <input type="text" name="attr_rank" class="sheet-bb sheet-p-5 sheet-w-90p" />
+        <div class="sheet-d-fl sheet-jc-sb">
+          <div class="sheet-d-fl sheet-fl-col sheet-w-60p">
+            <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+              <input type="text" name="attr_cult" class="sheet-fs-22 sheet-c-dorange sheet-p-5 sheet-w-90p" placeholder="Cult name"/>
+            </div>
+            <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+              <input type="text" name="attr_rank" class="sheet-fs-12 sheet-p-5 sheet-w-90p" placeholder="Rank"/>
+            </div>
+          </div>
+          <div class="sheet-d-fl sheet-fl-col sheet-jc-c sheet-ai-c sheet-w-33p">
+            <span class="sheet-ta-c sheet-p-5">Rune Points</span>
+            <input type="text" name="attr_rune_pts" value="0" class="sheet-w-90p sheet-ta-c sheet-p-5 sheet-fs-20" />
+          </div>
         </div>
         <div class="sheet-d-fl sheet-fl-col sheet-jc-sb sheet-ai-c">
           <span class="sheet-p-5">Notes</span>
           <textarea name="attr_cult_notes" rows="2" class="sheet-bb sheet-p-5 sheet-h-a sheet-bgc-gray" ></textarea>
         </div>
-        <div class="sheet-d-no">
-          <input type="text" name="attr_cur_rune_pts" value="0" class="sheet-w-90p sheet-ta-c sheet-p-5 sheet-fs-24" />
-          <input type="text" name="attr_rune_pts" value="0" class="sheet-w-90p sheet-ta-c sheet-p-5" />
-        </div>
+        <input type="text" name="attr_cur_rune_pts" value="0" class="sheet-d-no" />
       </div>
     </fieldset>
   </div>

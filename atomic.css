@@ -92,6 +92,9 @@ b,strong {
 .sheet-w-33p {
     width:calc(100%/3)
 }
+.sheet-w-25p {
+    width:25%
+}
 .sheet-w-20p {
     width:20%
 }
@@ -841,31 +844,31 @@ b,strong {
     padding-top:12rem
 }
 .sheet-c-white {
-    color:#fff
+    color:#FFF6E5
 }
 .sheet-bgc-white {
     background-color:#fff
 }
 .sheet-bc-white {
-    border-color:#fff
+    border-color:#FFF6E5
 }
 .sheet-c-blue {
-    color:#385563
+    color:#103895
 }
 .sheet-bgc-blue {
-    background-color:#385563
+    background-color:#103895
 }
 .sheet-bc-blue {
-    border-color:#385563
+    border-color:#103895
 }
-.sheet-c-yellow {
-    color:#f9c107
+.sheet-c-orange {
+    color:#DF9500
 }
-.sheet-bgc-yellow {
-    background-color:#f9c107
+.sheet-bgc-orange {
+    background-color:#DF9500
 }
-.sheet-bc-yellow {
-    border-color:#f9c107
+.sheet-bc-orange {
+    border-color:#DF9500
 }
 .sheet-c-gray {
     color:#f7f7f7
@@ -875,6 +878,15 @@ b,strong {
 }
 .sheet-bc-gray {
     border-color:#f7f7f7
+}
+.sheet-c-dorange {
+    color:#6D4800
+}
+.sheet-bgc-dorange {
+    background-color:#6D4800
+}
+.sheet-bc-dorange {
+    border-color:#6D4800
 }
 .sheet-c-dgray {
     color:#d8d8d8
@@ -895,31 +907,13 @@ b,strong {
     border-color:#e3e3e3
 }
 .sheet-c-light-blue {
-    color:#8497a0
+    color:#2950AA
 }
 .sheet-bgc-light-blue {
-    background-color:#8497a0
+    background-color:#2950AA
 }
 .sheet-bc-light-blue {
-    border-color:#8497a0
-}
-.sheet-c-green {
-    color:#28a745
-}
-.sheet-bgc-green {
-    background-color:#28a745
-}
-.sheet-bc-green {
-    border-color:#28a745
-}
-.sheet-c-red {
-    color:#dc3545
-}
-.sheet-bgc-red {
-    background-color:#dc3545
-}
-.sheet-bc-red {
-    border-color:#dc3545
+    border-color:#2950AA
 }
 .sheet-c-transparent {
     color:transparent
@@ -1039,10 +1033,10 @@ b,strong {
     border:1px solid #fff
 }
 .sheet-b-blue {
-    border:1px solid #385563
+    border:1px solid #103895
 }
-.sheet-b-yellow {
-    border:1px solid #f9c107
+.sheet-b-orange {
+    border:1px solid #DF9500
 }
 .sheet-b-gray {
     border:1px solid #f7f7f7
@@ -1054,7 +1048,7 @@ b,strong {
     border:1px solid #e3e3e3
 }
 .sheet-b-light-blue {
-    border:1px solid #8497a0
+    border:1px solid #2950AA
 }
 .sheet-b-green {
     border:1px solid #28a745
