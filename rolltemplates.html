@@ -352,6 +352,22 @@
 
 		<!--old  templates  end-->		
 
+<rolltemplate class="sheet-rolltemplate-skill-2">
+<img style="margin-top:3px;border:1px solid black;border-radius:4px 4px 0 0;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
+<div style="border-left: 1px solid black;padding:5px 0;border-right:1px solid black;width:100%;background:whitesmoke;">
+  <div style="font-size:1.6rem;text-align:center">Skill Roll</div>
+  <div style="text-align:center;padding:1rem">{{roll}}</div>
+  <div style="font-size:1.6rem;text-align:center;font-weight:bold">
+    {{#rollGreater() roll fumble}}Fumble{{#rollGreater() roll fumble}}
+    {{#rollBetween() roll failure fumble}}Failure{{#rollBetween() roll failure fumble}}
+    {{#rollBetween() roll special failure}}Success{{#rollBetween() roll success failure}}
+    {{#rollBetween() roll critical special}}Special{{#rollBetween() roll special success}}
+    {{#rollLess() roll critical}}Critical{{#rollBetween() roll critical special}}
+  </div>
+</div>
+<img style="border:1px solid black;border-radius:0 0 4px 4px" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
+</rolltemplate>
+
 <rolltemplate class="sheet-rolltemplate-Humanoid-Hit-Locations">
 <img style="margin-top:3px;border:1px solid black;border-radius:4px 4px 0 0;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
 <div style="border-left: 1px solid black;padding:5px 0;border-right:1px solid black;width:100%;background:whitesmoke;">

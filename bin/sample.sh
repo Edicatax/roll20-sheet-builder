@@ -15,6 +15,10 @@ source=(
     geartab.html
     divend.html
     rolltemplates.html
+	workerstart.html
+	tas.js
+	newworkers.js
+	workerend.html
     foot.html
 )
 

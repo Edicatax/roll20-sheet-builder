@@ -26,7 +26,7 @@
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_base2"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_skillValue"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" readonly name="attr_skillTotal" />
-            <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[(@{skillTotal})]]}} {{fumble=[[{(101-(round((100-(@{skillTotal}+@{skill_mod}))/20))),100}kl1]]}} {{crit=[[round(([[(@{skillTotal}+@{skill_mod})]])/20)+1]]}}  {{special=[[round(([[(@{skillTotal}+@{skill_mod})]])/5)+1]]}}    {{success=[[(@{skillTotal}+@{skill_mod})]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
+            <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{fumble=[[{(100-(round((100-(@{skillTotal}+@{skill_mod}))/20))),99}kl1]]}} {{failure=[[{{(@{skillTotal}+@{skill_mod}), 6}kh1, 95}kl1]]}} {{special=[[round(([[(@{skillTotal}+@{skill_mod})]])/5)+1]]}}    {{crit=[[round(([[(@{skillTotal}+@{skill_mod})]])/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
             </button>
             <input type="checkbox" class="sheet-d-no" name="attr_sp_toggle1" checked />							
           </div>
