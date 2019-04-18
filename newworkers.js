@@ -646,6 +646,55 @@ const categories = [
 	naturalWpnSkills
 ];
 
+on("change:agility_mod", function() {
+  resetSkills("repeating_agilitySkills","agility_mod","1");
+});	
+
+on("change:communication_mod", function() {
+  resetSkills("repeating_communicationSkills","communication_mod","0");
+});	
+
+on("change:knowledge_mod", function() {
+  resetSkills("repeating_knowledgeSkills","knowledge_mod","0");
+});	
+
+on("change:magic_mod", function() {
+  resetSkills("repeating_magicSkills","magic_mod","0");
+});	
+
+on("change:perception_mod", function() {
+  resetSkills("repeating_perceptionSkills","perception_mod","0");
+});	
+
+on("change:stealth_mod", function() {
+  resetSkills("repeating_stealthSkills","stealth_mod","1");
+});	
+
+on("change:swim_mod", function() {
+  resetSkills("repeating_agilitySkills","agility_mod","1");
+});	
+
+on("change:dodge_mod2", function() {
+  resetSkills("repeating_agilitySkills","agility_mod","1");
+});	
+
+on("change:manipulation_mod", function() {
+  resetSkills("repeating_manipulationSkills","manipulation_mod","1");
+  resetSkills("repeating_meleeSkills","manipulation_mod","1");
+  resetSkills("repeating_missileSkills","manipulation_mod","1");
+  resetSkills("repeating_shieldSkills","manipulation_mod","1");
+  resetSkills("repeating_naturalWpnSkills","manipulation_mod","1");								
+});	
+
+on("change:enc_mod2", function() {
+  resetSkills("repeating_agilitySkills","agility_mod","1");
+  resetSkills("repeating_manipulationSkills","manipulation_mod","1");
+  resetSkills("repeating_meleeSkills","manipulation_mod","1");
+  resetSkills("repeating_missileSkills","manipulation_mod","1");
+  resetSkills("repeating_shieldSkills","manipulation_mod","1");
+  resetSkills("repeating_naturalWpnSkills","manipulation_mod","1");								
+});
+
 on("change:repeating_agilitySkills:base2 change:repeating_agilitySkills:skillValue change:repeating_agilitySkills:skill", function() {
   getAttrs(["repeating_agilitySkills_base2","repeating_agilitySkills_skillValue","agility_mod","repeating_agilitySkills_skill","dodge_mod2","swim_mod2","enc_mod2"], function(pvalue) {
     var base2 = parseInt(pvalue.repeating_agilitySkills_base2);
@@ -703,11 +752,6 @@ on("change:repeating_magicSkills:skillTotal", function() {
 });				
 
 
-on("change:agility_mod", function() {
-  resetSkills("repeating_agilitySkills","agility_mod","1");
-});	
-
-
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -728,9 +772,6 @@ on("change:repeating_communicationSkills:base2 change:repeating_communicationSki
   });
 });				
 
-on("change:communication_mod", function() {
-  resetSkills("repeating_communicationSkills","communication_mod","0");
-});	
 ///////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
@@ -757,16 +798,6 @@ on("change:repeating_knowledgeSkills:base2 change:repeating_knowledgeSkills:skil
   });
 });			
 
-on("change:knowledge_mod", function() {
-  resetSkills("repeating_knowledgeSkills","knowledge_mod","0");
-});	
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////			
-////////////////////////////////////////////////////////////////////////
-
 
 on("change:repeating_magicSkills:base2 change:repeating_magicSkills:skillValue", function() {
   getAttrs(["repeating_magicSkills_base2","repeating_magicSkills_skillValue","magic_mod"], function(pvalue) {		
@@ -783,10 +814,6 @@ on("change:repeating_magicSkills:base2 change:repeating_magicSkills:skillValue",
     setAttrs({repeating_magicSkills_skillTotal:tot});			   
   });
 });				
-
-on("change:magic_mod", function() {
-  resetSkills("repeating_magicSkills","magic_mod","0");
-});	
 ///////////////////////////////////////////////////////////////////////////////////////				
 ////////////////////////////////////////////////////////////////////////
 
@@ -806,24 +833,6 @@ on("change:repeating_manipulationSkills:base2 change:repeating_manipulationSkill
     setAttrs({repeating_manipulationSkills_skillTotal:tot});			   
   });
 });				
-
-on("change:manipulation_mod", function() {
-  resetSkills("repeating_manipulationSkills","manipulation_mod","1");
-  resetSkills("repeating_meleeSkills","manipulation_mod","1");
-  resetSkills("repeating_missileSkills","manipulation_mod","1");
-  resetSkills("repeating_shieldSkills","manipulation_mod","1");
-  resetSkills("repeating_naturalWpnSkills","manipulation_mod","1");								
-});	
-
-
-on("change:enc_mod2", function() {
-  resetSkills("repeating_agilitySkills","agility_mod","1");
-  resetSkills("repeating_manipulationSkills","manipulation_mod","1");
-  resetSkills("repeating_meleeSkills","manipulation_mod","1");
-  resetSkills("repeating_missileSkills","manipulation_mod","1");
-  resetSkills("repeating_shieldSkills","manipulation_mod","1");
-  resetSkills("repeating_naturalWpnSkills","manipulation_mod","1");								
-});
 
 ///////////////////////////////////////////////////////////////////////////////////////	
 ////////////////////////////////////////////////////////////////////////
@@ -848,9 +857,6 @@ on("change:repeating_perceptionSkills:base2 change:repeating_perceptionSkills:sk
   });
 });				
 
-on("change:perception_mod", function() {
-  resetSkills("repeating_perceptionSkills","perception_mod","0");
-});	
 ///////////////////////////////////////////////////////////////////////////////////////	
 ////////////////////////////////////////////////////////////////////////
 
@@ -873,19 +879,6 @@ on("change:repeating_stealthSkills:base2 change:repeating_stealthSkills:skillVal
   });
 });				
 
-on("change:swim_mod", function() {
-  resetSkills("repeating_agilitySkills","agility_mod","1");
-});	
-
-on("change:dodge_mod2", function() {
-  resetSkills("repeating_agilitySkills","agility_mod","1");
-});	
-
-
-
-on("change:stealth_mod", function() {
-  resetSkills("repeating_stealthSkills","stealth_mod","1");
-});	
 ///////////////////////////////////////////////////////////////////////////////////////				
 ////////////////////////////////////////////////////////////////////////
 
