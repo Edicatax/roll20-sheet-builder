@@ -1,78 +1,3 @@
-const calcBonus = (score, secondary, negative) => {
-	// secondary/negative: 1 = true, 0 = false
-	let bonus = 0;
-	if(score > 12) {
-		bonus = Math.ceil((score-12)/4) *5;
-		if(secondary) bonus -=5;
-	} else if (score < 9) {
-		bonus = Math.ceil((9-score)/4) *5;
-		if(secondary) bonus +=5;
-	}
-	if(negative) bonus = -bonus;
-	return bonus;
-};
-
-const skillCategories = {
-	agility: {
-		curstr: { secondary: 1, negative: 0 },
-		curdex: { secondary: 0, negative: 0 },
-		cursiz: { secondary: 1, negative: 1 },
-		curpow: { secondary: 1, negative: 0 },
-	},
-	communication: {
-		curcha: { secondary: 0, negative: 0 },
-		curint: { secondary: 1, negative: 0 },
-		curpow: { secondary: 1, negative: 0 },
-	},
-	knowledge: {
-		curint: { secondary: 0, negative: 0 },
-		curpow: { secondary: 1, negative: 0 },
-	},
-	magic: {
-		curpow: { secondary: 1, negative: 0 },
-		curcha: { secondary: 0, negative: 0 },
-	},
-	manipulation: {
-		curstr: { secondary: 1, negative: 0 },
-		curdex: { secondary: 0, negative: 0 },
-		curint: { secondary: 0, negative: 0 },
-		curpow: { secondary: 1, negative: 0 },
-	},
-	perception: {
-		curint: { secondary: 0, negative: 0 },
-		curpow: { secondary: 1, negative: 0 },
-	},
-	stealth: {
-		cursiz: { secondary: 0, negative: 1 },
-		curdex: { secondary: 0, negative: 0 },
-		curint: { secondary: 0, negative: 0 },
-		curpow: { secondary: 1, negative: 1 },
-	},
-};
-
-Object.keys(skillCategories).forEach(category => {
-	let stats = [];
-	let change = '';
-	Object.keys(skillCategories[category]).forEach(stat => { 
-		stats.push(stat);
-		change += `change:${stat} `;
-	});
-	on(`${change}sheet:opened`, function () {
-		getAttrs(stats, values => {
-			let bonus = 0;
-			Object.keys(skillCategories[category]).forEach(stat => { 
-				const score = parseInt(values[stat], 10) || 0;
-				const secondary = skillCategories[category][stat]['secondary'];
-				const negative = skillCategories[category][stat]['negative'];
-				bonus += calcBonus(score, secondary, negative);
-			});
-			setAttrs({
-				[`${category}_mod`]: bonus 
-			});
-		});
-	});
-}); 
-
 //Set Damage Bonus
 on("change:curstr change:cursiz change:strengthCast", function() {
   getAttrs(["curstr", "cursiz","strengthCast","damagebonus"], function(pvalue) {
@@ -176,170 +101,6 @@ on("change:curstr change:cursiz change:strengthCast", function() {
   });
 });
 
-
-//Set siz SRM
-on("change:cursiz", function() {
-  getAttrs(["cursiz","dex_srm"], function(pvalue) {
-    var charSiz = parseInt(pvalue.cursiz);
-    var charSsrm = parseInt(pvalue.dex_srm);			
-
-    var ssrm = Math.max(3 - Math.ceil(charSiz/7), 0);
-    var msrm = charSsrm + ssrm;
-
-    setAttrs({ siz_srm: ssrm , melee_srm: msrm});
-  });
-});	
-
-
-//Set Dex SRM
-on("change:curdex", function() {
-  getAttrs(["curdex","siz_srm"], function(pvalue) {
-    var charDex = parseInt(pvalue.curdex);
-    var charSsrm = parseInt(pvalue.siz_srm);			
-
-    var dsrm = 0;
-    var msrm = charSsrm;
-
-    if (charDex < 6){
-      dsrm = 5;
-    } else if (charDex < 9){
-      dsrm = 4;
-    } else if (charDex < 13){
-      dsrm = 3;				
-    } else if (charDex < 16){
-      dsrm = 2;	
-    } else if (charDex < 19){
-      dsrm = 1;						
-    } else {
-      dsrm = 0;				
-    }				
-    msrm = msrm+dsrm;
-
-    setAttrs({ dex_srm: dsrm , melee_srm: msrm});
-
-    console.log("************ End DEx SRM Calculation ************");
-  });
-});	
-
-//Location Hit Points
-on("change:hp_max", function() {
-  getAttrs(["hp_max"], function(pvalue) {
-    var HitPoints = parseInt(pvalue.hp_max);
-
-		const Arms  = 1 + Math.ceil(Math.max(0, HitPoints-6)/3);
-		const Chest = 3 + Math.ceil(Math.max(0, HitPoints-6)/3);
-		const Other = 2 + Math.ceil(Math.max(0, HitPoints-6)/3);
-
-		setAttrs({
-			r_arm_max_hp: Arms,
-			l_arm_max_hp: Arms,
-			chst_max_hp: Chest,
-			r_leg_max_hp: Other,
-			l_leg_max_hp: Other,
-			abd_max_hp: Other,
-			hd_max_hp: Other
-		});
-  });
-});		
-
-//Set Current Hit Points
-on("change:lhp_loss change:thp_loss ", function() {
-  getAttrs(["hp_max","lhp_loss","thp_loss"], function(pvalue) {
-    const HitPoints = parseInt(pvalue.hp_max);
-    const THpLoss = parseInt(pvalue.lhp_loss);
-    const LHpLoss = parseInt(pvalue.thp_loss);				
-
-    const CurHitPoints = HitPoints-THpLoss-LHpLoss;
-
-    setAttrs({hp_cur: CurHitPoints});
-  });
-});
-
-
-//Set Hit Points
-on("change:curcon change:curpow change:cursiz", function() {
-  getAttrs(["curcon", "cursiz","curpow","hp","lhp_loss","thp_loss"], function(pvalue) {
-    var HitPoints = 0;
-    var THpLoss = parseInt(pvalue.lhp_loss);
-    var LHpLoss = parseInt(pvalue.thp_loss);				
-    var charSize = parseInt(pvalue.cursiz);
-    var charCon = parseInt(pvalue.curcon);
-    var charPow = parseInt(pvalue.curpow);
-
-    HitPoints = charCon;
-
-    if (charSize < 5){
-      HitPoints -= 2;
-    }
-    else if (charSize >= 5 && charSize <= 8){
-      HitPoints -= 1;
-    }
-    else if (charSize >= 9 && charSize <= 12){
-      HitPoints -= 1;
-    }
-    else if (charSize >= 13){
-      HitPoints += Math.ceil((charSize-12)/4);
-    }
-
-    if (charPow < 5){
-      HitPoints -= 1;
-    }
-    else if (charPow >= 17){
-      HitPoints += Math.ceil((charPow-16)/4);
-    }
-
-    const CurHitPoints = HitPoints-THpLoss-LHpLoss;
-
-    setAttrs({ hp_max: HitPoints, hp_cur: CurHitPoints});
-  });
-});	
-
-const hitLocations = [
-	'r_leg',
-	'l_leg',
-	'abd',
-	'chst',
-	'r_arm',
-	'l_arm',
-	'hd',
-]
-hitLocations.forEach((loc) => {
-	const damageAttr = loc + "_damage";
-	const maxHpAttr  = loc + "_max_hp";
-	on("change:" + damageAttr + " change:" + maxHpAttr, function() {
-		getAttrs([damageAttr, maxHpAttr], function(values) {
-			const lochp =  parseInt(values[maxHpAttr]);
-			const damage = values[damageAttr];
-			const tot = lochp - eval(damage); 
-
-			setAttrs({[loc + "_cur_hp"]:tot});	
-		});
-	});	
-});
-
-on("change:r_leg_damage change:l_leg_damage change:abd_damage change:abd_damage change:chst_damage change:r_arm_damage change:l_arm_damage change:hd_damage", function() {
-  getAttrs(["r_leg_damage","l_leg_damage","abd_damage","abd_damage","chst_damage","r_arm_damage","l_arm_damage","hd_damage"], function(values) {
-    var tot=0;
-    for (const key of Object.keys(values)) {
-      tot = tot + eval(values[key]);
-    }
-    setAttrs({lhp_loss:tot});	
-  });
-});			
-
-on("change:repeating_missle:mdbtoggle", function() {
-  getAttrs(["repeating_missle_mdbtoggle","mdamagebonus","attr_mmaxDb"], function(values) {
-    var mdb = values.repeating_missle_mdbtoggle;
-    var mdbStr = "0";
-    var maxmdbStr = "0";
-    if (mdb=="on"){
-      mdbStr = values.mdamagebonus;
-      maxmdbStr = values.mmaxDb;
-    }
-
-    setAttrs({repeating_missle_wpnmdb:mdbStr,maxwpnmdb: maxmdbStr});	
-  });
-});	
 
 //reset weapon str/ def penalties if str changes
 on("change:curstr change:curdex change:cursiz", function() {
@@ -500,17 +261,6 @@ on("remove:repeating_agilitySkills", function(eventinfo){
   });	
 });
 
-on("change:curstr change:curcon change:strBuff change:conBuff", function() {
-  getAttrs(["curstr","curcon","conBuff","strBuff"], function(pvalue) {		
-    const cStr = parseInt(pvalue.curstr)+parseInt(pvalue.strBuff);
-    const cCon = parseInt(pvalue.curcon)+parseInt(pvalue.conBuff);
-
-    var enc = Math.min(cStr, Math.ceil((cStr+cCon)/2));
-
-    setAttrs({carry_max2:enc});			   
-  });
-});		
-
 
 
 on("change:repeating_melee2:skillName", function(eventInfo) {
@@ -535,55 +285,6 @@ on("change:repeating_missle2:skillName", function(eventInfo) {
     var skillVal=getSkillValues(wpnSkill,"repeating_missileskills",repeatRow);
   });
 });				
-
-on("change:repeating_meleeskills:skillTotal", function(eventInfo) {
-  getAttrs(["repeating_meleeskills_skill","repeating_meleeskills_skillTotal"], function(pvalue) {		
-    console.log("!!!!!! stuff  "+JSON.stringify(eventInfo.sourceAttribute));
-    let sourceA = eventInfo.sourceAttribute
-    let  repeatRow = sourceA.match(/[^_]*_[^_]*_[^_]*/g);
-    var wpnSkill = pvalue.repeating_meleeskills_skill;
-    var skillTotal = pvalue.repeating_meleeskills_skillTotal;
-    console.log("changed weapon skill to "+wpnSkill);
-    var skillVal=getSkillValues2(wpnSkill,"repeating_melee2",repeatRow,skillTotal);
-  });
-});				
-
-
-on("change:repeating_missileskills:skillTotal", function(eventInfo) {
-  getAttrs(["repeating_missileskills_skill","repeating_missileskills_skillTotal"], function(pvalue) {		
-    console.log("!!!!!! changed  missle skill total  "+JSON.stringify(eventInfo.sourceAttribute));
-    let sourceA = eventInfo.sourceAttribute
-    let  repeatRow = sourceA.match(/[^_]*_[^_]*_[^_]*/g);
-    var wpnSkill = pvalue.repeating_missileskills_skill;
-    var skillTotal = pvalue.repeating_missileskills_skillTotal;
-    console.log("changed weapon skill to "+wpnSkill);
-    var skillVal=getSkillValues2(wpnSkill,"repeating_missle2",repeatRow,skillTotal);
-  });
-});			
-
-on("change:repeating_shieldSkills:skillTotal", function(eventInfo) {
-  getAttrs(["repeating_shieldSkills_skill","repeating_shieldSkills_skillTotal"], function(pvalue) {		
-    console.log("!!!!!! stuff  "+JSON.stringify(eventInfo.sourceAttribute));
-    let sourceA = eventInfo.sourceAttribute
-    let  repeatRow = sourceA.match(/[^_]*_[^_]*_[^_]*/g);
-    var wpnSkill = pvalue.repeating_shieldSkills_skill;
-    var skillTotal = pvalue.repeating_shieldSkills_skillTotal;
-    console.log("changed weapon skill to "+wpnSkill);
-    var skillVal=getSkillValues2(wpnSkill,"repeating_melee2",repeatRow,skillTotal);
-  });
-})
-
-on("change:repeating_naturalWpnSkills:skillTotal", function(eventInfo) {
-  getAttrs(["repeating_naturalWpnSkills_skill","repeating_naturalWpnSkills_skillTotal"], function(pvalue) {		
-    console.log("!!!!!! stuff  "+JSON.stringify(eventInfo.sourceAttribute));
-    let sourceA = eventInfo.sourceAttribute
-    let  repeatRow = sourceA.match(/[^_]*_[^_]*_[^_]*/g);
-    var wpnSkill = pvalue.repeating_naturalWpnSkills_skill;
-    var skillTotal = pvalue.repeating_naturalWpnSkills_skillTotal;
-    console.log("changed weapon skill to "+wpnSkill);
-    var skillVal=getSkillValues2(wpnSkill,"repeating_melee2",repeatRow,skillTotal);
-  });
-})			
 
 function getSkillValues2(wpnSkill,section,section2,skillTotal){
 	getSectionIDs(section, function(idArray) {
@@ -928,51 +629,22 @@ function resetSkills(section,category_mod,enc){
         });
       });
     }
-
   });		
+}
 
-}			
-
-on("change:repeating_agilitySkills:base", function() {
-  getAttrs(["repeating_agilitySkills_base","curstr","curcon","cursiz","curint","curpow","curdex","curchr"], function(pvalue) {		
-    var baseStr = pvalue.repeating_agilitySkills_base;
-    baseStr = baseStr.toUpperCase();
-    var tot = 0;
-    if (baseStr.includes("*")){
-      //get multiplier
-      var multiplier = baseStr.split("*");
-      console.log("!!!!!!multiplier "+multiplier);
-
-      var multival = parseInt(multiplier[1]);
-      console.log("!!!!!!!!!!!multival "+multival);
-
-      if (baseStr.includes("STR")){
-        tot = parseInt(pvalue.curstr)*multival;
-      } else if (baseStr.includes("CON")){
-        tot = parseInt(pvalue.curcon)*multival;						
-      } else if (baseStr.includes("SIZ")){
-        tot = parseInt(pvalue.cursiz)*multival;											
-      } else if (baseStr.includes("INT")){
-        tot = parseInt(pvalue.curint)*multival;											
-      } else if (baseStr.includes("POW")){
-        tot = parseInt(pvalue.curpow)*multival;											
-      } else if (baseStr.includes("DEX")){
-        tot = parseInt(pvalue.curdex)*multival;											
-      } else if (baseStr.includes("CHR")){
-        tot = parseInt(pvalue.curchr)*multival;											
-      }
-      console.log("tot "+tot);
-    } 
-    else{
-      tot=parseInt(baseStr);
-    }
-
-    setAttrs({repeating_agilitySkills_base2:tot});			   
-  });
-});		
-
-
-
+const categories = [
+	agilitySkills
+	communicationSkills
+	knowledgeSkills
+	magicSkills
+	manipulationSkills
+	perceptionSkills
+	stealthSkills
+	meleeSkills
+	missileSkills
+	shieldSkills
+	naturalWpnSkills
+];
 
 on("change:repeating_agilitySkills:base2 change:repeating_agilitySkills:skillValue change:repeating_agilitySkills:skill", function() {
   getAttrs(["repeating_agilitySkills_base2","repeating_agilitySkills_skillValue","agility_mod","repeating_agilitySkills_skill","dodge_mod2","swim_mod2","enc_mod2"], function(pvalue) {
@@ -1037,60 +709,8 @@ on("change:agility_mod", function() {
 
 
 
-
 ////////////////////////////////////////////////////////////////////////
-on("change:repeating_communicationSkills:base", function() {
-  getAttrs(["repeating_communicationSkills_base","curstr","curcon","cursiz","curint","curpow","curdex","curchr"], function(pvalue) {		
-    var baseStr = pvalue.repeating_communicationSkills_base;
-    baseStr = baseStr.toUpperCase();
-    var tot = 0;
-    if (baseStr.includes("*")){
-      //get multiplier
-      var multiplier = baseStr.split("*");
-      console.log("!!!!!!multiplier "+multiplier);
 
-      var multival = parseInt(multiplier[1]);
-      console.log("!!!!!!!!!!!multival "+multival);
-
-      if (baseStr.includes("STR")){
-        tot = parseInt(pvalue.curstr)*multival;
-      } else if (baseStr.includes("CON")){
-        tot = parseInt(pvalue.curcon)*multival;						
-      } else if (baseStr.includes("SIZ")){
-        tot = parseInt(pvalue.cursiz)*multival;											
-      } else if (baseStr.includes("INT")){
-        tot = parseInt(pvalue.curint)*multival;											
-      } else if (baseStr.includes("POW")){
-        tot = parseInt(pvalue.curpow)*multival;											
-      } else if (baseStr.includes("DEX")){
-        tot = parseInt(pvalue.curdex)*multival;											
-      } else if (baseStr.includes("CHR")){
-        tot = parseInt(pvalue.curchr)*multival;											
-      }
-      console.log("tot "+tot);
-    } 
-    else{
-      tot=parseInt(baseStr);
-    }
-    setAttrs({repeating_communicationSkills_base2:tot});			   
-  });
-});		
-
-/*
-on("change:repeating_communicationSkills:base2 change:repeating_communicationSkills:skillValue", function() {
-getAttrs(["repeating_communicationSkills_base2","repeating_communicationSkills_skillValue","communication_mod"], function(pvalue) {		
-
-console.log("!!!!!!!base2 "+pvalue.repeating_communicationSkills_base2);
-console.log("!!!!!!skill value "+pvalue.repeating_communicationSkills_skillValue);
-console.log("!!!!!!!!!!communication mod "+pvalue.communication_mod);
-
-
-var tot = parseInt(pvalue.repeating_communicationSkills_base2)+parseInt(pvalue.repeating_communicationSkills_skillValue)+parseInt(pvalue.communication_mod)
-
-setAttrs({repeating_communicationSkills_skillTotal:tot});			   
-});
-});				
- */
 on("change:repeating_communicationSkills:base2 change:repeating_communicationSkills:skillValue", function() {
   getAttrs(["repeating_communicationSkills_base2","repeating_communicationSkills_skillValue","communication_mod"], function(pvalue) {		
 
@@ -1108,50 +728,11 @@ on("change:repeating_communicationSkills:base2 change:repeating_communicationSki
   });
 });				
 
-
-
-
 on("change:communication_mod", function() {
   resetSkills("repeating_communicationSkills","communication_mod","0");
 });	
 ///////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-on("change:repeating_knowledgeSkills:base", function() {
-  getAttrs(["repeating_knowledgeSkills_base","curstr","curcon","cursiz","curint","curpow","curdex","curchr"], function(pvalue) {		
-    var baseStr = pvalue.repeating_knowledgeSkills_base;
-    baseStr = baseStr.toUpperCase();
-    var tot = 0;
-    if (baseStr.includes("*")){
-      //get multiplier
-      var multiplier = baseStr.split("*");
-      console.log("!!!!!!multiplier "+multiplier);
-
-      var multival = parseInt(multiplier[1]);
-      console.log("!!!!!!!!!!!multival "+multival);
-
-      if (baseStr.includes("STR")){
-        tot = parseInt(pvalue.curstr)*multival;
-      } else if (baseStr.includes("CON")){
-        tot = parseInt(pvalue.curcon)*multival;						
-      } else if (baseStr.includes("SIZ")){
-        tot = parseInt(pvalue.cursiz)*multival;											
-      } else if (baseStr.includes("INT")){
-        tot = parseInt(pvalue.curint)*multival;											
-      } else if (baseStr.includes("POW")){
-        tot = parseInt(pvalue.curpow)*multival;											
-      } else if (baseStr.includes("DEX")){
-        tot = parseInt(pvalue.curdex)*multival;											
-      } else if (baseStr.includes("CHR")){
-        tot = parseInt(pvalue.curchr)*multival;											
-      }
-      console.log("tot "+tot);
-    } 
-    else{
-      tot=parseInt(baseStr);
-    }
-    setAttrs({repeating_knowledgeSkills_base2:tot});			   
-  });
-});		
 
 
 on("change:repeating_knowledgeSkills:base2 change:repeating_knowledgeSkills:skillValue", function() {
@@ -1185,42 +766,6 @@ on("change:knowledge_mod", function() {
 
 ///////////////////////////////////////////////////////////////////////////////////////			
 ////////////////////////////////////////////////////////////////////////
-on("change:repeating_magicSkills:base", function() {
-  getAttrs(["repeating_magicSkills_base","curstr","curcon","cursiz","curint","curpow","curdex","curchr"], function(pvalue) {		
-    var baseStr = pvalue.repeating_magicSkills_base;
-    baseStr = baseStr.toUpperCase();
-    var tot = 0;
-    if (baseStr.includes("*")){
-      //get multiplier
-      var multiplier = baseStr.split("*");
-      console.log("!!!!!!multiplier "+multiplier);
-
-      var multival = parseInt(multiplier[1]);
-      console.log("!!!!!!!!!!!multival "+multival);
-
-      if (baseStr.includes("STR")){
-        tot = parseInt(pvalue.curstr)*multival;
-      } else if (baseStr.includes("CON")){
-        tot = parseInt(pvalue.curcon)*multival;						
-      } else if (baseStr.includes("SIZ")){
-        tot = parseInt(pvalue.cursiz)*multival;											
-      } else if (baseStr.includes("INT")){
-        tot = parseInt(pvalue.curint)*multival;											
-      } else if (baseStr.includes("POW")){
-        tot = parseInt(pvalue.curpow)*multival;											
-      } else if (baseStr.includes("DEX")){
-        tot = parseInt(pvalue.curdex)*multival;											
-      } else if (baseStr.includes("CHR")){
-        tot = parseInt(pvalue.curchr)*multival;											
-      }
-      console.log("tot "+tot);
-    } 
-    else{
-      tot=parseInt(baseStr);
-    }
-    setAttrs({repeating_magicSkills_base2:tot});			   
-  });
-});		
 
 
 on("change:repeating_magicSkills:base2 change:repeating_magicSkills:skillValue", function() {
@@ -1244,42 +789,6 @@ on("change:magic_mod", function() {
 });	
 ///////////////////////////////////////////////////////////////////////////////////////				
 ////////////////////////////////////////////////////////////////////////
-on("change:repeating_manipulationSkills:base", function() {
-  getAttrs(["repeating_manipulationSkills_base","curstr","curcon","cursiz","curint","curpow","curdex","curchr"], function(pvalue) {		
-    var baseStr = pvalue.repeating_manipulationSkills_base;
-    baseStr = baseStr.toUpperCase();
-    var tot = 0;
-    if (baseStr.includes("*")){
-      //get multiplier
-      var multiplier = baseStr.split("*");
-      console.log("!!!!!!multiplier "+multiplier);
-
-      var multival = parseInt(multiplier[1]);
-      console.log("!!!!!!!!!!!multival "+multival);
-
-      if (baseStr.includes("STR")){
-        tot = parseInt(pvalue.curstr)*multival;
-      } else if (baseStr.includes("CON")){
-        tot = parseInt(pvalue.curcon)*multival;						
-      } else if (baseStr.includes("SIZ")){
-        tot = parseInt(pvalue.cursiz)*multival;											
-      } else if (baseStr.includes("INT")){
-        tot = parseInt(pvalue.curint)*multival;											
-      } else if (baseStr.includes("POW")){
-        tot = parseInt(pvalue.curpow)*multival;											
-      } else if (baseStr.includes("DEX")){
-        tot = parseInt(pvalue.curdex)*multival;											
-      } else if (baseStr.includes("CHR")){
-        tot = parseInt(pvalue.curchr)*multival;											
-      }
-      console.log("tot "+tot);
-    } 
-    else{
-      tot=parseInt(baseStr);
-    }
-    setAttrs({repeating_manipulationSkills_base2:tot});			   
-  });
-});		
 
 
 on("change:repeating_manipulationSkills:base2 change:repeating_manipulationSkills:skillValue", function() {
@@ -1318,43 +827,6 @@ on("change:enc_mod2", function() {
 
 ///////////////////////////////////////////////////////////////////////////////////////	
 ////////////////////////////////////////////////////////////////////////
-on("change:repeating_perceptionSkills:base", function() {
-  getAttrs(["repeating_perceptionSkills_base","curstr","curcon","cursiz","curint","curpow","curdex","curchr"], function(pvalue) {		
-    var baseStr = pvalue.repeating_perceptionSkills_base;
-    baseStr = baseStr.toUpperCase();
-    var tot = 0;
-    if (baseStr.includes("*")){
-      //get multiplier
-      var multiplier = baseStr.split("*");
-      console.log("!!!!!!multiplier "+multiplier);
-
-      var multival = parseInt(multiplier[1]);
-      console.log("!!!!!!!!!!!multival "+multival);
-
-      if (baseStr.includes("STR")){
-        tot = parseInt(pvalue.curstr)*multival;
-      } else if (baseStr.includes("CON")){
-        tot = parseInt(pvalue.curcon)*multival;						
-      } else if (baseStr.includes("SIZ")){
-        tot = parseInt(pvalue.cursiz)*multival;											
-      } else if (baseStr.includes("INT")){
-        tot = parseInt(pvalue.curint)*multival;											
-      } else if (baseStr.includes("POW")){
-        tot = parseInt(pvalue.curpow)*multival;											
-      } else if (baseStr.includes("DEX")){
-        tot = parseInt(pvalue.curdex)*multival;											
-      } else if (baseStr.includes("CHR")){
-        tot = parseInt(pvalue.curchr)*multival;											
-      }
-      console.log("tot "+tot);
-    } 
-    else{
-      tot=parseInt(baseStr);
-    }
-    setAttrs({repeating_perceptionSkills_base2:tot});			   
-  });
-});		
-
 
 on("change:repeating_perceptionSkills:base2 change:repeating_perceptionSkills:skillValue", function() {
   getAttrs(["repeating_perceptionSkills_base2","repeating_perceptionSkills_skillValue","perception_mod"], function(pvalue) {		
@@ -1381,43 +853,6 @@ on("change:perception_mod", function() {
 });	
 ///////////////////////////////////////////////////////////////////////////////////////	
 ////////////////////////////////////////////////////////////////////////
-on("change:repeating_stealthSkills:base", function() {
-  getAttrs(["repeating_stealthSkills_base","curstr","curcon","cursiz","curint","curpow","curdex","curchr"], function(pvalue) {		
-    var baseStr = pvalue.repeating_stealthSkills_base;
-    baseStr = baseStr.toUpperCase();
-    var tot = 0;
-    if (baseStr.includes("*")){
-      //get multiplier
-      var multiplier = baseStr.split("*");
-      console.log("!!!!!!multiplier "+multiplier);
-
-      var multival = parseInt(multiplier[1]);
-      console.log("!!!!!!!!!!!multival "+multival);
-
-      if (baseStr.includes("STR")){
-        tot = parseInt(pvalue.curstr)*multival;
-      } else if (baseStr.includes("CON")){
-        tot = parseInt(pvalue.curcon)*multival;						
-      } else if (baseStr.includes("SIZ")){
-        tot = parseInt(pvalue.cursiz)*multival;											
-      } else if (baseStr.includes("INT")){
-        tot = parseInt(pvalue.curint)*multival;											
-      } else if (baseStr.includes("POW")){
-        tot = parseInt(pvalue.curpow)*multival;											
-      } else if (baseStr.includes("DEX")){
-        tot = parseInt(pvalue.curdex)*multival;											
-      } else if (baseStr.includes("CHR")){
-        tot = parseInt(pvalue.curchr)*multival;											
-      }
-      console.log("tot "+tot);
-    } 
-    else{
-      tot=parseInt(baseStr);
-    }
-    setAttrs({repeating_stealthSkills_base2:tot});			   
-  });
-});		
-
 
 on("change:repeating_stealthSkills:base2 change:repeating_stealthSkills:skillValue", function() {
   getAttrs(["repeating_stealthSkills_base2","repeating_stealthSkills_skillValue","stealth_mod","enc_mod2"], function(pvalue) {		
@@ -1453,43 +888,6 @@ on("change:stealth_mod", function() {
 });	
 ///////////////////////////////////////////////////////////////////////////////////////				
 ////////////////////////////////////////////////////////////////////////
-on("change:repeating_meleeSkills:base", function() {
-  getAttrs(["repeating_meleeSkills_base","curstr","curcon","cursiz","curint","curpow","curdex","curchr"], function(pvalue) {		
-    var baseStr = pvalue.repeating_meleeSkills_base;
-    baseStr = baseStr.toUpperCase();
-    var tot = 0;
-    if (baseStr.includes("*")){
-      //get multiplier
-      var multiplier = baseStr.split("*");
-      console.log("!!!!!!multiplier "+multiplier);
-
-      var multival = parseInt(multiplier[1]);
-      console.log("!!!!!!!!!!!multival "+multival);
-
-      if (baseStr.includes("STR")){
-        tot = parseInt(pvalue.curstr)*multival;
-      } else if (baseStr.includes("CON")){
-        tot = parseInt(pvalue.curcon)*multival;						
-      } else if (baseStr.includes("SIZ")){
-        tot = parseInt(pvalue.cursiz)*multival;											
-      } else if (baseStr.includes("INT")){
-        tot = parseInt(pvalue.curint)*multival;											
-      } else if (baseStr.includes("POW")){
-        tot = parseInt(pvalue.curpow)*multival;											
-      } else if (baseStr.includes("DEX")){
-        tot = parseInt(pvalue.curdex)*multival;											
-      } else if (baseStr.includes("CHR")){
-        tot = parseInt(pvalue.curchr)*multival;											
-      }
-      console.log("tot "+tot);
-    } 
-    else{
-      tot=parseInt(baseStr);
-    }
-    setAttrs({repeating_meleeSkills_base2:tot});			   
-  });
-});		
-
 
 on("change:repeating_meleeSkills:base2 change:repeating_meleeSkills:skillValue", function() {
   getAttrs(["repeating_meleeSkills_base2","repeating_meleeSkills_skillValue","manipulation_mod"], function(pvalue) {		
@@ -1511,43 +909,6 @@ on("change:repeating_meleeSkills:base2 change:repeating_meleeSkills:skillValue",
 });				
 ///////////////////////////////////////////////////////////////////////////////////////				
 ////////////////////////////////////////////////////////////////////////
-on("change:repeating_missileSkills:base", function() {
-  getAttrs(["repeating_missileSkills_base","curstr","curcon","cursiz","curint","curpow","curdex","curchr"], function(pvalue) {		
-    var baseStr = pvalue.repeating_missileSkills_base;
-    baseStr = baseStr.toUpperCase();
-    var tot = 0;
-    if (baseStr.includes("*")){
-      //get multiplier
-      var multiplier = baseStr.split("*");
-      console.log("!!!!!!multiplier "+multiplier);
-
-      var multival = parseInt(multiplier[1]);
-      console.log("!!!!!!!!!!!multival "+multival);
-
-      if (baseStr.includes("STR")){
-        tot = parseInt(pvalue.curstr)*multival;
-      } else if (baseStr.includes("CON")){
-        tot = parseInt(pvalue.curcon)*multival;						
-      } else if (baseStr.includes("SIZ")){
-        tot = parseInt(pvalue.cursiz)*multival;											
-      } else if (baseStr.includes("INT")){
-        tot = parseInt(pvalue.curint)*multival;											
-      } else if (baseStr.includes("POW")){
-        tot = parseInt(pvalue.curpow)*multival;											
-      } else if (baseStr.includes("DEX")){
-        tot = parseInt(pvalue.curdex)*multival;											
-      } else if (baseStr.includes("CHR")){
-        tot = parseInt(pvalue.curchr)*multival;											
-      }
-      console.log("tot "+tot);
-    } 
-    else{
-      tot=parseInt(baseStr);
-    }
-    setAttrs({repeating_missileSkills_base2:tot});			   
-  });
-});		
-
 
 on("change:repeating_missileSkills:base2 change:repeating_missileSkills:skillValue", function() {
   getAttrs(["repeating_missileSkills_base2","repeating_missileSkills_skillValue","manipulation_mod"], function(pvalue) {		
@@ -1569,43 +930,6 @@ on("change:repeating_missileSkills:base2 change:repeating_missileSkills:skillVal
 });				
 ///////////////////////////////////////////////////////////////////////////////////////	
 ////////////////////////////////////////////////////////////////////////
-on("change:repeating_shieldSkills:base", function() {
-  getAttrs(["repeating_shieldSkills_base","curstr","curcon","cursiz","curint","curpow","curdex","curchr"], function(pvalue) {		
-    var baseStr = pvalue.repeating_shieldSkills_base;
-    baseStr = baseStr.toUpperCase();
-    var tot = 0;
-    if (baseStr.includes("*")){
-      //get multiplier
-      var multiplier = baseStr.split("*");
-      console.log("!!!!!!multiplier "+multiplier);
-
-      var multival = parseInt(multiplier[1]);
-      console.log("!!!!!!!!!!!multival "+multival);
-
-      if (baseStr.includes("STR")){
-        tot = parseInt(pvalue.curstr)*multival;
-      } else if (baseStr.includes("CON")){
-        tot = parseInt(pvalue.curcon)*multival;						
-      } else if (baseStr.includes("SIZ")){
-        tot = parseInt(pvalue.cursiz)*multival;											
-      } else if (baseStr.includes("INT")){
-        tot = parseInt(pvalue.curint)*multival;											
-      } else if (baseStr.includes("POW")){
-        tot = parseInt(pvalue.curpow)*multival;											
-      } else if (baseStr.includes("DEX")){
-        tot = parseInt(pvalue.curdex)*multival;											
-      } else if (baseStr.includes("CHR")){
-        tot = parseInt(pvalue.curchr)*multival;											
-      }
-      console.log("tot "+tot);
-    } 
-    else{
-      tot=parseInt(baseStr);
-    }
-    setAttrs({repeating_shieldSkills_base2:tot});			   
-  });
-});		
-
 
 on("change:repeating_shieldSkills:base2 change:repeating_shieldSkills:skillValue", function() {
   getAttrs(["repeating_shieldSkills_base2","repeating_shieldSkills_skillValue","manipulation_mod"], function(pvalue) {		
@@ -1627,44 +951,6 @@ on("change:repeating_shieldSkills:base2 change:repeating_shieldSkills:skillValue
 });				
 ///////////////////////////////////////////////////////////////////////////////////////	
 //			////////////////////////////////////////////////////////////////////////
-
-on("change:repeating_naturalWpnSkills:base", function() {
-  getAttrs(["repeating_naturalWpnSkills_base","curstr","curcon","cursiz","curint","curpow","curdex","curchr"], function(pvalue) {		
-    var baseStr = pvalue.repeating_naturalWpnSkills_base;
-    baseStr = baseStr.toUpperCase();
-    var tot = 0;
-    if (baseStr.includes("*")){
-      //get multiplier
-      var multiplier = baseStr.split("*");
-      console.log("!!!!!!multiplier "+multiplier);
-
-      var multival = parseInt(multiplier[1]);
-      console.log("!!!!!!!!!!!multival "+multival);
-
-      if (baseStr.includes("STR")){
-        tot = parseInt(pvalue.curstr)*multival;
-      } else if (baseStr.includes("CON")){
-        tot = parseInt(pvalue.curcon)*multival;						
-      } else if (baseStr.includes("SIZ")){
-        tot = parseInt(pvalue.cursiz)*multival;											
-      } else if (baseStr.includes("INT")){
-        tot = parseInt(pvalue.curint)*multival;											
-      } else if (baseStr.includes("POW")){
-        tot = parseInt(pvalue.curpow)*multival;											
-      } else if (baseStr.includes("DEX")){
-        tot = parseInt(pvalue.curdex)*multival;											
-      } else if (baseStr.includes("CHR")){
-        tot = parseInt(pvalue.curchr)*multival;											
-      }
-      console.log("tot "+tot);
-    } 
-    else{
-      tot=parseInt(baseStr);
-    }
-
-    setAttrs({repeating_naturalWpnSkills_base2:tot});			   
-  });
-});		
 
 
 on("change:repeating_naturalWpnSkills:base2 change:repeating_naturalWpnSkills:skillValue", function() {
@@ -1688,218 +974,6 @@ on("change:repeating_naturalWpnSkills:base2 change:repeating_naturalWpnSkills:sk
 ///////////////////////////////////////////////////////////////////////////////////////	
 
 
-
-on("change:repeating_knowledgeSkills:skill", function() {
-  getAttrs(["repeating_knowledgeSkills_skill"], function(pvalue) {		
-
-
-    var name= pvalue.repeating_knowledgeSkills_skill;
-
-    var char1  = name.substr(0, 1); 
-
-    if (char1=="-"){
-      name = name.substr(1);
-      setAttrs({repeating_knowledgeSkills_sp_toggle1:0,repeating_knowledgeSkills_skill:name});			   	
-    } else 	if (char1=="+"){
-      name = name.substr(1);
-      setAttrs({repeating_knowledgeSkills_sp_toggle1:"on",repeating_knowledgeSkills_skill:name});			   	
-      console.log("marker 4b");
-    }					
-  });
-});		
-
-on("change:repeating_agilitySkills:skill", function() {
-  getAttrs(["repeating_agilitySkills_skill"], function(pvalue) {		
-
-
-    var name= pvalue.repeating_agilitySkills_skill;
-
-    var char1  = name.substr(0, 1); 
-
-    if (char1=="-"){
-      name = name.substr(1);
-      setAttrs({repeating_agilitySkills_sp_toggle1:0,repeating_agilitySkills_skill:name});			   	
-    } else 	if (char1=="+"){
-      name = name.substr(1);
-      setAttrs({repeating_agilitySkills_sp_toggle1:"on",repeating_agilitySkills_skill:name});			   	
-      console.log("marker 4b");
-    }					
-  });
-});				
-
-on("change:repeating_communicationskills:skill", function() {
-  getAttrs(["repeating_communicationskills_skill"], function(pvalue) {		
-
-
-    var name= pvalue.repeating_communicationskills_skill;
-
-    var char1  = name.substr(0, 1); 
-
-    if (char1=="-"){
-      name = name.substr(1);
-      setAttrs({repeating_communicationskills_sp_toggle1:0,repeating_communicationskills_skill:name});			   	
-    } else 	if (char1=="+"){
-      name = name.substr(1);
-      setAttrs({repeating_communicationskills_sp_toggle1:"on",repeating_communicationskills_skill:name});			   	
-      console.log("marker 4b");
-    }					
-  });
-});				
-
-on("change:repeating_magicSkills:skill", function() {
-  getAttrs(["repeating_magicSkills_skill"], function(pvalue) {		
-
-
-    var name= pvalue.repeating_magicSkills_skill;
-
-    var char1  = name.substr(0, 1); 
-
-    if (char1=="-"){
-      name = name.substr(1);
-      setAttrs({repeating_magicSkills_sp_toggle1:0,repeating_magicSkills_skill:name});			   	
-    } else 	if (char1=="+"){
-      name = name.substr(1);
-      setAttrs({repeating_magicSkills_sp_toggle1:"on",repeating_magicSkills_skill:name});			   	
-      console.log("marker 4b");
-    }					
-  });
-});				
-
-
-on("change:repeating_manipulationSkills:skill", function() {
-  getAttrs(["repeating_manipulationSkills_skill"], function(pvalue) {		
-
-
-    var name= pvalue.repeating_manipulationSkills_skill;
-
-    var char1  = name.substr(0, 1); 
-
-    if (char1=="-"){
-      name = name.substr(1);
-      setAttrs({repeating_manipulationSkills_sp_toggle1:0,repeating_manipulationSkills_skill:name});			   	
-    } else 	if (char1=="+"){
-      name = name.substr(1);
-      setAttrs({repeating_manipulationSkills_sp_toggle1:"on",repeating_manipulationSkills_skill:name});			   	
-      console.log("marker 4b");
-    }					
-  });
-});				
-
-
-on("change:repeating_perceptionskills:skill", function() {
-  getAttrs(["repeating_perceptionskills_skill"], function(pvalue) {		
-
-
-    var name= pvalue.repeating_perceptionskills_skill;
-
-    var char1  = name.substr(0, 1); 
-
-    if (char1=="-"){
-      name = name.substr(1);
-      setAttrs({repeating_perceptionskills_sp_toggle1:0,repeating_perceptionskills_skill:name});			   	
-    } else 	if (char1=="+"){
-      name = name.substr(1);
-      setAttrs({repeating_perceptionskills_sp_toggle1:"on",repeating_perceptionskills_skill:name});			   	
-      console.log("marker 4b");
-    }					
-  });
-});	
-
-on("change:repeating_stealthskills:skill", function() {
-  getAttrs(["repeating_stealthskills_skill"], function(pvalue) {		
-
-
-    var name= pvalue.repeating_stealthskills_skill;
-
-    var char1  = name.substr(0, 1); 
-
-    if (char1=="-"){
-      name = name.substr(1);
-      setAttrs({repeating_stealthskills_sp_toggle1:0,repeating_stealthskills_skill:name});			   	
-    } else 	if (char1=="+"){
-      name = name.substr(1);
-      setAttrs({repeating_stealthskills_sp_toggle1:"on",repeating_stealthskills_skill:name});			   	
-      console.log("marker 4b");
-    }					
-  });
-});	
-
-
-
-
-const opposingRunes = {
-	fertility: 'death',
-	death: 'fertility',
-	harmony: 'disorder',
-	disorder: 'harmony',
-	truth: 'illusion',
-	illusion: 'truth',
-	stasis: 'movement',
-	movement: 'stasis',
-	man: 'beast',
-	beast: 'man',
-}
-Object.keys(opposingRunes).forEach(function(rune) {
-	on("change:" + rune + "_rune", function() {
-		getAttrs([rune + "_rune"], function(value) {				
-			setAttrs(
-				{[opposingRunes[rune] + "_rune"]:100-value[rune + "_rune"]},
-				{silent:true}
-			);			   
-		});
-	});	
-});
-
-const stats = [
-	'str',
-	'con',
-	'siz',
-	'int',
-	'pow',
-	'chr',
-	'dex',
-];
-on("change:basestr change:modstr", function() {
-  getAttrs(["basestr","modstr"], function(pvalue) {		
-    setAttrs({curstr:parseInt(pvalue.basestr)+parseInt(pvalue.modstr)});			   
-  });
-});					
-
-on("change:basecon change:modcon", function() {
-  getAttrs(["basecon","modcon"], function(pvalue) {		
-    setAttrs({curcon:parseInt(pvalue.basecon)+parseInt(pvalue.modcon)});			   
-  });
-});			
-
-on("change:basesiz change:modsiz", function() {
-  getAttrs(["basesiz","modsiz"], function(pvalue) {		
-    setAttrs({cursiz:parseInt(pvalue.basesiz)+parseInt(pvalue.modsiz)});			   
-  });
-});
-
-on("change:baseint change:modint", function() {
-  getAttrs(["baseint","modint"], function(pvalue) {		
-    setAttrs({curint:parseInt(pvalue.baseint)+parseInt(pvalue.modint)});			   
-  });
-});					
-
-on("change:basepow change:modpow", function() {
-  getAttrs(["basepow","modpow"], function(pvalue) {		
-    setAttrs({curpow:parseInt(pvalue.basepow)+parseInt(pvalue.modpow)});			   
-  });
-});					
-
-on("change:basechr change:modchr", function() {
-  getAttrs(["basechr","modchr"], function(pvalue) {		
-    setAttrs({curchr:parseInt(pvalue.basechr)+parseInt(pvalue.modchr)});			   
-  });
-});			
-
-on("change:basedex change:moddex", function() {
-  getAttrs(["basedex","moddex"], function(pvalue) {		
-    setAttrs({curdex:parseInt(pvalue.basedex)+parseInt(pvalue.moddex)});			   
-  });
-});					
 
 //Set heal rate
 on("change:curcon", function() {
@@ -2339,7 +1413,7 @@ on("change:repeating_melee2:wpndex change:repeating_melee2:wpnstr", function() {
 
 //wpn_damage
 //calculate melee spcecial and critical damage
-on("change:repeating_melee2:wpn_damage change:repeating_melee2:wpn_spl", function() {
+on("change:repeating_melee2:wpn_damage change:repeating_melee2:wpn_spl", function() {€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K
   getAttrs(["repeating_melee2_wpn_damage","repeating_melee2_wpn_spl"], function(values) {
 
     var spcl = parseInt(values.repeating_melee2_wpn_spl);
@@ -2473,3 +1547,334 @@ on("change:repeating_missle2:wpn_damage change:repeating_missle2:wpn_spl", funct
 
   });
 })	
+
+// NEW WORKERS
+
+const calcBonus = (score, secondary, negative) => {
+	// secondary/negative: 1 = true, 0 = false
+	let bonus = 0;
+	if(score > 12) {
+		bonus = Math.ceil((score-12)/4) *5;
+		if(secondary) bonus -=5;
+	} else if (score < 9) {
+		bonus = Math.ceil((9-score)/4) *5;
+		if(secondary) bonus +=5;
+	}
+	if(negative) bonus = -bonus;
+	return bonus;
+};
+
+const skillCategories = {
+	agility: {
+		curstr: { secondary: 1, negative: 0 },
+		curdex: { secondary: 0, negative: 0 },
+		cursiz: { secondary: 1, negative: 1 },
+		curpow: { secondary: 1, negative: 0 },
+	},
+	communication: {
+		curcha: { secondary: 0, negative: 0 },
+		curint: { secondary: 1, negative: 0 },
+		curpow: { secondary: 1, negative: 0 },
+	},
+	knowledge: {
+		curint: { secondary: 0, negative: 0 },
+		curpow: { secondary: 1, negative: 0 },
+	},
+	magic: {
+		curpow: { secondary: 1, negative: 0 },
+		curcha: { secondary: 0, negative: 0 },
+	},
+	manipulation: {
+		curstr: { secondary: 1, negative: 0 },
+		curdex: { secondary: 0, negative: 0 },
+		curint: { secondary: 0, negative: 0 },
+		curpow: { secondary: 1, negative: 0 },
+	},
+	perception: {
+		curint: { secondary: 0, negative: 0 },
+		curpow: { secondary: 1, negative: 0 },
+	},
+	stealth: {
+		cursiz: { secondary: 0, negative: 1 },
+		curdex: { secondary: 0, negative: 0 },
+		curint: { secondary: 0, negative: 0 },
+		curpow: { secondary: 1, negative: 1 },
+	},
+};
+
+Object.keys(skillCategories).forEach(category => {
+	let stats = [];
+	let change = '';
+	Object.keys(skillCategories[category]).forEach(stat => { 
+		stats.push(stat);
+		change += `change:${stat} `;
+	});
+	on(`${change}sheet:opened`, function () {
+		getAttrs(stats, values => {
+			let bonus = 0;
+			Object.keys(skillCategories[category]).forEach(stat => { 
+				const score = parseInt(values[stat], 10) || 0;
+				const secondary = skillCategories[category][stat]['secondary'];
+				const negative = skillCategories[category][stat]['negative'];
+				bonus += calcBonus(score, secondary, negative);
+			});
+			setAttrs({
+				[`${category}_mod`]: bonus 
+			});
+		});
+	});
+}); 
+
+//Set siz SRM
+on("change:cursiz", function() {
+  getAttrs(["cursiz","dex_srm"], function(pvalue) {
+    const charSiz = parseInt(pvalue.cursiz);
+    const charSsrm = parseInt(pvalue.dex_srm);			
+
+    const ssrm = Math.max(3 - Math.ceil(charSiz/7), 0);
+    const msrm = charSsrm + ssrm;
+
+    setAttrs({ siz_srm: ssrm , melee_srm: msrm});
+  });
+});	
+
+
+//Set Dex SRM
+on("change:curdex", function() {
+  getAttrs(["curdex","siz_srm"], function(pvalue) {
+    const charDex = parseInt(pvalue.curdex);
+    const charSsrm = parseInt(pvalue.siz_srm);			
+    var dsrm = 0;
+
+    if (charDex < 6){
+      dsrm = 5;
+    } else if (charDex < 9){
+      dsrm = 4;
+    } else if (charDex < 13){
+      dsrm = 3;				
+    } else if (charDex < 16){
+      dsrm = 2;	
+    } else if (charDex < 19){
+      dsrm = 1;						
+    } else {
+      dsrm = 0;				
+    }				
+
+    const msrm = charSsrm + dsrm;
+
+    setAttrs({ dex_srm: dsrm , melee_srm: msrm});
+  });
+});	
+
+//Location Hit Points
+on("change:hp_max", function() {
+  getAttrs(["hp_max"], function(pvalue) {
+    var HitPoints = parseInt(pvalue.hp_max);
+
+		const Arms  = 1 + Math.ceil(Math.max(0, HitPoints-6)/3);
+		const Chest = 3 + Math.ceil(Math.max(0, HitPoints-6)/3);
+		const Other = 2 + Math.ceil(Math.max(0, HitPoints-6)/3);
+
+		setAttrs({
+			r_arm_max_hp: Arms,
+			l_arm_max_hp: Arms,
+			chst_max_hp: Chest,
+			r_leg_max_hp: Other,
+			l_leg_max_hp: Other,
+			abd_max_hp: Other,
+			hd_max_hp: Other
+		});
+  });
+});		
+
+//Set Current Hit Points
+on("change:lhp_loss change:thp_loss ", function() {
+  getAttrs(["hp_max","lhp_loss","thp_loss"], function(pvalue) {
+    const HitPoints = parseInt(pvalue.hp_max);
+    const THpLoss = parseInt(pvalue.lhp_loss);
+    const LHpLoss = parseInt(pvalue.thp_loss);				
+
+    const CurHitPoints = HitPoints-THpLoss-LHpLoss;
+
+    setAttrs({hp_cur: CurHitPoints});
+  });
+});
+
+
+//Set Hit Points
+on("change:curcon change:curpow change:cursiz", function() {
+  getAttrs(["curcon", "cursiz","curpow","hp","lhp_loss","thp_loss"], function(pvalue) {
+    const THpLoss = parseInt(pvalue.lhp_loss);
+    const LHpLoss = parseInt(pvalue.thp_loss);				
+    const charSize = parseInt(pvalue.cursiz);
+    const charCon = parseInt(pvalue.curcon);
+    const charPow = parseInt(pvalue.curpow);
+    var HitPoints = charCon;
+
+    if (charSize < 5){
+      HitPoints -= 2;
+    }
+    else if (charSize >= 5 && charSize <= 8){
+      HitPoints -= 1;
+    }
+    else if (charSize >= 9 && charSize <= 12){
+      HitPoints -= 1;
+    }
+    else if (charSize >= 13){
+      HitPoints += Math.ceil((charSize-12)/4);
+    }
+
+    if (charPow < 5){
+      HitPoints -= 1;
+    }
+    else if (charPow >= 17){
+      HitPoints += Math.ceil((charPow-16)/4);
+    }
+
+    const CurHitPoints = HitPoints-THpLoss-LHpLoss;
+
+    setAttrs({ hp_max: HitPoints, hp_cur: CurHitPoints});
+  });
+});	
+
+const hitLocations = [
+	'r_leg',
+	'l_leg',
+	'abd',
+	'chst',
+	'r_arm',
+	'l_arm',
+	'hd',
+]
+hitLocations.forEach((loc) => {
+	const damageAttr = loc + "_damage";
+	const maxHpAttr  = loc + "_max_hp";
+	on("change:" + damageAttr + " change:" + maxHpAttr, function() {
+		getAttrs([damageAttr, maxHpAttr], function(values) {
+			const lochp =  parseInt(values[maxHpAttr]);
+			const damage = values[damageAttr];
+			const tot = lochp - eval(damage); 
+
+			setAttrs({[loc + "_cur_hp"]:tot});	
+		});
+	});	
+});
+
+on("change:r_leg_damage change:l_leg_damage change:abd_damage change:abd_damage change:chst_damage change:r_arm_damage change:l_arm_damage change:hd_damage", function() {
+  getAttrs(["r_leg_damage","l_leg_damage","abd_damage","abd_damage","chst_damage","r_arm_damage","l_arm_damage","hd_damage"], function(values) {
+    var tot=0;
+    for (const key of Object.keys(values)) {
+      tot = tot + eval(values[key]);
+    }
+    setAttrs({lhp_loss:tot});	
+  });
+});			
+
+on("change:repeating_missle:mdbtoggle", function() {
+  getAttrs(["repeating_missle_mdbtoggle","mdamagebonus","attr_mmaxDb"], function(values) {
+    const mdb = values.repeating_missle_mdbtoggle;
+    var mdbStr = "0";
+    var maxmdbStr = "0";
+    if (mdb=="on"){
+      mdbStr = values.mdamagebonus;
+      maxmdbStr = values.mmaxDb;
+    }
+
+    setAttrs({repeating_missle_wpnmdb:mdbStr,maxwpnmdb: maxmdbStr});	
+  });
+});	
+
+on("change:curstr change:curcon", function() {
+  getAttrs(["curstr","curcon"], function(pvalue) {		
+    const cStr = parseInt(pvalue.curstr);
+    const cCon = parseInt(pvalue.curcon);
+    const enc = Math.min(cStr, Math.ceil((cStr+cCon)/2));
+
+    setAttrs({carry_max2:enc});			   
+  });
+});		
+
+const skillTotals = [
+	'meleeskills',
+	'missileskills',
+	'shieldSkills',
+	'naturalWpnSkills',
+];
+skillTotals.forEach((skill) => {
+	const section = (skill.indexOf('missile') > 0)? "repeating_missile2" : "repeating_melee2";
+	on("change:repeating_" + skill + ":skillTotal", function(eventInfo) {
+		getAttrs(["repeating_" + skill + "_skill","repeating_" + skill + "_skillTotal"], function(pvalue) {		
+			const repeatRow = eventInfo.sourceAttribute.match(/[^_]*_[^_]*_[^_]*/g);
+			const wpnSkill = pvalue["repeating_" + skill + "_skill"];
+			const skillTotal = pvalue["repeating_" + skill + "_skillTotal"];
+			const skillVal=getSkillValues2(wpnSkill,section,repeatRow,skillTotal);
+		});
+	});
+});
+
+const categories = [
+	'knowledgeSkills',
+	'agilitySkills',
+	'communicationSkills',
+	'magicSkills',
+	'manipulationSkills',
+	'perceptionskills',
+	'stealthskills',
+];
+categories.forEach((category) => {
+	on("change:repeating_stealthskills:skill", function() {
+		getAttrs(["repeating_stealthskills_skill"], function(pvalue) {		
+			const fullName = pvalue["repeating_" + category + "_skill"];
+			const name = fullName.substr(1);
+			const char1 = fullName.substr(0, 1); 
+
+			if (char1=="-"){
+				setAttrs({repeating_stealthskills_sp_toggle1:0,repeating_stealthskills_skill:name});			   	
+			} else 	if (char1=="+"){
+				setAttrs({repeating_stealthskills_sp_toggle1:"on",repeating_stealthskills_skill:name});			   	
+			}					
+		});
+	});	
+});
+
+
+
+const opposingRunes = {
+	fertility: 'death',
+	death: 'fertility',
+	harmony: 'disorder',
+	disorder: 'harmony',
+	truth: 'illusion',
+	illusion: 'truth',
+	stasis: 'movement',
+	movement: 'stasis',
+	man: 'beast',
+	beast: 'man',
+}
+Object.keys(opposingRunes).forEach(function(rune) {
+	on("change:" + rune + "_rune", function() {
+		getAttrs([rune + "_rune"], function(value) {				
+			setAttrs(
+				{[opposingRunes[rune] + "_rune"]:100-value[rune + "_rune"]},
+				{silent:true}
+			);			   
+		});
+	});	
+});
+
+const stats = [
+	'str',
+	'con',
+	'siz',
+	'int',
+	'pow',
+	'chr',
+	'dex',
+];
+stats.forEach((stat) => {
+	on("change:base" + stat + " change:mod" + stat, function() {
+		getAttrs(["base" + stat,"mod" + stat], function(pvalue) {		
+			setAttrs({["cur" + stat]:parseInt(pvalue["base" + stat])+parseInt(pvalue["mod" + stat])});			   
+		});
+	});					
+});
