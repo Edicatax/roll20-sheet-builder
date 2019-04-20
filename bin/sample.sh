@@ -1,6 +1,5 @@
 sample=index.html
 source=(
-    head.html
     newpcsheet.html
     personaltab.html
     personaltabsummary.html
@@ -19,7 +18,6 @@ source=(
 	tas.js
 	newworkers.js
 	workerend.html
-    foot.html
 )
 
 # clear the target file

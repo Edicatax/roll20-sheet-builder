@@ -1,3 +1,4 @@
+console.log('aaaa');
 //Set Damage Bonus
 on("change:curstr change:cursiz change:strengthCast", function() {
   getAttrs(["curstr", "cursiz","strengthCast","damagebonus"], function(pvalue) {
@@ -632,20 +633,6 @@ function resetSkills(section,category_mod,enc){
   });		
 }
 
-const categories = [
-	agilitySkills
-	communicationSkills
-	knowledgeSkills
-	magicSkills
-	manipulationSkills
-	perceptionSkills
-	stealthSkills
-	meleeSkills
-	missileSkills
-	shieldSkills
-	naturalWpnSkills
-];
-
 on("change:agility_mod", function() {
   resetSkills("repeating_agilitySkills","agility_mod","1");
 });	
@@ -1269,10 +1256,6 @@ on("change:repeating_missle2:skillDefault", function() {
 
     console.log("!!!!1 WHAT IS FUCKING VAL "+val);
     setAttrs({repeating_missle2_skillReduct:val});	
-
-
-
-
   });
 });
 
@@ -1281,21 +1264,14 @@ on("change:repeating_missle2:skillDefault", function() {
 on("change:repeating_melee2:mntDbToggle", function() {
   getAttrs(["repeating_melee2_mntDbToggle"], function(values) {
     console.log("Start set mounted damage bonus");
-
     var mdb =  values.repeating_melee2_mntDbToggle;
     var val = 0;
     if (mdb=="on"){
-
       val= 1;		
-
     }
 
     console.log("!!!!1 WHAT IS VAL "+val);
     setAttrs({repeating_melee2_mntTogVal:val});	
-
-
-
-
   });
 });
 
@@ -1305,241 +1281,19 @@ on("change:repeating_missle2:mdbtoggle", function() {
     console.log("Start set missle damage bonus");
     console.log(values);
     console.log(values.repeating_missle2_mdbtoggle);
-
     var mdb =  values.repeating_missle2_mdbtoggle;
     var mdbStr = "0";
     var maxmdbStr = "0";
 
     if (mdb=="on"){
-
       mdbStr = values.mdamagebonus;
       mdbStr = mdbStr.toUpperCase();
       var splitMdb = mdbStr.split("D");
       maxmdbStr = splitMdb[0]*splitMdb[1];
-
-
     }
     setAttrs({repeating_missle2_wpnmdb:mdbStr,repeating_missle2_maxwpnmdb:maxmdbStr});	
-
-
-
-
   });
 });	
-
-on("change:repeating_missle2:wpndex change:repeating_missle2:wpnstr", function() {
-  getAttrs(["repeating_missle2_wpnstr","repeating_missle2_wpndex","curdex","curstr"], function(values) {
-
-    var wStr =  parseInt(values.repeating_missle2_wpnstr);
-    var wDex =  parseInt(values.repeating_missle2_wpndex);
-    var cStr = parseInt(values.curstr);
-    var cDex = parseInt(values.curdex);
-    var mod = 1;
-
-    var strBonus = 0;
-
-    var attrsToSet = {};
-
-    if (wStr > 0 && wDex >0){
-      if (cStr > wStr){
-        strBonus = Math.floor((cStr-wStr)/2);									
-      }
-
-      if (cStr < wStr && cDex+strBonus < wDex){
-        mod =0.5;
-      }
-    }
-    else if (wStr >0 && cStr < wStr){
-      mod=0.5;
-    }
-    else if (wDex >0){
-      if (cDex < wDex){
-        mod=0.5;
-      }																	
-    }	
-
-    setAttrs({repeating_missle2_minmod:mod});	
-
-
-
-  });
-});	
-
-
-on("change:repeating_melee2:wpndex change:repeating_melee2:wpnstr", function() {
-  getAttrs(["repeating_melee2_wpnstr","repeating_melee2_wpndex","curdex","curstr"], function(values) {
-
-    var wStr =  parseInt(values.repeating_melee2_wpnstr);
-    var wDex =  parseInt(values.repeating_melee2_wpndex);
-    var cStr = parseInt(values.curstr);
-    var cDex = parseInt(values.curdex);
-    var mod = 1;
-
-    var strBonus = 0;
-
-    var attrsToSet = {};
-
-    if (wStr > 0 && wDex >0){
-      if (cStr > wStr){
-        strBonus = Math.floor((cStr-wStr)/2);									
-      }
-
-      if (cStr < wStr && cDex+strBonus < wDex){
-        mod =0.5;
-      }
-    }
-    else if (wStr >0 && cStr < wStr){
-      mod=0.5;
-    }
-    else if (wDex >0){
-      if (cDex < wDex){
-        mod=0.5;
-      }																	
-    }	
-
-    setAttrs({repeating_melee2_minmod:mod});	
-
-
-
-  });
-});
-
-//wpn_damage
-//calculate melee spcecial and critical damage
-on("change:repeating_melee2:wpn_damage change:repeating_melee2:wpn_spl", function() {€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K€K
-  getAttrs(["repeating_melee2_wpn_damage","repeating_melee2_wpn_spl"], function(values) {
-
-    var spcl = parseInt(values.repeating_melee2_wpn_spl);
-    var wDmg =  values.repeating_melee2_wpn_damage;
-
-
-    console.log("spcl "+spcl);
-    wDmg = wDmg.toUpperCase();
-    console.log("dmg "+wDmg);	
-    var dmgSplit = wDmg.split(/[\D+]+/);
-    var newStr = "";
-    var newAdd = 0;
-
-    var cDamage = (parseInt(dmgSplit[0])*parseInt(dmgSplit[1]))+parseInt(dmgSplit[2]);
-    console.log("dmgSplit" +dmgSplit);
-    var newDice = parseInt(dmgSplit[0])*2;
-
-
-    if (spcl !==2){
-      if (dmgSplit.length===3){
-        cDamage = (newDice*parseInt(dmgSplit[1]))+parseInt(dmgSplit[2]*2);
-      }else{
-        cDamage = newDice*parseInt(dmgSplit[1]);
-      }				
-    }
-    else{
-
-      if (dmgSplit.length===3){
-        cDamage =  parseInt(dmgSplit[0])*parseInt(dmgSplit[1]);
-        cDamage = cDamage+parseInt(dmgSplit[2]);
-
-      }else{
-        cDamage =  (parseInt((dmgSplit[0])*parseInt(dmgSplit[1])));
-      }					
-    }
-    console.log("cDamage "+cDamage);
-    console.log("newDice "+newDice);
-
-
-
-    if (spcl !==2){			
-      if (dmgSplit.length===3){
-        newAdd =  parseInt(dmgSplit[2])*2
-        newStr = newDice+"D"+dmgSplit[1]+"+"+newAdd;
-      }
-      else{
-
-        newStr = newDice+"D"+dmgSplit[1];
-      }			
-    }
-    else{
-      newStr = wDmg;
-    }
-
-
-
-    console.log("newStr "+newStr)
-
-    setAttrs({repeating_melee2_spcldamage:newStr,repeating_melee2_critdamage:cDamage});	
-
-
-
-  });
-});	
-
-
-
-//wpn_damage
-//calculate missle spcecial and critical damage
-on("change:repeating_missle2:wpn_damage change:repeating_missle2:wpn_spl", function() {
-  getAttrs(["repeating_missle2_wpn_damage","repeating_missle2_wpn_spl"], function(values) {
-
-    var spcl = parseInt(values.repeating_missle2_wpn_spl);
-    var wDmg =  values.repeating_missle2_wpn_damage;
-
-
-    console.log("spcl "+spcl);
-    wDmg = wDmg.toUpperCase();
-    console.log("dmg "+wDmg);	
-    var dmgSplit = wDmg.split(/[\D+]+/);
-    var newStr = "";
-    var newAdd = 0;
-
-    var cDamage = (parseInt(dmgSplit[0])*parseInt(dmgSplit[1]))+parseInt(dmgSplit[2]);
-    console.log("dmgSplit" +dmgSplit);
-    var newDice = parseInt(dmgSplit[0])*2;
-
-
-    if (spcl !==2){
-      if (dmgSplit.length===3){
-        cDamage = (newDice*parseInt(dmgSplit[1]))+parseInt(dmgSplit[2]*2);
-      }else{
-        cDamage = newDice*parseInt(dmgSplit[1]);
-      }				
-    }
-    else{
-
-      if (dmgSplit.length===3){
-        cDamage =  parseInt(dmgSplit[0])*parseInt(dmgSplit[1]);
-        cDamage = cDamage+parseInt(dmgSplit[2]);
-
-      }else{
-        cDamage =  (parseInt((dmgSplit[0])*parseInt(dmgSplit[1])));
-      }					
-    }
-    console.log("cDamage "+cDamage);
-    console.log("newDice "+newDice);
-
-
-
-    if (spcl !==2){			
-      if (dmgSplit.length===3){
-        newAdd =  parseInt(dmgSplit[2])*2
-        newStr = newDice+"D"+dmgSplit[1]+"+"+newAdd;
-      }
-      else{
-        newStr = newDice+"D"+dmgSplit[1];
-      }			
-    }
-    else{
-      newStr = wDmg;
-    }
-
-
-
-    console.log("newStr "+newStr)
-
-    setAttrs({repeating_missle_spcldamage:newStr,repeating_missle2_critdamage:cDamage});	
-
-
-
-  });
-})	
 
 // NEW WORKERS
 
@@ -1805,32 +1559,35 @@ skillTotals.forEach((skill) => {
 	});
 });
 
+
 const categories = [
-	'knowledgeSkills',
 	'agilitySkills',
 	'communicationSkills',
+	'knowledgeSkills',
 	'magicSkills',
 	'manipulationSkills',
-	'perceptionskills',
-	'stealthskills',
+	'perceptionSkills',
+	'stealthSkills',
+	'meleeSkills',
+	'missileSkills',
+	'shieldSkills',
+	'naturalWpnSkills',
 ];
 categories.forEach((category) => {
-	on("change:repeating_stealthskills:skill", function() {
-		getAttrs(["repeating_stealthskills_skill"], function(pvalue) {		
+	on("change:repeating_" + category + ":skill", function() {
+		getAttrs(["repeating_" + category + "_skill"], function(pvalue) {		
 			const fullName = pvalue["repeating_" + category + "_skill"];
 			const name = fullName.substr(1);
 			const char1 = fullName.substr(0, 1); 
 
 			if (char1=="-"){
-				setAttrs({repeating_stealthskills_sp_toggle1:0,repeating_stealthskills_skill:name});			   	
+				setAttrs({["repeating_" + category + "_sp_toggle1"]:0,["repeating_" + category + "_skill"]:name});			   	
 			} else 	if (char1=="+"){
-				setAttrs({repeating_stealthskills_sp_toggle1:"on",repeating_stealthskills_skill:name});			   	
+				setAttrs({["repeating_" + category + "_sp_toggle1"]:"on",["repeating_" + category + "_skill"]:name});			   	
 			}					
 		});
 	});	
 });
-
-
 
 const opposingRunes = {
 	fertility: 'death',
@@ -1845,6 +1602,7 @@ const opposingRunes = {
 	beast: 'man',
 }
 Object.keys(opposingRunes).forEach(function(rune) {
+  console.log('Registering rune change handler for ' + rune);
 	on("change:" + rune + "_rune", function() {
 		getAttrs([rune + "_rune"], function(value) {				
 			setAttrs(
@@ -1865,9 +1623,36 @@ const stats = [
 	'dex',
 ];
 stats.forEach((stat) => {
+  console.log('Registering stat change handler for ' + stat);
 	on("change:base" + stat + " change:mod" + stat, function() {
 		getAttrs(["base" + stat,"mod" + stat], function(pvalue) {		
 			setAttrs({["cur" + stat]:parseInt(pvalue["base" + stat])+parseInt(pvalue["mod" + stat])});			   
 		});
 	});					
+});
+
+const weaponSections = [
+  'melee2',
+  'missle2',
+];
+weaponSections.forEach((type) => {
+  on("change:repeating_" + type + ":wpn_damage change:repeating_" + type + ":wpn_spl", function() {
+    getAttrs(["repeating_" + type + "_wpn_damage","repeating_" + type + "_wpn_spl"], function(values) {
+      const damageType = parseInt(values["repeating_" + type + "_wpn_spl"]);
+      const weaponDamage =  values["repeating_" + type + "_wpn_damage"].toUpperCase();
+      const dmgSplit = weaponDamage.split(/[\D+]+/);
+      const dieSize = parseInt(dmgSplit[1]);
+      var dieCount = parseInt(dmgSplit[0]);
+      var dieModifier = parseInt(dmgSplit[2]) || 0;
+
+      if (damageType != 2){
+        dieCount = dieCount*2;
+        dieModifier = dieModifier*2;
+      }
+      const critDamage = dieCount*dieSize+dieModifier;
+      const specDamage = dieCount+"D"+dieSize+"+"+dieModifier;
+
+      setAttrs({["repeating_" + type + "_spcldamage"]:specDamage,["repeating_" + type + "_critdamage"]:critDamage});	
+    });
+  });	
 });
