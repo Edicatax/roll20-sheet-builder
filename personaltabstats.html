@@ -4,7 +4,8 @@
       <input type="text" class="sheet-ta-c sheet-w-90p sheet-bgc-transparent sheet-c-white sheet-fs-24 sheet-p-5 sheet-fw-bold" name="attr_basestr" value="0"/>
       <div class="sheet-pos-rel sheet-w-100p sheet-ta-c">
         <span class="sheet-fs-16 sheet-td-u-h sheet-curs-p">STR</span>
-        <button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[((@{basestr}+@{modstr})*5)]]}} {{fumble=[[{(101-(round((100-((@{basestr}+@{modstr})*5))/20))),100}kl1]]}} {{crit=[[round(([[((@{basestr}+@{modstr})*5)]])/20)+1]]}} {{special=[[round(([[((@{basestr}+@{modstr})*5)]])/5)+1]]}} {{success=[[((@{basestr}+@{modstr})*5)]]}} {{roll=[[1d100]]}} {{skillname=Strength}}"></button>
+					<button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[((@{basestr}+@{modstr})*5)]]}} {{fumble=[[{(100-(round((100-((@{basestr}+@{modstr})*5)d1)/20))),99d1}kl1]]}} {{failure=[[{{((@{basestr}+@{modstr})*5)d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((((@{basestr}+@{modstr})*5))/5)]]}} {{critical=[[round(((@{basestr}+@{modstr})*5)/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Strength}}"  >
+					</button>
         <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-0s sheet-r-0s sheet-z-1 sheet-curs-p sheet-op-0" />
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-1 sheet-font-pictos sheet-fs-9">y</span>
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-2 sheet-font-pictos sheet-fs-9">*</span>
@@ -19,7 +20,8 @@
       <input type="text" class="sheet-ta-c sheet-w-90p sheet-bgc-transparent sheet-c-white sheet-fs-24 sheet-p-5 sheet-fw-bold" name="attr_basecon" value="0"/>
       <div class="sheet-pos-rel sheet-w-100p sheet-ta-c">
         <span class="sheet-fs-16 sheet-td-u-h sheet-curs-p">CON</span>
-        <button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[((@{basecon}+@{modcon})*5)]]}} {{fumble=[[{(101-(round((100-((@{basecon}+@{modcon})*5))/20))),100}kl1]]}} {{crit=[[round(([[((@{basecon}+@{modcon})*5)]])/20)+1]]}} {{special=[[round(([[((@{basecon}+@{modcon})*5)]])/5)+1]]}} {{success=[[((@{basecon}+@{modcon})*5)]]}} {{roll=[[1d100]]}} {{skillname=Constitution}}"></button>
+					<button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[((@{basecon}+@{modcon})*5)]]}} {{fumble=[[{(100-(round((100-((@{basecon}+@{modcon})*5)d1)/20))),99d1}kl1]]}} {{failure=[[{{((@{basecon}+@{modcon})*5)d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((((@{basecon}+@{modcon})*5))/5)]]}} {{critical=[[round(((@{basecon}+@{modcon})*5)/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Constitution}}"  >
+					</button>
         <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-0s sheet-r-0s sheet-z-1 sheet-curs-p sheet-op-0" />
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-1 sheet-font-pictos sheet-fs-9">y</span>
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-2 sheet-font-pictos sheet-fs-9">*</span>
@@ -34,7 +36,8 @@
       <input type="text" class="sheet-ta-c sheet-w-90p sheet-bgc-transparent sheet-c-white sheet-fs-24 sheet-p-5 sheet-fw-bold" name="attr_basesiz" value="0"/>
       <div class="sheet-pos-rel sheet-w-100p sheet-ta-c">
         <span class="sheet-fs-16 sheet-td-u-h sheet-curs-p">SIZ</span>
-        <button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[((@{basesiz}+@{modsiz})*5)]]}} {{fumble=[[{(101-(round((100-((@{basesiz}+@{modsiz})*5))/20))),100}kl1]]}} {{crit=[[round(([[((@{basesiz}+@{modsiz})*5)]])/20)+1]]}} {{special=[[round(([[((@{basesiz}+@{modsiz})*5)]])/5)+1]]}} {{success=[[((@{basesiz}+@{modsiz})*5)]]}} {{roll=[[1d100]]}} {{skillname=Size}}"></button>
+					<button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[((@{basesiz}+@{modsiz})*5)]]}} {{fumble=[[{(100-(round((100-((@{basesiz}+@{modsiz})*5)d1)/20))),99d1}kl1]]}} {{failure=[[{{((@{basesiz}+@{modsiz})*5)d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((((@{basesiz}+@{modsiz})*5))/5)]]}} {{critical=[[round(((@{basesiz}+@{modsiz})*5)/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Size}}"  >
+					</button>
         <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-0s sheet-r-0s sheet-z-1 sheet-curs-p sheet-op-0" />
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-1 sheet-font-pictos sheet-fs-9">y</span>
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-2 sheet-font-pictos sheet-fs-9">*</span>
@@ -49,7 +52,8 @@
       <input type="text" class="sheet-ta-c sheet-w-90p sheet-bgc-transparent sheet-c-white sheet-fs-24 sheet-p-5 sheet-fw-bold" name="attr_baseint" value="0"/>
       <div class="sheet-pos-rel sheet-w-100p sheet-ta-c">
         <span class="sheet-fs-16 sheet-td-u-h sheet-curs-p">INT</span>
-        <button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[((@{baseint}+@{modint})*5)]]}} {{fumble=[[{(101-(round((100-((@{baseint}+@{modint})*5))/20))),100}kl1]]}} {{crit=[[round(([[((@{baseint}+@{modint})*5)]])/20)+1]]}} {{special=[[round(([[((@{baseint}+@{modint})*5)]])/5)+1]]}} {{success=[[((@{baseint}+@{modint})*5)]]}} {{roll=[[1d100]]}} {{skillname=Intelligence}}"></button>
+					<button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[((@{baseint}+@{modint})*5)]]}} {{fumble=[[{(100-(round((100-((@{baseint}+@{modint})*5)d1)/20))),99d1}kl1]]}} {{failure=[[{{((@{baseint}+@{modint})*5)d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((((@{baseint}+@{modint})*5))/5)]]}} {{critical=[[round(((@{baseint}+@{modint})*5)/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Intelligence}}"  >
+					</button>
         <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-0s sheet-r-0s sheet-z-1 sheet-curs-p sheet-op-0" />
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-1 sheet-font-pictos sheet-fs-9">y</span>
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-2 sheet-font-pictos sheet-fs-9">*</span>
@@ -64,7 +68,8 @@
       <input type="text" class="sheet-ta-c sheet-w-90p sheet-bgc-transparent sheet-c-white sheet-fs-24 sheet-p-5 sheet-fw-bold" name="attr_basepow" value="0"/>
       <div class="sheet-pos-rel sheet-w-100p sheet-ta-c">
         <span class="sheet-fs-16 sheet-td-u-h sheet-curs-p">POW</span>
-        <button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[((@{basepow}+@{modpow})*5)]]}} {{fumble=[[{(101-(round((100-((@{basepow}+@{modpow})*5))/20))),100}kl1]]}} {{crit=[[round(([[((@{basepow}+@{modpow})*5)]])/20)+1]]}} {{special=[[round(([[((@{basepow}+@{modpow})*5)]])/5)+1]]}} {{success=[[((@{basepow}+@{modpow})*5)]]}} {{roll=[[1d100]]}} {{skillname=Power}}"></button>
+					<button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[((@{basepow}+@{modpow})*5)]]}} {{fumble=[[{(100-(round((100-((@{basepow}+@{modpow})*5)d1)/20))),99d1}kl1]]}} {{failure=[[{{((@{basepow}+@{modpow})*5)d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((((@{basepow}+@{modpow})*5))/5)]]}} {{critical=[[round(((@{basepow}+@{modpow})*5)/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Power}}"  >
+					</button>
         <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-0s sheet-r-0s sheet-z-1 sheet-curs-p sheet-op-0" />
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-1 sheet-font-pictos sheet-fs-9">y</span>
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-2 sheet-font-pictos sheet-fs-9">*</span>
@@ -79,7 +84,8 @@
       <input type="text" class="sheet-ta-c sheet-w-90p sheet-bgc-transparent sheet-c-white sheet-fs-24 sheet-p-5 sheet-fw-bold" name="attr_basedex" value="0"/>
       <div class="sheet-pos-rel sheet-w-100p sheet-ta-c">
         <span class="sheet-fs-16 sheet-td-u-h sheet-curs-p">DEX</span>
-        <button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[((@{basedex}+@{moddex})*5)]]}} {{fumble=[[{(101-(round((100-((@{basedex}+@{moddex})*5))/20))),100}kl1]]}} {{crit=[[round(([[((@{basedex}+@{moddex})*5)]])/20)+1]]}} {{special=[[round(([[((@{basedex}+@{moddex})*5)]])/5)+1]]}} {{success=[[((@{basedex}+@{moddex})*5)]]}} {{roll=[[1d100]]}} {{skillname=Dexterity}}"></button>
+					<button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[((@{basedex}+@{moddex})*5)]]}} {{fumble=[[{(100-(round((100-((@{basedex}+@{moddex})*5)d1)/20))),99d1}kl1]]}} {{failure=[[{{((@{basedex}+@{moddex})*5)d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((((@{basedex}+@{moddex})*5))/5)]]}} {{critical=[[round(((@{basedex}+@{moddex})*5)/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Dexterity}}"  >
+					</button>
         <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-0s sheet-r-0s sheet-z-1 sheet-curs-p sheet-op-0" />
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-1 sheet-font-pictos sheet-fs-9">y</span>
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-2 sheet-font-pictos sheet-fs-9">*</span>
@@ -94,7 +100,8 @@
       <input type="text" class="sheet-ta-c sheet-w-90p sheet-bgc-transparent sheet-c-white sheet-fs-24 sheet-p-5 sheet-fw-bold" name="attr_basechr" value="0"/>
       <div class="sheet-pos-rel sheet-w-100p sheet-ta-c">
         <span class="sheet-fs-16 sheet-td-u-h sheet-curs-p">CHA</span>
-        <button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[((@{basechr}+@{modchr})*5)]]}} {{fumble=[[{(101-(round((100-((@{basechr}+@{modchr})*5))/20))),100}kl1]]}} {{crit=[[round(([[((@{basechr}+@{modchr})*5)]])/20)+1]]}} {{special=[[round(([[((@{basechr}+@{modchr})*5)]])/5)+1]]}} {{success=[[((@{basechr}+@{modchr})*5)]]}} {{roll=[[1d100]]}} {{skillname=Charisma}}"></button>
+					<button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[((@{basechr}+@{modchr})*5)]]}} {{fumble=[[{(100-(round((100-((@{basechr}+@{modchr})*5)d1)/20))),99d1}kl1]]}} {{failure=[[{{((@{basechr}+@{modchr})*5)d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((((@{basechr}+@{modchr})*5))/5)]]}} {{critical=[[round(((@{basechr}+@{modchr})*5)/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Charisma}}"  >
+					</button>
         <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-0s sheet-r-0s sheet-z-1 sheet-curs-p sheet-op-0" />
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-1 sheet-font-pictos sheet-fs-9">y</span>
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-2 sheet-font-pictos sheet-fs-9">*</span>

@@ -1,4 +1,3 @@
-console.log('aaaa');
 //Set Damage Bonus
 on("change:curstr change:cursiz change:strengthCast", function() {
   getAttrs(["curstr", "cursiz","strengthCast","damagebonus"], function(pvalue) {
@@ -1304,7 +1303,7 @@ const calcBonus = (score, secondary, negative) => {
 		bonus = Math.ceil((score-12)/4) *5;
 		if(secondary) bonus -=5;
 	} else if (score < 9) {
-		bonus = Math.ceil((9-score)/4) *5;
+		bonus = Math.ceil((9-score)/4) *-5;
 		if(secondary) bonus +=5;
 	}
 	if(negative) bonus = -bonus;
@@ -1319,7 +1318,7 @@ const skillCategories = {
 		curpow: { secondary: 1, negative: 0 },
 	},
 	communication: {
-		curcha: { secondary: 0, negative: 0 },
+		curchr: { secondary: 0, negative: 0 },
 		curint: { secondary: 1, negative: 0 },
 		curpow: { secondary: 1, negative: 0 },
 	},
@@ -1328,8 +1327,8 @@ const skillCategories = {
 		curpow: { secondary: 1, negative: 0 },
 	},
 	magic: {
-		curpow: { secondary: 1, negative: 0 },
-		curcha: { secondary: 0, negative: 0 },
+		curpow: { secondary: 0, negative: 0 },
+		curchr: { secondary: 1, negative: 0 },
 	},
 	manipulation: {
 		curstr: { secondary: 1, negative: 0 },
@@ -1359,11 +1358,17 @@ Object.keys(skillCategories).forEach(category => {
 	on(`${change}sheet:opened`, function () {
 		getAttrs(stats, values => {
 			let bonus = 0;
+			console.log('category changing: ' + category);
 			Object.keys(skillCategories[category]).forEach(stat => { 
 				const score = parseInt(values[stat], 10) || 0;
 				const secondary = skillCategories[category][stat]['secondary'];
 				const negative = skillCategories[category][stat]['negative'];
+				console.log('stat changed: ' + stat);
+				console.log('score: ' + score);
+				console.log('secondary: ' + secondary);
+				console.log('negative: ' + negative);
 				bonus += calcBonus(score, secondary, negative);
+				console.log('bonus: ' + bonus);
 			});
 			setAttrs({
 				[`${category}_mod`]: bonus 

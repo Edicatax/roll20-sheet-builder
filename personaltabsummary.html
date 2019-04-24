@@ -29,8 +29,8 @@
         <label class="sheet-ta-e sheet-curs-p sheet-td-u-h">
           <div>Reputation</div>
           <span name="attr_reputation" class="sheet-fs-16"></span>
-          <button type="roll" class="sheet-d-no" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[@{reputation}]]}} {{fumble=[[{(101-(round((100-(@{reputation}))/20))),100}kl1]]}} {{crit=[[round(([[(@{reputation})]])/20)+1]]}}  {{special=[[round(([[(@{reputation})]])/5)+1]]}} {{success=[[(@{reputation})]]}} {{roll=[[1d100]]}} {{skillname=Reputation}}">
-          </button>
+					<button type="roll" class="sheet-d-no" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{reputation}]]}} {{fumble=[[{(100-(round((100-@{reputation}d1)/20))),99d1}kl1]]}} {{failure=[[{{@{reputation}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{reputation})/5)]]}} {{critical=[[round(@{reputation}/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Reputation}}"  >
+					</button>
         </label>
       </div>
       <div class="sheet-d-fl sheet-fl-col">

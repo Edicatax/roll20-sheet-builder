@@ -202,7 +202,7 @@
           <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-50p">
             <div>Dodge</div>
             <input type="text" class="sheet-w-50p sheet-p-5 sheet-ta-c" name="attr_dodge" readonly />
-            <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[(@{dodge})]]}} {{fumble=[[ceil(95+([[(@{dodge})]])/20))]]}} {{crit=[[round(([[(@{dodge})]])/20)+1]]}}  {{special=[[round(([[(@{dodge})]])/5)+1]]}}    {{success=[[(@{dodge})]]}} {{roll=[[1d100]]}} {{skillname=Dodge}}" >
+            <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{dodge}]]}} {{fumble=[[{(100-(round((100-@{dodge}d1)/20))),99d1}kl1]]}} {{failure=[[{{@{dodge}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{dodge})/5)]]}} {{critical=[[round(@{dodge}/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Dodge}}"  >
             </button>
           </div>
           <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-20p">

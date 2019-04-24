@@ -6,7 +6,8 @@
         <input type="checkbox" name="attr_passionExp" />
         <input type="text" name="attr_passion" placeholder="Passion" class="sheet-fg-1 sheet-bb sheet-p-5 sheet-mx-1s" />
         <input type="text" name="attr_value" value="60" class="sheet-bb sheet-w-10p sheet-ta-c sheet-p-5 sheet-mx-1s" />
-        <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=[[(@{value})]]}} {{fumble=[[ceil(95+([[(@{value})]])/20))]]}} {{crit=[[round(([[(@{value})]])/20)+1]]}}  {{special=[[round(([[(@{value})]])/5)+1]]}}    {{success=[[(@{value})]]}} {{roll=[[1d100]]}} {{skillname=@{Passion}}}"></button>
+				<button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{value}]]}} {{fumble=[[{(100-(round((100-@{value}d1)/20))),99d1}kl1]]}} {{failure=[[{{@{value}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{value})/5)]]}} {{critical=[[round(@{value}/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{passion}}}"  >
+				</button>
       </div>
     </fieldset>
   </div>
