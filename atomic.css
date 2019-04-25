@@ -140,11 +140,11 @@ b,strong {
 .sheet-h-25 {
     height:2.5rem
 }
-.sheet-h-275 {
-    height:27.5rem
+.sheet-h-35 {
+    height:3.5rem
 }
-.sheet-h-290 {
-    height:29rem
+.sheet-h-145 {
+    height:14.5rem
 }
 .sheet-miw-800 {
     min-width:80rem
@@ -1153,7 +1153,7 @@ input.sheet-tab:checked + span {
 
 .sheet-expand-child-1,
 .sheet-toggle-visible:checked ~ .sheet-expand-child-2 {
-    max-height: 100rem;
+    max-height: 30rem;
 }
 
 .sheet-expand-child-2,
