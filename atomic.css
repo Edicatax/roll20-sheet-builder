@@ -1185,18 +1185,42 @@ input.sheet-h-30 {
 	background:#feb624;
 }
 
+.sheet-rolltemplate-RQG-Fumble *,
+.sheet-rolltemplate-Humanoid-Hit-Locations *,
+.sheet-rolltemplate-Four-Legged-Hit-Locations *,
+.sheet-rolltemplate-Other-Hit-Locations *,
+.sheet-rolltemplate-spell *,
+.sheet-rolltemplate-simple-roll *,
 .sheet-rolltemplate-skill-2 * {
 	box-sizing: border-box;
 }
+.sheet-rolltemplate-RQG-Fumble .inlinerollresult.importantroll,
+.sheet-rolltemplate-Humanoid-Hit-Locations .inlinerollresult.importantroll,
+.sheet-rolltemplate-Four-Legged-Hit-Locations .inlinerollresult.importantroll,
+.sheet-rolltemplate-Other-Hit-Locations .inlinerollresult.importantroll,
+.sheet-rolltemplate-spell .inlinerollresult.importantroll,
+.sheet-rolltemplate-simple-roll .inlinerollresult.importantroll,
 .sheet-rolltemplate-skill-2 .inlinerollresult.importantroll {
 	border: none;
 }
+.sheet-rolltemplate-RQG-Fumble .inlinerollresult,
+.sheet-rolltemplate-Humanoid-Hit-Locations .inlinerollresult,
+.sheet-rolltemplate-Four-Legged-Hit-Locations .inlinerollresult,
+.sheet-rolltemplate-Other-Hit-Locations .inlinerollresult,
+.sheet-rolltemplate-spell .inlinerollresult,
+.sheet-rolltemplate-simple-roll .inlinerollresult,
 .sheet-rolltemplate-skill-2 .inlinerollresult {
 	border: none;
 	background-color: transparent;
 	padding: 0;
 	font-size: inherit;
 }
+.sheet-rolltemplate-RQG-Fumble .sheet-flex-row-sb,
+.sheet-rolltemplate-Humanoid-Hit-Locations .sheet-flex-row-sb,
+.sheet-rolltemplate-Four-Legged-Hit-Locations .sheet-flex-row-sb,
+.sheet-rolltemplate-Other-Hit-Locations .sheet-flex-row-sb,
+.sheet-rolltemplate-spell .sheet-flex-row-sb,
+.sheet-rolltemplate-simple-roll .sheet-flex-row-sb,
 .sheet-rolltemplate-skill-2 .sheet-flex-row-sb {
 	display: flex;
 	justify-content:space-between;

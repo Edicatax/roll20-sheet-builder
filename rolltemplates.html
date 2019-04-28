@@ -1,353 +1,142 @@
-		<rolltemplate class="sheet-rolltemplate-melee-roll2">
-		<!--awaqsdasd {{mntTogVal}}</br/>
-		Mount damage {{mntTot}}</br/>
-		mount spcl {{mntSpcl}}</br/>
-		mount crit {{mntCrit}}</br/>
-		
-		tot {{tot}}
-		critSI {{critSI}}
-		spcl {{spclDam}}
-		fumble {{fumble}}-->
+<rolltemplate class="sheet-rolltemplate-melee-roll2">
+<img style="margin-top:3px;border-left:1px solid black;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
+<div style="border: 1px solid black ">
 
-		<img style="margin-top:3px;border-left:1px solid black;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
-		<div style="border: 1px solid black ">
-		
-		<div style="background-color:white;color:#b87a38;text-align:center" >{{name}}</div>
-		<div style="background-color:white;color:#b87a38;text-align:center">{{skillname}} Roll</div>
+  <div style="background-color:white;color:#b87a38;text-align:center" >{{name}}</div>
+  <div style="background-color:white;color:#b87a38;text-align:center">{{skillname}} Roll</div>
 
-		<div style="padding-top:5px;background-color:white">	
-			<div style="text-align:center"><b>Rolls:</b>   &nbsp;{{roll}} <= {{success}}%</div> 
-			<div style="text-align:center"><b>Result:</b>
-			{{#rollBetween() roll fumble 100}} 
-					Fumble
-			{{/rollBetween() roll fumble 100}} 
-			
-			{{#^rollBetween() roll fumble 100}}
-			
-				{{#rollGreater() success 99}}
-					{{#rollLess() roll crit}}Critical!!!!!!</td>{{/rollLess() roll crit}}
-					{{#^rollLess() roll crit}}
-						{{#rollLess() roll special}}Special!!!{{/rollLess() roll special}}
-						{{#rollGreater() roll 95}}Failure{{/rollGreater() roll 95}}
-						{{#^rollGreater() roll 95}}
-							{{#^rollLess() roll special}}Success{{/^rollLess() roll special}}
-						{{/^rollGreater() roll 95}}
-						
-					{{/^rollLess() roll crit}}
+  <div style="padding-top:5px;background-color:white">	
+    <div style="text-align:center"><b>Rolls:</b>   &nbsp;{{roll}} <= {{success}}%</div> 
+    <div style="text-align:center"><b>Result:</b>
+      {{#rollBetween() roll fumble 100}} 
+      Fumble
+      {{/rollBetween() roll fumble 100}} 
 
-				{{/rollGreater() success 99}}
-				
-				{{#^rollGreater() success 99}}
-					{{#rollLess() roll crit}}Critical!!!!!!{{/rollLess() roll crit}}
-					{{#^rollLess() roll crit}}
-						{{#rollLess() roll special}}Special!!!{{/rollLess() roll special}}
-						{{#^rollLess() roll special}}
-						
-							{{#rollGreater() roll 95}}Failure{{/rollGreater() roll 95}}
-							{{#^rollGreater() roll 95}}
-								{{#rollBetween() roll special success}}Success{{/rollBetween() roll special success}}
-							{{/^rollGreater() roll 95}}
-							
-							{{#^rollBetween() roll special success}}
-								{{#rollLess() roll fumble}}
-									{{#^rollGreater() roll 95}}
-										<td>Failure</td>
-									{{/^rollGreater() roll 95}}
-								{{/rollLess() roll fumble}}
-								{{#^rollLess() roll fumble}}
-									<td>fumble</td>
-								{{/^rollLess() roll fumble}}							
-							{{/^rollBetween() roll special success}}											
-						{{/^rollLess() roll special}}
-					{{/^rollLess() roll crit}}
-				{{/^rollGreater() success 99}}
-				
-				
-				
-			{{/^rollBetween() roll fumble 100}}			
-				
-			</div>
-			<div  style="text-align:center;background-color:white">
-				{{#^rollGreater() roll 95}}
-				{{#rollLess() roll success}}
-				
+      {{#^rollBetween() roll fumble 100}}
 
-					{{#rollLess() roll crit}}
-						{{#rollTotal() type 2}}
+      {{#rollGreater() success 99}}
+      {{#rollLess() roll crit}}Critical!!!!!!</td>{{/rollLess() roll crit}}
+    {{#^rollLess() roll crit}}
+    {{#rollLess() roll special}}Special!!!{{/rollLess() roll special}}
+    {{#rollGreater() roll 95}}Failure{{/rollGreater() roll 95}}
+    {{#^rollGreater() roll 95}}
+    {{#^rollLess() roll special}}Success{{/^rollLess() roll special}}
+    {{/^rollGreater() roll 95}}
 
-								<b>Damage:</b> {{critCrsh}}					
+    {{/^rollLess() roll crit}}
 
-						{{/rollTotal() type 2}}	
-						{{#^rollTotal() type 2}}
-							<tr>
-								
-								<b>Damage:</b>
-								{{#rollTotal() mntTogVal 0}}								
-									{{critSI}}
-								{{/rollTotal() mntTogVal 0}}
-								{{#rollTotal() mntTogVal 1}}							
-									{{mntCrit}}
-								{{/rollTotal() mntTogVal 1}}
-								
-							</tr>	
-						{{/^rollTotal() type 2}}
-					{{/rollLess() roll crit}}
-				
-					{{#^rollLess() roll crit}}
+    {{/rollGreater() success 99}}
 
-						{{#rollLess() roll special}}						
+    {{#^rollGreater() success 99}}
+    {{#rollLess() roll crit}}Critical!!!!!!{{/rollLess() roll crit}}
+    {{#^rollLess() roll crit}}
+    {{#rollLess() roll special}}Special!!!{{/rollLess() roll special}}
+    {{#^rollLess() roll special}}
 
-							{{#rollTotal() type 2}}
-							
-									<b>Damage:</b>{{crshDam}}					
-							{{/rollTotal() type 2}}	
-							{{#^rollTotal() type 2}}
-							
-								
-								<b>Damage:</b>
-								{{#rollTotal() mntTogVal 0}}	
-									{{spclDam}}
-								{{/rollTotal() mntTogVal 0}}	
-								{{#rollTotal() mntTogVal 1}}							
-									{mntSpcl}}
-								{{/rollTotal() mntTogVal 1}}								
-								
-							{{/^rollTotal() type 2}}
-						{{/rollLess() roll special}}
-					{{/^rollLess() roll crit}}
-				
-				
-				
-					{{#^rollLess() roll special}}
-						
-							<b>Damage:</b>
-							{{#rollTotal() mntTogVal 0}}							
-								{{tot}}
-							{{/rollTotal() mntTogVal 0}}													
-							{{#rollTotal() mntTogVal 1}}							
-								{{mntTot}}
-							{{/rollTotal() mntTogVal 1}}	
+    {{#rollGreater() roll 95}}Failure{{/rollGreater() roll 95}}
+    {{#^rollGreater() roll 95}}
+    {{#rollBetween() roll special success}}Success{{/rollBetween() roll special success}}
+    {{/^rollGreater() roll 95}}
 
-					{{/^rollLess() roll special}}
-				{{/rollLess() roll success}}
-				{{#rollTotal() roll success}}
-
-
-						<b>Damage1:</b>
-						{{#rollTotal() mntTogVal 0}}							
-							{{tot}}
-						{{/rollTotal() mntTogVal 0}}													
-						{{#rollTotal() mntTogVal 1}}							
-							{{mntTot}}
-						{{/rollTotal() mntTogVal 1}}	
-				{{/rollTotal() roll success}}			
-				{{/^rollGreater() roll 95}}
-
-			</div>
-			</div>
-			<img style="margin-top:3px;border-left:1px solid black;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
-		<div style="border: 1px solid black ">
-	</rolltemplate>
-
-	<rolltemplate class="sheet-rolltemplate-RQG-Fumble">
-		<table style="background-color: #ffffff;" class="sheet-rolltemplate-skillRoll">
-		<th>Fumble </th>
-		<tr>
-		{{#rollBetween() roll 1 5}}<td>Lose next parry</td>{{/rollBetween() roll 1 5}}
-		{{#rollBetween() roll 6 10}}<td>Lose next attack</td>{{/rollBetween() roll 6 10}}
-		{{#rollBetween() roll 11 15}}<td>Lose next attack and parry</td>{{/rollBetween() roll 11 15}}
-		{{#rollBetween() roll 16 20}}<td>Lose next attack, parry, and any Dodge.</td>{{/rollBetween() roll 16 20}}
-		{{#rollBetween() roll 21 25}}<td>Lose next 1D3 attacks.</td>{{/rollBetween() roll 21 25}}
-		{{#rollBetween() roll 26 30}}<td>Lose next 1D3 attacks and parries.</td>{{/rollBetween() roll 26 30}}
-		{{#rollBetween() roll 31 35}}<td>Shield strap breaks; lose shield immediately.</td>{{/rollBetween() roll 31 35}}
-		{{#rollBetween() roll 36 40}}<td>Shield strap breaks; as above, and lose next attack.</td>{{/rollBetween() roll 36 40}}
-		{{#rollBetween() roll 41 45}}<td>Armor strap breaks and armor comes lose (roll for hit location to determine which piece of armor is lost).</td>{{/rollBetween() roll 41 45}}
-		{{#rollBetween() roll 46 50}}<td>Armor strap breaks, as above, and lose next attack and parry.</td>{{/rollBetween() roll 46 50}}
-		{{#rollBetween() roll 51 55}}<td>Fall and lose parry this round (takes 1D3 rounds to get up).</td>{{/rollBetween() roll 51 55}}
-		{{#rollBetween() roll 56 60}}<td>Twist ankle; lose half movement rate for 5D10 rounds.</td>{{/rollBetween() roll 56 60}}
-		{{#rollBetween() roll 61 63}}<td>Twist ankle and fall; apply the effects of 51–55 and 56–60.</td>{{/rollBetween() roll 61 63}}
-		{{#rollBetween() roll 64 67}}<td>Vision impaired; lose 25% effectiveness on attacks and parries (takes 1D3 rounds unengaged to clear vision).</td>{{/rollBetween() roll 64 67}}
-		{{#rollBetween() roll 68 70}}<td>Vision impaired; lose 50% effectiveness on attacks and parries (takes 1D6 rounds unengaged to clear vision).</td>{{/rollBetween() roll 68 70}}
-		{{#rollBetween() roll 71 72}}<td>Vision blocked; lose all attacks and parries (takes 1D6 rounds unengaged to clear vision).</td>{{/rollBetween() roll 71 72}}
-		{{#rollBetween() roll 73 74}}<td>Distracted; foes attack at +25% effectiveness for next round.</td>{{/rollBetween() roll 73 74}}
-		{{#rollBetween() roll 75 78}}<td><b>Attack:</b> Weapon used in attack dropped (takes 1D3 rounds to recover).
-	<br/><b>Parry:</b> Parrying weapon or shield dropped (takes 1D3 rounds to recover).</td>{{/rollBetween() roll 75 78}}
-		{{#rollBetween() roll 79 82}}<td><b>Attack:</b> Weapon knocked away (roll 1D6 for number of meters it travels, and roll 1D8 for compass direction it goes;
-	with 1=north, 2=northeast, 3=east, 4=southeast, 5=south, 6=southwest, 7=west, 8=northwest).
-	<br><b>Parry:</b> Parrying weapon or shield knocked away (roll 1D6 for number of meters it travels and 1D8 for compass
-	direction it goes, as above).</td>{{/rollBetween() roll 79 82}}
-		{{#rollBetween() roll 83 86}}<td><b>Attack:</b> Weapon shattered (100% chance if unenchanted; 10% less for each point of battle magic spell on weapon,
-	and 20% less for each point of Rune magic spell on weapon).
-	Parry: Parrying weapon or shield shattered (100% if unenchanted; 10% less for each point of battle magic on object,
-	and 20% less for each point of Rune magic.)</td>{{/rollBetween() roll 83 86}}
-		{{#rollBetween() roll 87 89}}<td><b>Attack:</b> Hit nearest friend (hit self if no friend near); do rolled damage.
-	<br><b>Parry:</b> Wide open; foe automatically hits with normal damage.</td>{{/rollBetween() roll 87 89}}
-		{{#rollBetween() roll 90 91}}<td><b>Attack:</b> Hit nearest friend (hit self if no friend near); do full possible damage.
-	<br><b>Parry:</b> Wide open; foe automatically hits with normal damage.</td>{{/rollBetween() roll 90 91}}
-		{{#rollTotal() roll 92}}<td><b>Attack:</b> Hit nearest friend (hit self if no friend near); do critical hit.
-	<br><b>Parry:</b> Wide open; foe automatically hits with normal damage.</td>{{/rollTotal() roll 92}}
-		{{#rollBetween() roll 93 95}}<td><b>Attack:</b> Hit self; do rolled damage.
-	<br><b>Parry:</b> Wide open; foe automatically hits with full possible damage.</td>{{/rollBetween() roll 93 95}}
-		{{#rollBetween() roll 96 97}}<td><b>Attack:</b> Hit self; do full possible damage.
-	<br><b>Parry:</b> Wide open; foe automatically critical hits.</td>{{/rollBetween() roll 96 97}}
-		{{#rollTotal() roll 98}}<td><b>Attack:</b> Hit self; do critical hit.
-	<br><b>Parry:</b> Wide open; foe automatically critical hits.</td>{{/rollTotal() roll 98}}
-		{{#rollTotal() roll 99}}<td>Blow it; roll twice on this table, and apply both results. If this result is rolled again, continue rolling until two other
-	results are achieved.</td>{{/rollTotal() roll 99}}
-		{{#rollTotal() roll 100}}<td>Blow it badly; roll three times on this table, and apply all three results. If this result is rolled again, continue rolling
-	until three other results are achieved.</td>{{/rollTotal() roll 100}}
-		</tr>
-		</table>
-	</rolltemplate>
-
-
-		<!--end new rolltemplates -->
-		<!--old templates -->
-	<rolltemplate class="sheet-rolltemplate-melee-roll">
-    <table class="skillRoll" style="border 1px black">
-        <tr><th colspan="2">{{name}}</th></tr>
-		
-		<tr><th colspan="2">Weapon Roll</th></tr>
-		 <!--<tr><td>{{crit}}/{{special}}/{{fumble}}</td></tr>-->
-
-			<tr>
-				<td class="template_label">{{skillname}} {{skillvalue}}% </td> 
-				<td class="template_value"> ({{success}}%)</td>
-			</tr>
-			
-		<!--<tr>
-			Fumble {{fumble}}
-		</tr>
-		<tr>
-			crit {{crit}}
-		</tr>
-		<tr>
-			special {{special}}
-		</tr>
-		<tr>
-			success {{success}}
-		</tr>-->
-		
-        <tr>
-            <td class="template_label"><b>Rolled:</b></td>
-            <td class="template_value">&nbsp;{{roll}}</td>
-        </tr>
-		<tr>
-		 <td class="template_label"><b>Result:</b></td>
-		 
-		{{#rollBetween() roll fumble 100}} 
-				<td class="template_value">Fumble</td>
-		{{/rollBetween() roll fumble 100}} 
-		
-		{{#^rollBetween() roll fumble 100}}
-		
-			{{#rollGreater() success 99}}
-				{{#rollLess() roll crit}}<td class="template_value">Critical!!!!!!</td>{{/rollLess() roll crit}}
-				{{#^rollLess() roll crit}}
-					{{#rollLess() roll special}}<td class="template_value">Special!!!</td>{{/rollLess() roll special}}
-					{{#^rollLess() roll special}}<td class="template_value">Success</td>{{/^rollLess() roll special}}
-				{{/^rollLess() roll crit}}
-
-			{{/rollGreater() success 99}}
-			
-			{{#^rollGreater() success 99}}
-				{{#rollLess() roll crit}}<td class="template_value">Critical!!!!!!</td>{{/rollLess() roll crit}}
-				{{#^rollLess() roll crit}}
-					{{#rollLess() roll special}}<td class="template_value">Special!!!</td>{{/rollLess() roll special}}
-					{{#^rollLess() roll special}}
-						{{#rollBetween() roll special success}}<td class="template_value">Success</td>{{/rollBetween() roll special success}}
-						{{#^rollBetween() roll special success}}
-							{{#rollLess() roll fumble}}
-								<td class="template_value">Failure</td>
-							{{/rollLess() roll fumble}}
-							{{#^rollLess() roll fumble}}
-								<td class="template_value">fumble</td>
-							{{/^rollLess() roll fumble}}							
-						{{/^rollBetween() roll special success}}											
-					{{/^rollLess() roll special}}
-				{{/^rollLess() roll crit}}
-			{{/^rollGreater() success 99}}
-		{{/^rollBetween() roll fumble 100}}
-		
-		
-		{{#rollLess() roll success}}
-			<tr>
-				<td class="template_label"><b>Damage:</b></td>
-				<td style="text-align: right"; class="template_value">{{tot}}<td>
-			</tr>
-		{{/rollLess() roll success}}
-    </table>
-</rolltemplate>
+    {{#^rollBetween() roll special success}}
+    {{#rollLess() roll fumble}}
+    {{#^rollGreater() roll 95}}
+    <td>Failure</td>
+    {{/^rollGreater() roll 95}}
+    {{/rollLess() roll fumble}}
+    {{#^rollLess() roll fumble}}
+    <td>fumble</td>
+    {{/^rollLess() roll fumble}}							
+    {{/^rollBetween() roll special success}}											
+    {{/^rollLess() roll special}}
+    {{/^rollLess() roll crit}}
+    {{/^rollGreater() success 99}}
 
 
 
+    {{/^rollBetween() roll fumble 100}}			
+
+    </div>
+    <div  style="text-align:center;background-color:white">
+      {{#^rollGreater() roll 95}}
+      {{#rollLess() roll success}}
 
 
-<rolltemplate class="sheet-rolltemplate-skillRoll">
-		
+      {{#rollLess() roll crit}}
+      {{#rollTotal() type 2}}
 
-		<img style="margin-top:3px;border-left:1px solid black;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
-		<div style="border: 1px solid black ">
-		
-		<div style="background-color:white;color:#b87a38;text-align:center" >{{name}}</div>
-		<div style="background-color:white;color:#b87a38;text-align:center">{{skillname}} Roll</div>
+      <b>Damage:</b> {{critCrsh}}					
 
-		<div style="padding-top:5px;background-color:white">	
-			<div style="text-align:center"><b>Rolls:</b>   &nbsp;{{roll}} <= {{success}}%</div> 
-			<div style="text-align:center"><b>Result:</b>
-			{{#rollBetween() roll fumble 100}} 
-					Fumble
-			{{/rollBetween() roll fumble 100}} 
-			
-			{{#^rollBetween() roll fumble 100}}
-			
-				{{#rollGreater() success 99}}
-					{{#rollLess() roll crit}}Critical (+50%)</td>{{/rollLess() roll crit}}
-					{{#^rollLess() roll crit}}
-						{{#rollLess() roll special}}Special (+30%) {{/rollLess() roll special}}
-						{{#rollGreater() roll 95}}Failure (-20%) {{/rollGreater() roll 95}}
-						{{#^rollGreater() roll 95}}
-							{{#^rollLess() roll special}}Success (+20%) {{/^rollLess() roll special}}
-						{{/^rollGreater() roll 95}}
-						
-					{{/^rollLess() roll crit}}
+      {{/rollTotal() type 2}}	
+      {{#^rollTotal() type 2}}
+      <tr>
 
-				{{/rollGreater() success 99}}
-				
-				{{#^rollGreater() success 99}}
-					{{#rollLess() roll crit}}Critical (+50%) {{/rollLess() roll crit}}
-					{{#^rollLess() roll crit}}
-						{{#rollLess() roll special}}Special (+30%) {{/rollLess() roll special}}
-						{{#^rollLess() roll special}}
-						
-							{{#rollGreater() roll 95}}Failure (-20%)  {{/rollGreater() roll 95}}
-							{{#^rollGreater() roll 95}}
-								{{#rollBetween() roll special success}}Success (+20%) {{/rollBetween() roll special success}}
-							{{/^rollGreater() roll 95}}
-							
-							{{#^rollBetween() roll special success}}
-								{{#rollLess() roll fumble}}
-									{{#^rollGreater() roll 95}}
-										<td>Failure  (-20%)</td>
-									{{/^rollGreater() roll 95}}
-								{{/rollLess() roll fumble}}
-								{{#^rollLess() roll fumble}}
-									<td>Fumble (-50%)</td>
-								{{/^rollLess() roll fumble}}							
-							{{/^rollBetween() roll special success}}											
-						{{/^rollLess() roll special}}
-					{{/^rollLess() roll crit}}
-				{{/^rollGreater() success 99}}
-				
-				
-				
-			{{/^rollBetween() roll fumble 100}}			
-				
-			</div>
+        <b>Damage:</b>
+        {{#rollTotal() mntTogVal 0}}								
+        {{critSI}}
+        {{/rollTotal() mntTogVal 0}}
+        {{#rollTotal() mntTogVal 1}}							
+        {{mntCrit}}
+        {{/rollTotal() mntTogVal 1}}
 
-			</div>
-			<img style="margin-top:3px;border-left:1px solid black;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
-		<div style="border: 1px solid black ">
+      </tr>	
+      {{/^rollTotal() type 2}}
+      {{/rollLess() roll crit}}
+
+      {{#^rollLess() roll crit}}
+
+      {{#rollLess() roll special}}						
+
+      {{#rollTotal() type 2}}
+
+      <b>Damage:</b>{{crshDam}}					
+      {{/rollTotal() type 2}}	
+      {{#^rollTotal() type 2}}
+
+
+      <b>Damage:</b>
+      {{#rollTotal() mntTogVal 0}}	
+      {{spclDam}}
+      {{/rollTotal() mntTogVal 0}}	
+      {{#rollTotal() mntTogVal 1}}							
+      {mntSpcl}}
+      {{/rollTotal() mntTogVal 1}}								
+
+      {{/^rollTotal() type 2}}
+      {{/rollLess() roll special}}
+      {{/^rollLess() roll crit}}
+
+
+
+      {{#^rollLess() roll special}}
+
+      <b>Damage:</b>
+      {{#rollTotal() mntTogVal 0}}							
+      {{tot}}
+      {{/rollTotal() mntTogVal 0}}													
+      {{#rollTotal() mntTogVal 1}}							
+      {{mntTot}}
+      {{/rollTotal() mntTogVal 1}}	
+
+      {{/^rollLess() roll special}}
+      {{/rollLess() roll success}}
+      {{#rollTotal() roll success}}
+
+
+      <b>Damage1:</b>
+      {{#rollTotal() mntTogVal 0}}							
+      {{tot}}
+      {{/rollTotal() mntTogVal 0}}													
+      {{#rollTotal() mntTogVal 1}}							
+      {{mntTot}}
+      {{/rollTotal() mntTogVal 1}}	
+      {{/rollTotal() roll success}}			
+      {{/^rollGreater() roll 95}}
+
+    </div>
+  </div>
+  <img style="margin-top:3px;border-left:1px solid black;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
+  <div style="border: 1px solid black ">
 </rolltemplate>
 
 		<!--old  templates  end-->		
@@ -386,75 +175,124 @@
 <img style="border:1px solid black;border-radius:0 0 4px 4px" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
 </rolltemplate>
 
+<rolltemplate class="sheet-rolltemplate-simple-roll">
+<div style="width:100%;background:#f5f5f5;border-radius:4px 4px 0 0">
+  <div style="font-size:2.2rem;text-align:center;padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">{{rollname}}</div>
+  <div style="float:left;background:#feb624;color:#fff6e5;font-size:2.4rem;font-weight:bold;text-align:center;padding:1.5rem 0;width:25%">
+	{{roll}}</div><div style="display:inline-block;background:#fed084;font-size:2.4rem;font-weight:bold;padding:1.5rem;box-sizing:border-box;width:75%;color:#fff6e5">
+    {{#rollGreater() roll target}}{{#rollOver}}Success{{/rollOver}}{{#rollUnder}}Failure{{/rollUnder}}{{/rollGreater() roll target}}
+    {{#rollBetween() roll 0 target}}{{#rollOver}}Failure{{/rollOver}}{{#rollUnder}}Success{{/rollUnder}}{{/rollBetween() roll 0 target}}</div>
+	<div class="sheet-flex-row-sb" style="padding:1rem">
+		<div>success</div>
+    <div style="padding:0 0.5rem;background:#717171;border-radius:4px;color:white">{{#rollUnder}}=<{{/rollUnder}}{{#rollOver}}>{{/rollOver}} {{target}}</div>
+	</div>
+</div>
+<img style="border:1px solid black;border-radius:0 0 4px 4px" src="https://raw.githubusercontent.com/roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
+</rolltemplate>
+
 <rolltemplate class="sheet-rolltemplate-Humanoid-Hit-Locations">
-<img style="margin-top:3px;border:1px solid black;border-radius:4px 4px 0 0;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
-<div style="border-left: 1px solid black;padding:5px 0;border-right:1px solid black;width:100%;background:whitesmoke;">
-  <div style="font-size:1.6rem;text-align:center">Humanoid Hit location roll</div>
-  <div style="text-align:center;padding:1rem">{{roll}}</div>
-  <div style="font-size:1.6rem;text-align:center;font-weight:bold">
-    {{#rollBetween() roll 1 4}}Hit on the Left Leg{{/rollBetween() roll 1 4}}
-    {{#rollBetween() roll 5 8}}Hit on the Right Leg{{/rollBetween() roll 5 8}}
-    {{#rollBetween() roll 9 11}}Hit on the  Abdomen{{/rollBetween() roll 9 11}}
-    {{#rollTotal() roll 12}}Hit on the Chest{{/rollTotal() roll 12}}
-    {{#rollBetween() roll 13 15}}Hit on the Right Arm{{/rollBetween() roll 13 15}}
-    {{#rollBetween() roll 16 18}}Hit on the Left Arm{{/rollBetween() roll 16 18}}
-    {{#rollBetween() roll 19 20}}Hit on the Head{{/rollBetween() roll 19 20}}
-  </div>
+<div style="width:100%;background:#f5f5f5;border-radius:4px 4px 0 0">
+  <div style="font-size:2.2rem;text-align:center;padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">Humanoid hit location</div>
+  <div style="float:left;background:#feb624;color:#fff6e5;font-size:2.4rem;font-weight:bold;text-align:center;padding:1.5rem 0;width:25%">
+	{{roll}}</div><div style="display:inline-block;background:#fed084;font-size:2.4rem;font-weight:bold;padding:1.5rem;box-sizing:border-box;width:75%;color:#fff6e5">
+    {{#rollBetween() roll 1 4}}Left Leg{{/rollBetween() roll 1 4}}
+    {{#rollBetween() roll 5 8}}Right Leg{{/rollBetween() roll 5 8}}
+    {{#rollBetween() roll 9 11}}Abdomen{{/rollBetween() roll 9 11}}
+    {{#rollTotal() roll 12}}Chest{{/rollTotal() roll 12}}
+    {{#rollBetween() roll 13 15}}Right Arm{{/rollBetween() roll 13 15}}
+    {{#rollBetween() roll 16 18}}Left Arm{{/rollBetween() roll 16 18}}
+    {{#rollBetween() roll 19 20}}Head{{/rollBetween() roll 19 20}}</div>
 </div>
 <img style="border:1px solid black;border-radius:0 0 4px 4px" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-Four-Legged-Hit-Locations">
-<img style="margin-top:3px;border:1px solid black;border-radius:4px 4px 0 0;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
-<div style="border-left: 1px solid black;padding:5px 0;border-right:1px solid black;width:100%;background:whitesmoke;">
-  <div style="font-size:1.6rem;text-align:center">Four-legged Hit location roll</div>
-  <div style="text-align:center;padding:1rem">{{roll}}</div>
-  <div style="font-size:1.6rem;text-align:center;font-weight:bold">
-    {{#rollBetween() roll 1 2}}Hit on the right hind leg{{/rollBetween() roll 1 2}}
-    {{#rollBetween() roll 3 4}}Hit on the left hind leg{{/rollBetween() roll 3 4}}
-    {{#rollBetween() roll 5 7}}Hit on the hindquarter{{/rollBetween() roll 5 7}}
-    {{#rollBetween() roll 8 10}}Hit on the forequarter{{/rollBetween() roll 8 10}}
-    {{#rollBetween() roll 11 13}}Hit on the right front leg{{/rollBetween() roll 11 13}}
-    {{#rollBetween() roll 14 16}}Hit on the left front leg{{/rollBetween() roll 14 16}}
-    {{#rollBetween() roll 17 20}}Hit on the head{{/rollBetween() roll 17 20}}		
-  </div>
+<div style="width:100%;background:#f5f5f5;border-radius:4px 4px 0 0">
+  <div style="font-size:2.2rem;text-align:center;padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">Four-legged hit location</div>
+  <div style="float:left;background:#feb624;color:#fff6e5;font-size:2.4rem;font-weight:bold;text-align:center;padding:1.5rem 0;width:25%">
+	{{roll}}</div><div style="display:inline-block;background:#fed084;font-size:2.4rem;font-weight:bold;padding:1.5rem;box-sizing:border-box;width:75%;color:#fff6e5">
+    {{#rollBetween() roll 1 2}}Right Hind Leg{{/rollBetween() roll 1 2}}
+    {{#rollBetween() roll 3 4}}Left Hind Leg{{/rollBetween() roll 3 4}}
+    {{#rollBetween() roll 5 7}}Hindquarter{{/rollBetween() roll 5 7}}
+    {{#rollBetween() roll 8 10}}Forequarter{{/rollBetween() roll 8 10}}
+    {{#rollBetween() roll 11 13}}Right Front Leg{{/rollBetween() roll 11 13}}
+    {{#rollBetween() roll 14 16}}Left Front Leg{{/rollBetween() roll 14 16}}
+    {{#rollBetween() roll 17 20}}Head{{/rollBetween() roll 17 20}}</div>
 </div>
 <img style="border:1px solid black;border-radius:0 0 4px 4px" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-Other-Hit-Locations">
-<img style="margin-top:3px;border:1px solid black;border-radius:4px 4px 0 0;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
-<div style="border-left: 1px solid black;padding:5px 0;border-right:1px solid black;width:100%;background:whitesmoke;">
-  <div style="font-size:1.6rem;text-align:center">Other Hit location roll</div>
-  <div style="text-align:center;padding:1rem">{{roll}}</div>
+<div style="width:100%;background:#f5f5f5;border-radius:4px 4px 0 0">
+  <div style="font-size:2.2rem;text-align:center;padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">Other hit location</div>
+  <div style="float:left;background:#feb624;color:#fff6e5;font-size:2.4rem;font-weight:bold;text-align:center;padding:1.5rem 0;width:25%">
+	{{roll}}</div><div style="display:inline-block;background:#fed084;font-size:2.4rem;font-weight:bold;padding:1.5rem;box-sizing:border-box;width:75%;color:#fff6e5">
+    ?</div>
 </div>
 <img style="border:1px solid black;border-radius:0 0 4px 4px" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
 </rolltemplate>
 
 
 <rolltemplate class="sheet-rolltemplate-spell">
-<img style="margin-top:3px;border:1px solid black;border-radius:4px 4px 0 0;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
-<div style="border-left: 1px solid black;padding:5px 0;border-right:1px solid black;width:100%;background:url(http://i.imgur.com/BLb0XMU.jpg) top left repeat;">
-  <div style="font-size:2rem;text-align:center;padding:0.5rem">{{name}}</div>
-  <div style="font-size:1.6rem;text-align:center">{{keywords}}</div>
+<div style="width:100%;background:#f5f5f5;border-radius:4px 4px 0 0">
+  <div style="font-size:2.2rem;text-align:center;padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">{{name}}</div>
+  <div style="font-size:1.6rem;text-align:center;margin-top:1rem">{{keywords}}</div>
   <div style="text-align:center">{{cost}} {{point_type}} point(s)</div>
   <div style="padding:0.5rem">{{description}}</div>
 </div>
 <img style="border:1px solid black;border-radius:0 0 4px 4px" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
 </rolltemplate>
 
-<rolltemplate class="sheet-rolltemplate-resistance">
-<img style="margin-top:3px;border:1px solid black;border-radius:4px 4px 0 0;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
-<div style="border-left: 1px solid black;padding:5px 0;border-right:1px solid black;width:100%;background:whitesmoke;">
-  <div style="font-size:1.6rem;text-align:center">{{name}} Resistance Roll</div>
-  {{#rollGreater() roll target}}
-    <div style="text-align:center;padding:1rem">{{roll}}<span style="font-size:2rem;"> > {{target}}</span></div>
-    <div style="font-size:1.6rem;text-align:center;color:darkred;font-weight:bold">Failure</div>
-  {{/rollGreater() roll target}}
-  {{#^rollGreater() roll target}}
-    <div style="text-align:center;padding:1rem"><span style="font-size:2rem;">{{roll}} < </span>{{target}}</div>
-    <div style="font-size:1.6rem;text-align:center;color:green;font-weight:bold">Success</div>
-  {{/^rollGreater() roll target}}
+<rolltemplate class="sheet-rolltemplate-RQG-Fumble">
+<div style="width:100%;background:#f5f5f5;border-radius:4px 4px 0 0">
+  <div style="float:left;background:#feb624;color:#fff6e5;font-size:2.4rem;font-weight:bold;text-align:center;padding:1.5rem 0;width:25%;border-radius:4px 0 0 0">
+	{{roll}}</div><div style="display:inline-block;background:#fed084;font-size:2.4rem;font-weight:bold;padding:1.5rem;box-sizing:border-box;width:75%;color:#fff6e5;border-radius:0 4px 0 0">
+    Fumble</div>
+  <div style="padding:0.5rem">
+	{{#rollBetween() roll 1 5}}Lose next parry{{/rollBetween() roll 1 5}}
+	{{#rollBetween() roll 6 10}}Lose next attack{{/rollBetween() roll 6 10}}
+	{{#rollBetween() roll 11 15}}Lose next attack and parry{{/rollBetween() roll 11 15}}
+	{{#rollBetween() roll 16 20}}Lose next attack, parry, and any Dodge.{{/rollBetween() roll 16 20}}
+	{{#rollBetween() roll 21 25}}Lose next 1D3 attacks.{{/rollBetween() roll 21 25}}
+	{{#rollBetween() roll 26 30}}Lose next 1D3 attacks and parries.{{/rollBetween() roll 26 30}}
+	{{#rollBetween() roll 31 35}}Shield strap breaks; lose shield immediately.{{/rollBetween() roll 31 35}}
+	{{#rollBetween() roll 36 40}}Shield strap breaks; lose shield immediately, and lose next attack.{{/rollBetween() roll 36 40}}
+	{{#rollBetween() roll 41 45}}Armor strap breaks and armor comes loose (roll for hit location to determine which piece of armor is lost).{{/rollBetween() roll 41 45}}
+	{{#rollBetween() roll 46 50}}Armor strap breaks and armor comes loose (roll for hit location to determine which piece of armor is lost), and lose next attack and parry.{{/rollBetween() roll 46 50}}
+	{{#rollBetween() roll 51 55}}Fall and lose parry this round (takes 1D3 rounds to get up).{{/rollBetween() roll 51 55}}
+	{{#rollBetween() roll 56 60}}Twist ankle; lose half movement rate for 5D10 rounds.{{/rollBetween() roll 56 60}}
+	{{#rollBetween() roll 61 63}}Twist ankle and fall; apply the effects of 51–55 and 56–60.{{/rollBetween() roll 61 63}}
+	{{#rollBetween() roll 64 67}}Vision impaired; lose 25% effectiveness on attacks and parries (takes 1D3 rounds unengaged to clear vision).{{/rollBetween() roll 64 67}}
+	{{#rollBetween() roll 68 70}}Vision impaired; lose 50% effectiveness on attacks and parries (takes 1D6 rounds unengaged to clear vision).{{/rollBetween() roll 68 70}}
+	{{#rollBetween() roll 71 72}}Vision blocked; lose all attacks and parries (takes 1D6 rounds unengaged to clear vision).{{/rollBetween() roll 71 72}}
+	{{#rollBetween() roll 73 74}}Distracted; foes attack at +25% effectiveness for next round.{{/rollBetween() roll 73 74}}
+	{{#rollBetween() roll 75 78}}<b>Attack:</b> Weapon used in attack dropped (takes 1D3 rounds to recover).
+<br/><b>Parry:</b> Parrying weapon or shield dropped (takes 1D3 rounds to recover).{{/rollBetween() roll 75 78}}
+	{{#rollBetween() roll 79 82}}<b>Attack:</b> Weapon knocked away (roll 1D6 for number of meters it travels, and roll 1D8 for compass direction it goes;
+with 1=north, 2=northeast, 3=east, 4=southeast, 5=south, 6=southwest, 7=west, 8=northwest).
+<br><b>Parry:</b> Parrying weapon or shield knocked away (roll 1D6 for number of meters it travels and 1D8 for compass
+direction it goes; with 1=north, 2=northeast, 3=east, 4=southeast, 5=south, 6=southwest, 7=west, 8=northwest).{{/rollBetween() roll 79 82}}
+	{{#rollBetween() roll 83 86}}<b>Attack:</b> Weapon shattered (100% chance if unenchanted; 10% less for each point of battle magic spell on weapon,
+and 20% less for each point of Rune magic spell on weapon).
+<br/><b>Parry:</b> Parrying weapon or shield shattered (100% if unenchanted; 10% less for each point of battle magic on object,
+and 20% less for each point of Rune magic.){{/rollBetween() roll 83 86}}
+	{{#rollBetween() roll 87 89}}<b>Attack:</b> Hit nearest friend (hit self if no friend near); do rolled damage.
+<br><b>Parry:</b> Wide open; foe automatically hits with normal damage.{{/rollBetween() roll 87 89}}
+	{{#rollBetween() roll 90 91}}<b>Attack:</b> Hit nearest friend (hit self if no friend near); do full possible damage.
+<br><b>Parry:</b> Wide open; foe automatically hits with normal damage.{{/rollBetween() roll 90 91}}
+	{{#rollTotal() roll 92}}<b>Attack:</b> Hit nearest friend (hit self if no friend near); do critical hit.
+<br><b>Parry:</b> Wide open; foe automatically hits with normal damage.{{/rollTotal() roll 92}}
+	{{#rollBetween() roll 93 95}}<b>Attack:</b> Hit self; do rolled damage.
+<br><b>Parry:</b> Wide open; foe automatically hits with full possible damage.{{/rollBetween() roll 93 95}}
+	{{#rollBetween() roll 96 97}}<b>Attack:</b> Hit self; do full possible damage.
+<br><b>Parry:</b> Wide open; foe automatically critical hits.{{/rollBetween() roll 96 97}}
+	{{#rollTotal() roll 98}}<b>Attack:</b> Hit self; do critical hit.
+<br><b>Parry:</b> Wide open; foe automatically critical hits.{{/rollTotal() roll 98}}
+	{{#rollTotal() roll 99}}Blow it; roll twice on this table, and apply both results. If this result is rolled again, continue rolling until two other
+results are achieved.{{/rollTotal() roll 99}}
+	{{#rollTotal() roll 100}}Blow it badly; roll three times on this table, and apply all three results. If this result is rolled again, continue rolling
+until three other results are achieved.{{/rollTotal() roll 100}}
+  </div>
 </div>
 <img style="border:1px solid black;border-radius:0 0 4px 4px" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
 </rolltemplate>
