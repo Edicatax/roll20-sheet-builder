@@ -11,50 +11,41 @@
       {{#rollBetween() roll fumble 100}} 
       Fumble
       {{/rollBetween() roll fumble 100}} 
-
       {{#^rollBetween() roll fumble 100}}
+				{{#rollGreater() success 99}}
+					{{#rollLess() roll crit}}Critical!!!!!!{{/rollLess() roll crit}}
+					{{#^rollLess() roll crit}}
+						{{#rollLess() roll special}}Special!!!{{/rollLess() roll special}}
+						{{#rollGreater() roll 95}}Failure{{/rollGreater() roll 95}}
+						{{#^rollGreater() roll 95}}
+							{{#^rollLess() roll special}}Success{{/^rollLess() roll special}}
+						{{/^rollGreater() roll 95}}
+					{{/^rollLess() roll crit}}
+				{{/rollGreater() success 99}}
+				{{#^rollGreater() success 99}}
+					{{#rollLess() roll crit}}Critical!!!!!!{{/rollLess() roll crit}}
+					{{#^rollLess() roll crit}}
+						{{#rollLess() roll special}}Special!!!{{/rollLess() roll special}}
+						{{#^rollLess() roll special}}
+							{{#rollGreater() roll 95}}Failure{{/rollGreater() roll 95}}
+							{{#^rollGreater() roll 95}}
+								{{#rollBetween() roll special success}}Success{{/rollBetween() roll special success}}
+							{{/^rollGreater() roll 95}}
 
-      {{#rollGreater() success 99}}
-      {{#rollLess() roll crit}}Critical!!!!!!</td>{{/rollLess() roll crit}}
-    {{#^rollLess() roll crit}}
-    {{#rollLess() roll special}}Special!!!{{/rollLess() roll special}}
-    {{#rollGreater() roll 95}}Failure{{/rollGreater() roll 95}}
-    {{#^rollGreater() roll 95}}
-    {{#^rollLess() roll special}}Success{{/^rollLess() roll special}}
-    {{/^rollGreater() roll 95}}
-
-    {{/^rollLess() roll crit}}
-
-    {{/rollGreater() success 99}}
-
-    {{#^rollGreater() success 99}}
-    {{#rollLess() roll crit}}Critical!!!!!!{{/rollLess() roll crit}}
-    {{#^rollLess() roll crit}}
-    {{#rollLess() roll special}}Special!!!{{/rollLess() roll special}}
-    {{#^rollLess() roll special}}
-
-    {{#rollGreater() roll 95}}Failure{{/rollGreater() roll 95}}
-    {{#^rollGreater() roll 95}}
-    {{#rollBetween() roll special success}}Success{{/rollBetween() roll special success}}
-    {{/^rollGreater() roll 95}}
-
-    {{#^rollBetween() roll special success}}
-    {{#rollLess() roll fumble}}
-    {{#^rollGreater() roll 95}}
-    <td>Failure</td>
-    {{/^rollGreater() roll 95}}
-    {{/rollLess() roll fumble}}
-    {{#^rollLess() roll fumble}}
-    <td>fumble</td>
-    {{/^rollLess() roll fumble}}							
-    {{/^rollBetween() roll special success}}											
-    {{/^rollLess() roll special}}
-    {{/^rollLess() roll crit}}
-    {{/^rollGreater() success 99}}
-
-
-
-    {{/^rollBetween() roll fumble 100}}			
+							{{#^rollBetween() roll special success}}
+								{{#rollLess() roll fumble}}
+									{{#^rollGreater() roll 95}}
+									Failure
+									{{/^rollGreater() roll 95}}
+								{{/rollLess() roll fumble}}
+								{{#^rollLess() roll fumble}}
+								fumble
+								{{/^rollLess() roll fumble}}							
+							{{/^rollBetween() roll special success}}											
+						{{/^rollLess() roll special}}
+					{{/^rollLess() roll crit}}
+				{{/^rollGreater() success 99}}
+			{{/^rollBetween() roll fumble 100}}			
 
     </div>
     <div  style="text-align:center;background-color:white">
@@ -295,6 +286,70 @@ until three other results are achieved.{{/rollTotal() roll 100}}
   </div>
 </div>
 <img style="border:1px solid black;border-radius:0 0 4px 4px" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-attack-roll">
+{{#rollLess() roll failure}}
+<div style="width:100%;background:#f5f5f5;border-radius:4px">
+{{/rollLess() roll failure}}
+{{#^rollLess() roll failure}}
+<div style="width:100%;background:#f5f5f5;border-radius:4px 4px 0 0">
+{{/^rollLess() roll failure}}
+  <div style="font-size:2.2rem;text-align:center;padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">{{skillname}}</div>
+  <div style="float:left;background:#feb624;color:#fff6e5;font-size:2.4rem;font-weight:bold;text-align:center;padding:1.5rem 0;width:25%">
+	{{roll}}</div><div style="display:inline-block;background:#fed084;font-size:2.4rem;font-weight:bold;padding:1.5rem;box-sizing:border-box;width:75%;color:#fff6e5">
+    {{#rollGreater() roll fumble}}Fumble{{/rollGreater() roll fumble}}
+    {{#rollBetween() roll failure fumble}}Failure{{/rollBetween() roll failure fumble}}
+    {{#rollGreater() roll special}}{{#rollLess() roll failure}}Success{{/rollLess() roll failure}}{{/rollGreater() roll special}}
+    {{#rollBetween() roll critical special}}Special{{/rollBetween() roll critical special}}
+    {{#rollLess() roll critical}}Critical{{/rollLess() roll critical}}</div>
+	<div style="float:left;width:50%;font-size:1.2rem">
+		<div class="sheet-flex-row-sb" style="margin:1rem">
+			<div>Fumble</div>
+			<div style="padding:0 0.5rem;background:#717171;border-radius:4px;color:white">> {{fumble}}</div>
+		</div>
+		<div class="sheet-flex-row-sb" style="margin:1rem">
+			<div>Success</div>
+			<div style="padding:0 0.5rem;background:#717171;border-radius:4px;color:white">=< {{skillvalue}}</div>
+		</div>
+	</div>
+	<div style="display:inline-block;width:50%;font-size:1.2rem">
+		<div class="sheet-flex-row-sb" style="margin:1rem">
+			<div>Special</div>
+			<div style="padding:0 0.5rem;background:#717171;border-radius:4px;color:white">=< {{special}}</div>
+		</div>
+		<div class="sheet-flex-row-sb" style="margin:1rem">
+			<div>Critical</div>
+			<div style="padding:0 0.5rem;background:#717171;border-radius:4px;color:white">< {{critical}}</div>
+		</div>
+	</div>
+</div>
+{{#^rollLess() roll failure}}
+<img style="border:1px solid black;border-radius:0 0 4px 4px" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/RunequestGQS/banner.jpg" />
+{{/^rollLess() roll failure}}
+{{#rollLess() roll failure}}
+<div style="width:100%;background:#f5f5f5;border-radius:4px;margin-top:1.5rem">
+	<div style="float:left;background:#feb624;color:#fff6e5;font-size:2.4rem;font-weight:bold;text-align:center;padding:1.5rem 0;width:25%;border-radius:4px 0 0 4px">
+	{{#rollTotal() type 2}}
+		{{#rollGreater() roll special}}{{#rollLess() roll failure}}{{tot}}{{/rollLess() roll failure}}{{/rollGreater() roll special}}
+		{{#rollBetween() roll critical special}}{{crshDam}}{{/rollBetween() roll critical special}}
+		{{#rollLess() roll critical}}{{critCrsh}}{{/rollLess() roll critical}}
+	{{/rollTotal() type 2}}	
+	{{#^rollTotal() type 2}}
+		{{#rollTotal() mntTogVal 0}}								
+			{{#rollGreater() roll special}}{{#rollLess() roll failure}}{{tot}}{{/rollLess() roll failure}}{{/rollGreater() roll special}}
+			{{#rollBetween() roll critical special}}{{spclDam}}{{/rollBetween() roll critical special}}
+			{{#rollLess() roll critical}}{{critSI}}{{/rollLess() roll critical}}
+		{{/rollTotal() mntTogVal 0}}								
+		{{#rollTotal() mntTogVal 1}}								
+			{{#rollGreater() roll special}}{{#rollLess() roll failure}}{{mntTot}}{{/rollLess() roll failure}}{{/rollGreater() roll special}}
+			{{#rollBetween() roll critical special}}{{mntSpcl}}{{/rollBetween() roll critical special}}
+			{{#rollLess() roll critical}}{{mntCrit}}{{/rollLess() roll critical}}
+		{{/rollTotal() mntTogVal 1}}								
+	{{/^rollTotal() type 2}}</div><div style="display:inline-block;background:#fed084;font-size:2.4rem;font-weight:bold;padding:1.5rem;box-sizing:border-box;width:75%;color:#fff6e5;border-radius:0 4px 4px 0">
+	Damage</div>
+</div>
+{{/rollLess() roll failure}}
 </rolltemplate>
 
 		<!--new  templates  end-->		

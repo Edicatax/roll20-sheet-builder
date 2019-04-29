@@ -311,38 +311,6 @@ function getSkillValues2(wpnSkill,section,section2,skillTotal){
 }	
 
 
-
-function getSkillValues(wpnSkill,section,section2){
-  getSectionIDs(section, function(idArray) {
-    if (idArray.length > 0) {
-
-      _.each(idArray, function(currentID, i) {
-        getAttrs([section+"_" + currentID + "_skill",section+"_" + currentID + "_skillTotal"], function(values) {
-
-          console.log("!!!!!! stuff2  "+JSON.stringify(values));
-
-          /*let wStr = values[section+"_" + idArray[i] + "_skill"];*/
-          /*console.log("!!!!!! Look for skill "+wStr);*/
-          let skillname = values[section+"_" + idArray[i] + "_skill"];
-          var skillTotal =0 ;
-
-          if (skillname == wpnSkill){	
-            console.log("!!!!!!!!!!!! found "+wpnSkill);
-            skillTotal = values[section+"_" + idArray[i] + "_skillTotal"];
-            console.log("!!!!!! Skilltotal "+skillTotal);
-            let attrsToSet = {[section2 + '_skillTotal']: skillTotal};								
-            setAttrs(attrsToSet);
-          }								
-
-
-        });
-      });
-    }
-
-  });						
-}
-
-
 on("change:repeating_agilitySkills:skillValue", function() {
   getAttrs(["repeating_agilitySkills_skillValue"], function(pvalue) {		
 
@@ -1445,7 +1413,6 @@ on("change:lhp_loss change:thp_loss ", function() {
     const HitPoints = parseInt(pvalue.hp_max);
     const THpLoss = parseInt(pvalue.lhp_loss);
     const LHpLoss = parseInt(pvalue.thp_loss);				
-
     const CurHitPoints = HitPoints-THpLoss-LHpLoss;
 
     setAttrs({hp_cur: CurHitPoints});
@@ -1661,3 +1628,22 @@ weaponSections.forEach((type) => {
     });
   });	
 });
+
+function getSkillValues(skillName,source,dest){
+  getSectionIDs(source, function(idArray) {
+    if (idArray.length < 1) {
+			return;
+    }
+
+		_.each(idArray, function(currentID, i) {
+			getAttrs([source+"_" + currentID + "_skill",source+"_" + currentID + "_skillTotal"], function(values) {
+				const currentSkill = values[source+"_" + idArray[i] + "_skill"];
+				if (currentSkill != skillName){	
+					return;
+				}
+				const skillTotal = values[source+"_" + idArray[i] + "_skillTotal"];
+				setAttrs({[dest + '_skillTotal']: skillTotal});
+			});
+		});
+  });						
+}

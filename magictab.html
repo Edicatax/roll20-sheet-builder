@@ -209,21 +209,20 @@
   </div>
   <div class="sheet-pos-rel sheet-d-fl sheet-ai-c sheet-fw-w sheet-py-1s sheet-mb-1s sheet-bb">
     <div class="sheet-w-90p sheet-d-fl sheet-jc-sb sheet-ai-c">
+      <input type="text" class="sheet-w-5p sheet-p-5 sheet-bb sheet-ta-c" value="0" name="attr_curpow" readonly />
       <span>Power</span>
-      <span name="attr_basepow"></span>
       <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[(@{basepow}+@{modpow})*5]]}} {{fumble=[[{(100-(round((100-(@{basepow}d1+@{modpow})*5)/20))),99d1}kl1]]}} {{failure=[[{{(@{basepow}d1+@{modpow})*5+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round(((@{basepow}+@{modpow})*5)/5)]]}} {{critical=[[round(((@{basepow}+@{modpow})*5)/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Magic}}"  >
       </button>
       <span class="sheet-h-25 sheet-bgc-dgray sheet-mx-1s" style="width:1px"></span>
       <span>Resistance</span>
       <button type="roll" value="&{template:simple-roll} {{rollname=POW Resistance}} {{target=[[((@{basepow}+@{modpow})-?{Opponent POW|10})*5+50]]}} {{roll=[[1d100]]}} {{rollUnder=1}}"></button>
       <span class="sheet-h-25 sheet-bgc-dgray sheet-mx-1s" style="width:1px"></span>
+      <input type="text" class="sheet-w-5p sheet-p-5 sheet-bb sheet-ta-c" value="0" name="attr_spirit_combat" readonly />
       <span>Spirit Combat</span>
-      <input type="text" class="sheet-w-10p sheet-p-5 sheet-bb sheet-ta-c" value="0" name="attr_spirit_combat" readonly />
+      <input type="text" class="sheet-w-10p sheet-p-5 sheet-bb sheet-ta-c" placeholder="Spirit combat damage" name="attr_sprt_cmbt_damage" />
+      <div>Damage</div>
       <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{spirit_combat}]]}} {{fumble=[[{(100-(round((100-@{spirit_combat}d1)/20))),99d1}kl1]]}} {{failure=[[{{@{spirit_combat}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{spirit_combat})/5)]]}} {{critical=[[round((@{spirit_combat})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Spirit Combat}}"  >
       </button>
-      <span class="sheet-h-25 sheet-bgc-dgray sheet-mx-1s" style="width:1px"></span>
-      <div>Damage</div>
-      <input type="text" class="sheet-w-10p sheet-p-5 sheet-bb sheet-ta-c" placeholder="Spirit combat damage" name="attr_sprt_cmbt_damage" />
       <button type="roll" value="[[@{sprt_cmbt_damage1}]]"></button>
       <span class="sheet-h-25 sheet-bgc-dgray sheet-mx-1s" style="width:1px"></span>
     </div>
