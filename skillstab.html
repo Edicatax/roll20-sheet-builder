@@ -31,7 +31,7 @@
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" readonly name="attr_skillTotal" />
             <button type="roll" class="sheet-hide-advancement" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
             </button>
-						<button type="roll" class="sheet-show-advancement sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=Advancement}} {{target=[[?{Target number|5}]]}} {{roll=[[1d100+@{agility_mod}]]}} {{rollOver=1}}">{</button>
+            <button type="roll" class="sheet-show-advancement sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=@{skill} Advancement}} {{target=[[@{skillTotal}]]}} {{roll=[[1d100+@{agility_mod}]]}} {{rollOver=1}}">{</button>
             <input type="checkbox" class="sheet-d-no" name="attr_sp_toggle1" checked />							
           </div>
         </fieldset>
@@ -47,13 +47,14 @@
       <div class="sheet-d-fl sheet-fl-col sheet-mb-2s">
         <fieldset class="repeating_communicationSkills">
           <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-10">
-            <input type="checkbox" class="sheet-w-10p" name="attr_expCheck" />
+            <input type="checkbox" class="sheet-w-10p sheet-trigger-advancement" name="attr_expCheck" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-50p" name="attr_skill" placeholder="skill" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_base2"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_skillValue"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" readonly name="attr_skillTotal" />
-            <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
+            <button type="roll" class="sheet-hide-advancement" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
             </button>
+            <button type="roll" class="sheet-show-advancement sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=@{skill} Advancement}} {{target=[[@{skillTotal}]]}} {{roll=[[1d100+@{communication_mod}]]}} {{rollOver=1}}">{</button>
             <input type="checkbox" class="sheet-d-no" name="attr_sp_toggle1" checked />							
           </div>
         </fieldset>
@@ -69,13 +70,14 @@
       <div class="sheet-d-fl sheet-fl-col sheet-mb-2s">
         <fieldset class="repeating_perceptionSkills">
           <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-10">
-            <input type="checkbox" class="sheet-w-10p" name="attr_expCheck" />
+            <input type="checkbox" class="sheet-w-10p sheet-trigger-advancement" name="attr_expCheck" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-50p" name="attr_skill" placeholder="skill" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_base2"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_skillValue"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" readonly name="attr_skillTotal" />
-            <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
+            <button type="roll" class="sheet-hide-advancement" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
             </button>
+            <button type="roll" class="sheet-show-advancement sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=@{skill} Advancement}} {{target=[[@{skillTotal}]]}} {{roll=[[1d100+@{perception_mod}]]}} {{rollOver=1}}">{</button>
             <input type="checkbox" class="sheet-d-no" name="attr_sp_toggle1" checked />							
           </div>
         </fieldset>
@@ -91,13 +93,14 @@
       <div class="sheet-d-fl sheet-fl-col sheet-mb-2s">
         <fieldset class="repeating_stealthSkills">
           <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-10">
-            <input type="checkbox" class="sheet-w-10p" name="attr_expCheck" />
+            <input type="checkbox" class="sheet-w-10p sheet-trigger-advancement" name="attr_expCheck" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-50p" name="attr_skill" placeholder="skill" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_base2"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_skillValue"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" readonly name="attr_skillTotal" />
-            <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
+            <button type="roll" class="sheet-hide-advancement" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
             </button>
+            <button type="roll" class="sheet-show-advancement sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=@{skill} Advancement}} {{target=[[@{skillTotal}]]}} {{roll=[[1d100+@{stealth_mod}]]}} {{rollOver=1}}">{</button>
             <input type="checkbox" class="sheet-d-no" name="attr_sp_toggle1" checked />							
           </div>
         </fieldset>
@@ -115,13 +118,14 @@
       <div class="sheet-d-fl sheet-fl-col sheet-mb-2s">
         <fieldset class="repeating_magicSkills">
           <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-10">
-            <input type="checkbox" class="sheet-w-10p" name="attr_expCheck" />
+            <input type="checkbox" class="sheet-w-10p sheet-trigger-advancement" name="attr_expCheck" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-50p" name="attr_skill" placeholder="skill" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_base2"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_skillValue"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" readonly name="attr_skillTotal" />
-            <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
+            <button type="roll" class="sheet-hide-advancement" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
             </button>
+            <button type="roll" class="sheet-show-advancement sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=@{skill} Advancement}} {{target=[[@{skillTotal}]]}} {{roll=[[1d100+@{magic_mod}]]}} {{rollOver=1}}">{</button>
             <input type="checkbox" class="sheet-d-no" name="attr_sp_toggle1" checked />							
           </div>
         </fieldset>
@@ -137,13 +141,14 @@
       <div class="sheet-d-fl sheet-fl-col sheet-mb-2s">
         <fieldset class="repeating_manipulationSkills">
           <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-10">
-            <input type="checkbox" class="sheet-w-10p" name="attr_expCheck" />
+            <input type="checkbox" class="sheet-w-10p sheet-trigger-advancement" name="attr_expCheck" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-50p" name="attr_skill" placeholder="skill" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_base2"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_skillValue"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" readonly name="attr_skillTotal" />
-            <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
+            <button type="roll" class="sheet-hide-advancement" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
             </button>
+            <button type="roll" class="sheet-show-advancement sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=@{skill} Advancement}} {{target=[[@{skillTotal}]]}} {{roll=[[1d100+@{manipulation_mod}]]}} {{rollOver=1}}">{</button>
             <input type="checkbox" class="sheet-d-no" name="attr_sp_toggle1" checked />							
           </div>
         </fieldset>
@@ -159,13 +164,14 @@
       <div class="sheet-d-fl sheet-fl-col sheet-mb-2s">
         <fieldset class="repeating_knowledgeSkills">
           <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-10">
-            <input type="checkbox" class="sheet-w-10p" name="attr_expCheck" />
+            <input type="checkbox" class="sheet-w-10p sheet-trigger-advancement" name="attr_expCheck" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-50p" name="attr_skill" placeholder="skill" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_base2"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_skillValue"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" readonly name="attr_skillTotal" />
-            <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
+            <button type="roll" class="sheet-hide-advancement" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
             </button>
+            <button type="roll" class="sheet-show-advancement sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=@{skill} Advancement}} {{target=[[@{skillTotal}]]}} {{roll=[[1d100+@{knowledge_mod}]]}} {{rollOver=1}}">{</button>
             <input type="checkbox" class="sheet-d-no" name="attr_sp_toggle1" checked />							
           </div>
         </fieldset>
@@ -183,13 +189,14 @@
       <div class="sheet-d-fl sheet-fl-col sheet-mb-2s">
         <fieldset class="repeating_meleeSkills">
           <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-10">
-            <input type="checkbox" class="sheet-w-10p" name="attr_expCheck" />
+            <input type="checkbox" class="sheet-w-10p sheet-trigger-advancement" name="attr_expCheck" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-50p" name="attr_skill" placeholder="skill" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_base2"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_skillValue"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" readonly name="attr_skillTotal" />
-            <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
+            <button type="roll" class="sheet-hide-advancement" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
             </button>
+            <button type="roll" class="sheet-show-advancement sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=@{skill} Advancement}} {{target=[[@{skillTotal}]]}} {{roll=[[1d100+@{manipulation_mod}]]}} {{rollOver=1}}">{</button>
             <input type="checkbox" class="sheet-d-no" name="attr_sp_toggle1" checked />							
           </div>
         </fieldset>
@@ -205,13 +212,14 @@
       <div class="sheet-d-fl sheet-fl-col sheet-mb-2s">
         <fieldset class="repeating_missileSkills">
           <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-10">
-            <input type="checkbox" class="sheet-w-10p" name="attr_expCheck" />
+            <input type="checkbox" class="sheet-w-10p sheet-trigger-advancement" name="attr_expCheck" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-50p" name="attr_skill" placeholder="skill" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_base2"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_skillValue"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" readonly name="attr_skillTotal" />
-            <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
+            <button type="roll" class="sheet-hide-advancement" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
             </button>
+            <button type="roll" class="sheet-show-advancement sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=@{skill} Advancement}} {{target=[[@{skillTotal}]]}} {{roll=[[1d100+@{manipulation_mod}]]}} {{rollOver=1}}">{</button>
             <input type="checkbox" class="sheet-d-no" name="attr_sp_toggle1" checked />							
           </div>
         </fieldset>
@@ -227,13 +235,14 @@
       <div class="sheet-d-fl sheet-fl-col sheet-mb-2s">
         <fieldset class="repeating_shieldSkills">
           <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-10">
-            <input type="checkbox" class="sheet-w-10p" name="attr_expCheck" />
+            <input type="checkbox" class="sheet-w-10p sheet-trigger-advancement" name="attr_expCheck" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-50p" name="attr_skill" placeholder="skill" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_base2"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_skillValue"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" readonly name="attr_skillTotal" />
-            <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
+            <button type="roll" class="sheet-hide-advancement" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
             </button>
+            <button type="roll" class="sheet-show-advancement sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=@{skill} Advancement}} {{target=[[@{skillTotal}]]}} {{roll=[[1d100+@{manipulation_mod}]]}} {{rollOver=1}}">{</button>
             <input type="checkbox" class="sheet-d-no" name="attr_sp_toggle1" checked />							
           </div>
         </fieldset>
@@ -249,13 +258,14 @@
       <div class="sheet-d-fl sheet-fl-col sheet-mb-2s">
         <fieldset class="repeating_naturalWpnSkills">
           <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-10">
-            <input type="checkbox" class="sheet-w-10p" name="attr_expCheck" />
+            <input type="checkbox" class="sheet-w-10p sheet-trigger-advancement" name="attr_expCheck" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-50p" name="attr_skill" placeholder="skill" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_base2"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_skillValue"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" readonly name="attr_skillTotal" />
-            <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
+            <button type="roll" class="sheet-hide-advancement" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
             </button>
+            <button type="roll" class="sheet-show-advancement sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=@{skill} Advancement}} {{target=[[@{skillTotal}]]}} {{roll=[[1d100+@{manipulation_mod}]]}} {{rollOver=1}}">{</button>
             <input type="checkbox" class="sheet-d-no" name="attr_sp_toggle1" checked />							
           </div>
         </fieldset>

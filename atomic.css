@@ -435,17 +435,16 @@ input.sheet-tab:checked + span {
 }
 
 .sheet-hide-advancement,
-.sheet-toggle-advancement:checked ~ div .sheet-show-advancement {
+.sheet-toggle-advancement:checked ~ div .sheet-trigger-advancement:checked ~ .sheet-show-advancement {
 	display: block
 }
 
-.sheet-toggle-advancement:checked ~ div .sheet-hide-advancement {
+.sheet-toggle-advancement:checked ~ div .sheet-trigger-advancement:not(:checked) ~ .sheet-hide-advancement {
 	opacity: 0
 }
 
 .sheet-show-advancement,
-.sheet-toggle-advancement:checked ~ div input[type="checkbox"].sheet-hide-advancement:not(:checked) ~ .sheet-show-advancement,
-.sheet-toggle-advancement:checked ~ div input[type="checkbox"].sheet-hide-advancement:checked {
+.sheet-toggle-advancement:checked ~ div .sheet-trigger-advancement:checked ~ .sheet-hide-advancement {
 	display: none
 }
 
@@ -499,6 +498,9 @@ input.sheet-h-30 {
 .charsheet button[type="roll"].btn {
 	color:#fff6e5;
 	background:#feb624;
+}
+.charsheet button[type="roll"].sheet-show-advancement:before {
+    content:"";
 }
 
 .sheet-rolltemplate-attack-roll *,
