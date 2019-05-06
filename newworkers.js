@@ -1531,36 +1531,6 @@ skillTotals.forEach((skill) => {
 	});
 });
 
-
-const categories = [
-	'agilitySkills',
-	'communicationSkills',
-	'knowledgeSkills',
-	'magicSkills',
-	'manipulationSkills',
-	'perceptionSkills',
-	'stealthSkills',
-	'meleeSkills',
-	'missileSkills',
-	'shieldSkills',
-	'naturalWpnSkills',
-];
-categories.forEach((category) => {
-	on("change:repeating_" + category + ":skill", function() {
-		getAttrs(["repeating_" + category + "_skill"], function(pvalue) {		
-			const fullName = pvalue["repeating_" + category + "_skill"];
-			const name = fullName.substr(1);
-			const char1 = fullName.substr(0, 1); 
-
-			if (char1=="-"){
-				setAttrs({["repeating_" + category + "_sp_toggle1"]:0,["repeating_" + category + "_skill"]:name});			   	
-			} else 	if (char1=="+"){
-				setAttrs({["repeating_" + category + "_sp_toggle1"]:"on",["repeating_" + category + "_skill"]:name});			   	
-			}					
-		});
-	});	
-});
-
 const opposingRunes = {
 	fertility: 'death',
 	death: 'fertility',
@@ -1647,3 +1617,41 @@ function getSkillValues(skillName,source,dest){
 		});
   });						
 }
+
+const categories = [
+	'agilitySkills',
+	'communicationSkills',
+	'knowledgeSkills',
+	'magicSkills',
+	'manipulationSkills',
+	'perceptionSkills',
+	'stealthSkills',
+	'meleeSkills',
+	'missileSkills',
+	'shieldSkills',
+	'naturalWpnSkills',
+];
+categories.forEach((category) => {
+	on("change:repeating_" + category + ":skill", function() {
+		getAttrs(["repeating_" + category + "_skill"], function(pvalue) {		
+			const fullName = pvalue["repeating_" + category + "_skill"];
+			const name = fullName.substr(1);
+			const char1 = fullName.substr(0, 1); 
+
+			if (char1=="-"){
+				setAttrs({["repeating_" + category + "_sp_toggle1"]:0,["repeating_" + category + "_skill"]:name});			   	
+			} else 	if (char1=="+"){
+				setAttrs({["repeating_" + category + "_sp_toggle1"]:"on",["repeating_" + category + "_skill"]:name});			   	
+			}					
+		});
+	});	
+
+	on("clicked:repeating_" + category + ":advance", function() {
+		getAttrs(["repeating_" + category + "_skill", "repeating_" + category + "_skillTotal"], function(attributes) {
+			const skillName = attributes["repeating_" + category + "_skill"];
+			const targetNumber = attributes["repeating_" + category + "_skillTotal"];
+			console.log('Rolling to advance ' + skillName + ', trying to beat ' + skillTotal + '.');
+			// This should untick the xp box and do nothing else
+		});
+	});
+});

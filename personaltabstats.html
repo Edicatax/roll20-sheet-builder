@@ -64,12 +64,13 @@
         </div>
       </div>
     </div>
-    <div class="sheet-d-fl sheet-fl-col sheet-ai-c sheet-w-14p">
+    <div class="pos-rel sheet-d-fl sheet-fl-col sheet-ai-c sheet-w-14p">
+			<input type="checkbox" class="sheet-pos-abs sheet-t-0s sheet-l-0s" name="attr_pow_check" title="POW check"/>								
       <input type="text" class="sheet-ta-c sheet-w-90p sheet-bgc-transparent sheet-c-white sheet-fs-24 sheet-p-5 sheet-fw-bold" name="attr_basepow" value="0"/>
       <div class="sheet-pos-rel sheet-w-100p sheet-ta-c">
         <span class="sheet-fs-16 sheet-td-u-h sheet-curs-p">POW</span>
-					<button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[((@{basepow}+@{modpow})*5)]]}} {{fumble=[[{(100-(round((100-((@{basepow}+@{modpow})*5)d1)/20))),99d1}kl1]]}} {{failure=[[{{((@{basepow}+@{modpow})*5)d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((((@{basepow}+@{modpow})*5))/5)]]}} {{critical=[[round(((@{basepow}+@{modpow})*5)/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Power}}"  >
-					</button>
+				<button type="roll" class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-l-0s sheet-w-90p sheet-mr-a sheet-ml-a sheet-h-20 sheet-op-0" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[((@{basepow}+@{modpow})*5)]]}} {{fumble=[[{(100-(round((100-((@{basepow}+@{modpow})*5)d1)/20))),99d1}kl1]]}} {{failure=[[{{((@{basepow}+@{modpow})*5)d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((((@{basepow}+@{modpow})*5))/5)]]}} {{critical=[[round(((@{basepow}+@{modpow})*5)/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Power}}"  >
+				</button>
         <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-0s sheet-r-0s sheet-z-1 sheet-curs-p sheet-op-0" />
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-1 sheet-font-pictos sheet-fs-9">y</span>
         <span class="sheet-pos-abs sheet-t-0s sheet-r-0s sheet-w-a sheet-curs-p sheet-toggle-child-2 sheet-font-pictos sheet-fs-9">*</span>

@@ -9,35 +9,38 @@
     <span>Skill Mod</span>
     <input class="sheet-p-5 sheet-bb sheet-w-5p sheet-mx-1s sheet-ta-c"  value="0"  type="text"   name="attr_skill_mod"/>			
   </div>
+	<span>Advance</span>
+	<input class="sheet-toggle-advancement sheet-p-5 sheet-w-5p sheet-mx-1s" type="checkbox" />
   <div class="sheet-d-fl">
     <div class="sheet-d-fl sheet-fl-col sheet-w-33p sheet-mr-3s">
       <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-1s">
         <div class="sheet-fs-16 sheet-p-5">Agility</div>
-        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-33p">
+        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-45p">
           <span class="sheet-p-5">Modifier</span>
-          <input type="text" value="0" class="sheet-ta-c sheet-w-33p sheet-p-5 sheet-bb" readonly name="attr_agility_mod"/>
+          <input type="text" value="0" class="sheet-ta-c sheet-w-25p sheet-p-5 sheet-bb" readonly name="attr_agility_mod"/>
 					<button type="roll" value="&{template:simple-roll} {{rollname=Advancement}} {{target=[[?{Target number|5}]]}} {{roll=[[1d100+@{agility_mod}]]}} {{rollOver=1}}"></button>
         </label>
       </div>
       <div class="sheet-d-fl sheet-fl-col sheet-mb-2s">
         <fieldset class="repeating_agilitySkills">
           <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-10">
-            <input type="checkbox" class="sheet-w-10p" name="attr_expCheck" />
+            <input type="checkbox" class="sheet-w-10p sheet-trigger-advancement" name="attr_expCheck" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-50p" name="attr_skill" placeholder="skill" />
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_base2"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" name="attr_skillValue"/>
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-10p sheet-ta-c" value="0" readonly name="attr_skillTotal" />
-            <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
+            <button type="roll" class="sheet-hide-advancement" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{skillTotal}+@{skill_mod}]]}} {{fumble=[[{(100-(round((100-@{skillTotal}d1+@{skill_mod})/20))),99d1}kl1]]}} {{failure=[[{{@{skillTotal}d1+@{skill_mod}+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{skillTotal}+@{skill_mod})/5)]]}} {{critical=[[round((@{skillTotal}+@{skill_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{skill}}}"  >
             </button>
+						<button type="roll" class="sheet-show-advancement sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=Advancement}} {{target=[[?{Target number|5}]]}} {{roll=[[1d100+@{agility_mod}]]}} {{rollOver=1}}">{</button>
             <input type="checkbox" class="sheet-d-no" name="attr_sp_toggle1" checked />							
           </div>
         </fieldset>
       </div>
       <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-1s">
         <div class="sheet-fs-16 sheet-p-5">Communication</div>
-        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-33p">
+        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-45p">
           <span class="sheet-p-5">Modifier</span>
-          <input type="text" value="0" class="sheet-ta-c sheet-w-33p sheet-p-5 sheet-bb" readonly name="attr_communication_mod"/>
+          <input type="text" value="0" class="sheet-ta-c sheet-w-25p sheet-p-5 sheet-bb" readonly name="attr_communication_mod"/>
 					<button type="roll" value="&{template:simple-roll} {{rollname=Advancement}} {{target=[[?{Target number|5}]]}} {{roll=[[1d100+@{communication_mod}]]}} {{rollOver=1}}"></button>
         </label>
       </div>
@@ -57,9 +60,9 @@
       </div>
       <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-1s">
         <div class="sheet-fs-16 sheet-p-5">Perception</div>
-        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-33p">
+        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-45p">
           <span class="sheet-p-5">Modifier</span>
-          <input type="text" value="0" class="sheet-ta-c sheet-w-33p sheet-p-5 sheet-bb" readonly name="attr_perception_mod"/>
+          <input type="text" value="0" class="sheet-ta-c sheet-w-25p sheet-p-5 sheet-bb" readonly name="attr_perception_mod"/>
 					<button type="roll" value="&{template:simple-roll} {{rollname=Advancement}} {{target=[[?{Target number|5}]]}} {{roll=[[1d100+@{perception_mod}]]}} {{rollOver=1}}"></button>
         </label>
       </div>
@@ -79,9 +82,9 @@
       </div>
       <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-1s">
         <div class="sheet-fs-16 sheet-p-5">Stealth</div>
-        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-33p">
+        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-45p">
           <span class="sheet-p-5">Modifier</span>
-          <input type="text" value="0" class="sheet-ta-c sheet-w-33p sheet-p-5 sheet-bb" readonly name="attr_stealth_mod"/>
+          <input type="text" value="0" class="sheet-ta-c sheet-w-25p sheet-p-5 sheet-bb" readonly name="attr_stealth_mod"/>
 					<button type="roll" value="&{template:simple-roll} {{rollname=Advancement}} {{target=[[?{Target number|5}]]}} {{roll=[[1d100+@{stealth_mod}]]}} {{rollOver=1}}"></button>
         </label>
       </div>
@@ -103,9 +106,9 @@
     <div class="sheet-d-fl sheet-fl-col sheet-w-33p sheet-mr-3s">
       <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-1s">
         <div class="sheet-fs-16 sheet-p-5">Magic</div>
-        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-33p">
+        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-45p">
           <span class="sheet-p-5">Modifier</span>
-          <input type="text" value="0" class="sheet-ta-c sheet-w-33p sheet-p-5 sheet-bb" readonly name="attr_magic_mod"/>
+          <input type="text" value="0" class="sheet-ta-c sheet-w-25p sheet-p-5 sheet-bb" readonly name="attr_magic_mod"/>
 					<button type="roll" value="&{template:simple-roll} {{rollname=Advancement}} {{target=[[?{Target number|5}]]}} {{roll=[[1d100+@{magic_mod}]]}} {{rollOver=1}}"></button>
         </label>
       </div>
@@ -125,9 +128,9 @@
       </div>
       <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-1s">
         <div class="sheet-fs-16 sheet-p-5">Manipulation</div>
-        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-33p">
+        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-45p">
           <span class="sheet-p-5">Modifier</span>
-          <input type="text" value="0" class="sheet-ta-c sheet-w-33p sheet-p-5 sheet-bb" readonly name="attr_manipulation_mod"/>
+          <input type="text" value="0" class="sheet-ta-c sheet-w-25p sheet-p-5 sheet-bb" readonly name="attr_manipulation_mod"/>
 					<button type="roll" value="&{template:simple-roll} {{rollname=Advancement}} {{target=[[?{Target number|5}]]}} {{roll=[[1d100+@{manipulation_mod}]]}} {{rollOver=1}}"></button>
         </label>
       </div>
@@ -147,9 +150,9 @@
       </div>
       <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-1s">
         <div class="sheet-fs-16 sheet-p-5">Knowledge</div>
-        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-33p">
+        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-45p">
           <span class="sheet-p-5">Modifier</span>
-          <input type="text" value="0" class="sheet-ta-c sheet-w-33p sheet-p-5 sheet-bb" readonly name="attr_knowledge_mod"/>
+          <input type="text" value="0" class="sheet-ta-c sheet-w-25p sheet-p-5 sheet-bb" readonly name="attr_knowledge_mod"/>
 					<button type="roll" value="&{template:simple-roll} {{rollname=Advancement}} {{target=[[?{Target number|5}]]}} {{roll=[[1d100+@{knowledge_mod}]]}} {{rollOver=1}}"></button>
         </label>
       </div>
@@ -171,9 +174,9 @@
     <div class="sheet-d-fl sheet-fl-col sheet-w-33p">
       <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-1s">
         <div class="sheet-fs-16 sheet-p-5">Melee weapons</div>
-        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-33p">
+        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-45p">
           <span class="sheet-p-5">Modifier</span>
-          <input type="text" value="0" class="sheet-ta-c sheet-w-33p sheet-p-5 sheet-bb" readonly name="attr_manipulation_mod"/>
+          <input type="text" value="0" class="sheet-ta-c sheet-w-25p sheet-p-5 sheet-bb" readonly name="attr_manipulation_mod"/>
 					<button type="roll" value="&{template:simple-roll} {{rollname=Advancement}} {{target=[[?{Target number|5}]]}} {{roll=[[1d100+@{manipulation_mod}]]}} {{rollOver=1}}"></button>
         </label>
       </div>
@@ -193,9 +196,9 @@
       </div>
       <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-1s">
         <div class="sheet-fs-16 sheet-p-5">Missile weapons</div>
-        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-33p">
+        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-45p">
           <span class="sheet-p-5">Modifier</span>
-          <input type="text" value="0" class="sheet-ta-c sheet-w-33p sheet-p-5 sheet-bb" readonly name="attr_manipulation_mod"/>
+          <input type="text" value="0" class="sheet-ta-c sheet-w-25p sheet-p-5 sheet-bb" readonly name="attr_manipulation_mod"/>
 					<button type="roll" value="&{template:simple-roll} {{rollname=Advancement}} {{target=[[?{Target number|5}]]}} {{roll=[[1d100+@{manipulation_mod}]]}} {{rollOver=1}}"></button>
         </label>
       </div>
@@ -215,9 +218,9 @@
       </div>
       <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-1s">
         <div class="sheet-fs-16 sheet-p-5">Shields</div>
-        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-33p">
+        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-45p">
           <span class="sheet-p-5">Modifier</span>
-          <input type="text" value="0" class="sheet-ta-c sheet-w-33p sheet-p-5 sheet-bb" readonly name="attr_manipulation_mod"/>
+          <input type="text" value="0" class="sheet-ta-c sheet-w-25p sheet-p-5 sheet-bb" readonly name="attr_manipulation_mod"/>
 					<button type="roll" value="&{template:simple-roll} {{rollname=Advancement}} {{target=[[?{Target number|5}]]}} {{roll=[[1d100+@{manipulation_mod}]]}} {{rollOver=1}}"></button>
         </label>
       </div>
@@ -237,9 +240,9 @@
       </div>
       <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-1s">
         <div class="sheet-fs-16 sheet-p-5">Natural weapons</div>
-        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-33p">
+        <label class="sheet-d-fl sheet-jc-fe sheet-ai-c sheet-w-45p">
           <span class="sheet-p-5">Modifier</span>
-          <input type="text" value="0" class="sheet-ta-c sheet-w-33p sheet-p-5 sheet-bb" readonly name="attr_manipulation_mod"/>
+          <input type="text" value="0" class="sheet-ta-c sheet-w-25p sheet-p-5 sheet-bb" readonly name="attr_manipulation_mod"/>
 					<button type="roll" value="&{template:simple-roll} {{rollname=Advancement}} {{target=[[?{Target number|5}]]}} {{roll=[[1d100+@{manipulation_mod}]]}} {{rollOver=1}}"></button>
         </label>
       </div>

@@ -74,6 +74,9 @@ b,strong {
 .sheet-w-50p {
     width:50%
 }
+.sheet-w-45p {
+	width:45%
+}
 .sheet-w-33p {
     width:calc(100%/3)
 }
@@ -406,6 +409,15 @@ b,strong {
 /**
  *  Utilities
  */
+a.repcontrol_move,
+button.repcontrol_del,
+button.repcontrol_add,
+button.repcontrol_edit {
+	padding: 2px 10px;
+}
+button.pictos {
+	font-family: "Pictos";
+}
 input.sheet-tab1:checked ~ div.sheet-tab1,
 input.sheet-tab2:checked ~ div.sheet-tab2,
 input.sheet-tab3:checked ~ div.sheet-tab3,
@@ -420,6 +432,21 @@ input.sheet-tab:checked + span {
     border-left: 1px solid #d8d8d8;
     border-right: 1px solid #d8d8d8;
     border-radius: 4px 4px 0 0;
+}
+
+.sheet-hide-advancement,
+.sheet-toggle-advancement:checked ~ div .sheet-show-advancement {
+	display: block
+}
+
+.sheet-toggle-advancement:checked ~ div .sheet-hide-advancement {
+	opacity: 0
+}
+
+.sheet-show-advancement,
+.sheet-toggle-advancement:checked ~ div input[type="checkbox"].sheet-hide-advancement:not(:checked) ~ .sheet-show-advancement,
+.sheet-toggle-advancement:checked ~ div input[type="checkbox"].sheet-hide-advancement:checked {
+	display: none
 }
 
 .sheet-toggle-child-1,
