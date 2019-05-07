@@ -1645,13 +1645,4 @@ categories.forEach((category) => {
 			}					
 		});
 	});	
-
-	on("clicked:repeating_" + category + ":advance", function() {
-		getAttrs(["repeating_" + category + "_skill", "repeating_" + category + "_skillTotal"], function(attributes) {
-			const skillName = attributes["repeating_" + category + "_skill"];
-			const targetNumber = attributes["repeating_" + category + "_skillTotal"];
-			console.log('Rolling to advance ' + skillName + ', trying to beat ' + skillTotal + '.');
-			// This should untick the xp box and do nothing else
-		});
-	});
 });

@@ -86,6 +86,9 @@ b,strong {
 .sheet-w-20p {
     width:20%
 }
+.sheet-w-18p {
+    width:18%
+}
 .sheet-w-14p {
     width:14%
 }
@@ -414,6 +417,9 @@ button.repcontrol_del,
 button.repcontrol_add,
 button.repcontrol_edit {
 	padding: 2px 10px;
+}
+.charsheet .repcontainer .itemcontrol {
+    z-index: 1
 }
 button.pictos {
 	font-family: "Pictos";
