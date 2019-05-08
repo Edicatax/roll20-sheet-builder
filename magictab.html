@@ -7,7 +7,8 @@
         <img title="Air" src="https://vignette.wikia.nocookie.net/runequest-glorantha/images/9/95/Rune_air.svg" width="80%" height="auto" class="sheet-mr-a sheet-ml-a" />
       </label>
       <input type="number" class="sheet-d-bl sheet-ml-a sheet-mr-a sheet-ta-c sheet-fs-30 sheet-w-50p sheet-bb" value="0" name="attr_air_rune" />
-      <input type="checkbox" class="sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_air-runeExp" title="Experience" />
+      <input type="checkbox" class="sheet-trigger-advancement sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_air-runeExp" title="Experience" />
+      <button type="roll" class="sheet-show-advancement sheet-pos-abs sheet-t-0s sheet-l-1s sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=Air Rune Advancement}} {{target=[[@{air_rune}]]}} {{roll=[[1d100]]}} {{rollOver=1}} {{rollOnSuccess=[[@{display_advancement_amount_in_roll}]]}} {{successRoll=[[@{skill_advancement_amount}]]}} {{successText=Gained}}">{</button>
     </div>
     <div class="sheet-h-145 sheet-d-fl sheet-fl-col sheet-w-14p sheet-pos-rel">
       <label class="sheet-d-fl sheet-fg-1 sheet-curs-p">
@@ -16,7 +17,8 @@
         <img title="Fire" src="https://vignette.wikia.nocookie.net/runequest-glorantha/images/8/86/Rune_fire_sky.svg" width="80%" height="auto" class="sheet-mr-a sheet-ml-a" />
       </label>
       <input type="number" class="sheet-d-bl sheet-ml-a sheet-mr-a sheet-ta-c sheet-fs-30 sheet-w-50p sheet-bb" value="0" name="attr_fire_rune" />
-      <input type="checkbox" class="sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_fire-runeExp" title="Experience" />
+      <input type="checkbox" class="sheet-trigger-advancement sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_fire-runeExp" title="Experience" />
+      <button type="roll" class="sheet-show-advancement sheet-pos-abs sheet-t-0s sheet-l-1s sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=Fire Rune Advancement}} {{target=[[@{fire_rune}]]}} {{roll=[[1d100]]}} {{rollOver=1}} {{rollOnSuccess=[[@{display_advancement_amount_in_roll}]]}} {{successRoll=[[@{skill_advancement_amount}]]}} {{successText=Gained}}">{</button>
     </div>
     <div class="sheet-h-145 sheet-d-fl sheet-fl-col sheet-w-14p sheet-pos-rel">
       <label class="sheet-d-fl sheet-fg-1 sheet-curs-p">
@@ -25,7 +27,8 @@
         <img title="Darkness" src="https://vignette.wikia.nocookie.net/runequest-glorantha/images/7/7b/Rune_darkness.svg" width="80%" height="auto" class="sheet-mr-a sheet-ml-a" />
       </label>
       <input type="number" class="sheet-d-bl sheet-ml-a sheet-mr-a sheet-ta-c sheet-fs-30 sheet-w-50p sheet-bb" value="0" name="attr_dark_rune" />
-      <input type="checkbox" class="sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_dark-runeExp" title="Experience" />
+      <input type="checkbox" class="sheet-trigger-advancement sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_dark-runeExp" title="Experience" />
+      <button type="roll" class="sheet-show-advancement sheet-pos-abs sheet-t-0s sheet-l-1s sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=Darkness Rune Advancement}} {{target=[[@{dark_rune}]]}} {{roll=[[1d100]]}} {{rollOver=1}} {{rollOnSuccess=[[@{display_advancement_amount_in_roll}]]}} {{successRoll=[[@{skill_advancement_amount}]]}} {{successText=Gained}}">{</button>
     </div>
     <div class="sheet-h-145 sheet-d-fl sheet-fl-col sheet-w-14p sheet-pos-rel">
       <label class="sheet-d-fl sheet-fg-1 sheet-curs-p">
@@ -34,7 +37,8 @@
         <img title="Water" src="https://vignette.wikia.nocookie.net/runequest-glorantha/images/6/69/Rune_water.svg" width="80%" height="auto" class="sheet-mr-a sheet-ml-a" />
       </label>
       <input type="number" class="sheet-d-bl sheet-ml-a sheet-mr-a sheet-ta-c sheet-fs-30 sheet-w-50p sheet-bb" value="0" name="attr_water_rune" />
-      <input type="checkbox" class="sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_water-runeExp" title="Experience" />
+      <input type="checkbox" class="sheet-trigger-advancement sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_water-runeExp" title="Experience" />
+      <button type="roll" class="sheet-show-advancement sheet-pos-abs sheet-t-0s sheet-l-1s sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=Water Rune Advancement}} {{target=[[@{water_rune}]]}} {{roll=[[1d100]]}} {{rollOver=1}} {{rollOnSuccess=[[@{display_advancement_amount_in_roll}]]}} {{successRoll=[[@{skill_advancement_amount}]]}} {{successText=Gained}}">{</button>
     </div>
     <div class="sheet-h-145 sheet-d-fl sheet-fl-col sheet-w-14p sheet-pos-rel">
       <label class="sheet-d-fl sheet-fg-1 sheet-curs-p">
@@ -43,7 +47,8 @@
         <img title="Earth" src="https://vignette.wikia.nocookie.net/runequest-glorantha/images/f/f0/Rune_earth.svg" width="80%" height="auto" class="sheet-mr-a sheet-ml-a" />
       </label>
       <input type="number" class="sheet-d-bl sheet-ml-a sheet-mr-a sheet-ta-c sheet-fs-30 sheet-w-50p sheet-bb" value="0" name="attr_earth_rune" />
-      <input type="checkbox" class="sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_earth-runeExp" title="Experience" />
+      <input type="checkbox" class="sheet-trigger-advancement sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_earth-runeExp" title="Experience" />
+      <button type="roll" class="sheet-show-advancement sheet-pos-abs sheet-t-0s sheet-l-1s sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=Earth Rune Advancement}} {{target=[[@{earth_rune}]]}} {{roll=[[1d100]]}} {{rollOver=1}} {{rollOnSuccess=[[@{display_advancement_amount_in_roll}]]}} {{successRoll=[[@{skill_advancement_amount}]]}} {{successText=Gained}}">{</button>
     </div>
     <div class="sheet-h-145 sheet-d-fl sheet-fl-col sheet-w-14p sheet-pos-rel">
       <label class="sheet-d-fl sheet-fg-1 sheet-curs-p">
@@ -52,7 +57,8 @@
         <img title="Moon" src="https://vignette.wikia.nocookie.net/runequest-glorantha/images/d/dd/Rune_moon_full.svg" width="80%" height="auto" class="sheet-mr-a sheet-ml-a" />
       </label>
       <input type="number" class="sheet-d-bl sheet-ml-a sheet-mr-a sheet-ta-c sheet-fs-30 sheet-w-50p sheet-bb" value="0" name="attr_moon_rune" />
-      <input type="checkbox" class="sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_moon-runeExp" title="Experience" />
+      <input type="checkbox" class="sheet-trigger-advancement sheet-pos-abs sheet-l-0s sheet-t-0s" value="1" name="attr_moon-runeExp" title="Experience" />
+      <button type="roll" class="sheet-show-advancement sheet-pos-abs sheet-t-0s sheet-l-1s sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=Moon Rune Advancement}} {{target=[[@{moon_rune}]]}} {{roll=[[1d100]]}} {{rollOver=1}} {{rollOnSuccess=[[@{display_advancement_amount_in_roll}]]}} {{successRoll=[[@{skill_advancement_amount}]]}} {{successText=Gained}}">{</button>
     </div>
   </div>
   <div class="sheet-d-fl sheet-jc-sb">
@@ -228,8 +234,8 @@
     </div>
     <span class="sheet-w-10p">Sorcery</span>
     <input type="checkbox" value="1" class="sheet-toggle-visible sheet-w-10p sheet-curs-p sheet-op-0 sheet-ml-n10p sheet-z-1" name="attr_spell_expanded" />
-    <span class="sheet-pos-abs sheet-t-20 sheet-r-0s sheet-toggle-child-1 sheet-font-pictos">`</span>
-    <span class="sheet-pos-abs sheet-t-20 sheet-r-0s sheet-toggle-child-2 sheet-font-pictos">J</span>
+    <span class="sheet-pos-abs sheet-t-20 sheet-r-0s sheet-toggle-child-1 sheet-c-orange sheet-font-pictos">`</span>
+    <span class="sheet-pos-abs sheet-t-20 sheet-r-0s sheet-toggle-child-2 sheet-c-orange sheet-font-pictos">J</span>
     <div class="sheet-expand-child-2 sheet-w-100p sheet-mt-1s">
       <textarea rows="2" class="sheet-p-5 sheet-bgc-gray sheet-h-a"></textarea>
     </div>
@@ -240,13 +246,13 @@
       <fieldset class="repeating_spiritMagic">
         <div class="sheet-pos-rel sheet-d-fl sheet-fl-col sheet-w-100p sheet-mb-1s">
           <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-5 sheet-l-0s sheet-curs-p sheet-op-0 sheet-z-1" name="attr_spell_expanded" />
-          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-1 sheet-font-pictos">J</span>
-          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-2 sheet-font-pictos">`</span>
+          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-1 sheet-c-orange sheet-font-pictos">J</span>
+          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-2 sheet-c-orange sheet-font-pictos">`</span>
           <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-90p sheet-ml-1s" placeholder="Spell name" name="attr_spell_name" />
             <input type="number"class="sheet-p-5 sheet-bb sheet-mx-1s"  value="0" name="attr_spell_cost" />
             <label class="sheet-w-a sheet-curs-p">
-              <span class="sheet-font-pictos sheet-fs-20">w</span>
+              <span class="sheet-c-orange sheet-font-pictos sheet-fs-20">w</span>
               <button type="roll" class="sheet-d-no" value="&{template:spell} {{name=@{spell_name}}} {{keywords=@{spell_keywords}}} {{cost=@{spell_cost}}} {{point_type=Magic}} {{description=@{spell_description}}}"></button>
             </label>
           </div>
@@ -263,13 +269,13 @@
       <fieldset class="repeating_runeMagic">
         <div class="sheet-pos-rel sheet-d-fl sheet-fl-col sheet-w-100p sheet-mb-1s">
           <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-5 sheet-l-0s sheet-curs-p sheet-op-0 sheet-z-1" name="attr_spell_expanded" />
-          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-1 sheet-font-pictos">J</span>
-          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-2 sheet-font-pictos">`</span>
+          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-1 sheet-c-orange sheet-font-pictos">J</span>
+          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-2 sheet-c-orange sheet-font-pictos">`</span>
           <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
             <input type="text" class="sheet-p-5 sheet-bb sheet-w-90p sheet-ml-1s" placeholder="Spell name" name="attr_spell_name" />
             <input type="number"class="sheet-p-5 sheet-bb sheet-mx-1s"  value="0" name="attr_spell_cost" />
             <label class="sheet-w-a sheet-curs-p">
-              <span class="sheet-font-pictos sheet-fs-20">w</span>
+              <span class="sheet-c-orange sheet-font-pictos sheet-fs-20">w</span>
               <button type="roll" class="sheet-d-no" value="&{template:spell} {{name=@{spell_name}}} {{keywords=@{spell_keywords}}} {{cost=@{spell_cost}}} {{point_type=Rune}} {{description=@{spell_description}}}"></button>
             </label>
           </div>

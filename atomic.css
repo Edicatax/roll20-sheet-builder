@@ -257,11 +257,17 @@ b,strong {
 .sheet-ml-a {
     margin-left:auto
 }
-.sheet-ml-n20p {
-    margin-left:-20%
+.sheet-mr-5 {
+    margin-right:.5rem
+}
+.sheet-ml-n18p {
+    margin-left:-18%
 }
 .sheet-ml-n10p {
     margin-left:-10%
+}
+.sheet-ml-n5p {
+    margin-left:-5%
 }
 .sheet-mb-n10 {
     margin-bottom:-1rem
@@ -296,6 +302,10 @@ b,strong {
     padding-left:4.5rem;
     padding-right:4.5rem
 }
+.sheet-px-6s {
+    padding-left:9rem;
+    padding-right:9rem
+}
 .sheet-p-5 {
     padding:.5rem
 }
@@ -316,8 +326,17 @@ b,strong {
 .sheet-bgc-orange {
     background-color:#DF9500
 }
+.sheet-c-lorange {
+    color:#FFF6E5
+}
+.sheet-c-orange {
+    color:#DF9500
+}
 .sheet-c-dorange {
     color:#6D4800
+}
+.sheet-bgc-gray {
+    background-color:#F5F5F5
 }
 .sheet-bgc-dgray {
     background-color:#d8d8d8
@@ -327,6 +346,12 @@ b,strong {
 }
 .sheet-font-pictos {
     font-family:"Pictos"
+}
+.sheet-font-pictos-custom {
+    font-family:"Pictos Custom"
+}
+.sheet-font-pictos-three {
+    font-family:"Pictos Three"
 }
 .sheet-font-helvetica {
     font-family:"Helvetica Neue",Helvetica,Arial,sans-serif
@@ -428,7 +453,8 @@ input.sheet-tab1:checked ~ div.sheet-tab1,
 input.sheet-tab2:checked ~ div.sheet-tab2,
 input.sheet-tab3:checked ~ div.sheet-tab3,
 input.sheet-tab4:checked ~ div.sheet-tab4,
-input.sheet-tab5:checked ~ div.sheet-tab5 {
+input.sheet-tab5:checked ~ div.sheet-tab5,
+input.sheet-toggle-settings:checked ~ div.sheet-tab-settings {
     display: block;
 }
 
@@ -437,6 +463,11 @@ input.sheet-tab:checked + span {
     border-top: 1px solid #d8d8d8;
     border-left: 1px solid #d8d8d8;
     border-right: 1px solid #d8d8d8;
+    border-radius: 4px 4px 0 0;
+}
+
+input.sheet-toggle-advancement + span + span,
+input.sheet-toggle-advancement + span {
     border-radius: 4px 4px 0 0;
 }
 
@@ -504,6 +535,9 @@ input.sheet-h-30 {
 .charsheet button[type="roll"].btn {
 	color:#fff6e5;
 	background:#feb624;
+}
+.charsheet button[type="roll"].sheet-show-advancement {
+    padding: 0 4px;
 }
 .charsheet button[type="roll"].sheet-show-advancement:before {
     content:"";

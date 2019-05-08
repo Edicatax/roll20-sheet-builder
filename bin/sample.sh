@@ -12,6 +12,7 @@ source=(
     magictab.html
     combattab.html
     geartab.html
+    settingstab.html
     divend.html
     rolltemplates.html
 	workerstart.html

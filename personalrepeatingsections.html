@@ -3,11 +3,12 @@
     <div class="sheet-fs-18 sheet-p-5 sheet-ta-c">Passions</div>
     <fieldset class="repeating_passions">
       <div class="sheet-d-fl sheet-mb-10">
-        <input type="checkbox" name="attr_passionExp" />
+        <input type="checkbox" class="sheet-trigger-advancement" name="attr_passionExp" />
         <input type="text" name="attr_passion" placeholder="Passion" class="sheet-fg-1 sheet-bb sheet-p-5 sheet-mx-1s" />
         <input type="text" name="attr_value" value="60" class="sheet-bb sheet-w-10p sheet-ta-c sheet-p-5 sheet-mx-1s" />
-				<button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{value}]]}} {{fumble=[[{(100-(round((100-@{value}d1)/20))),99d1}kl1]]}} {{failure=[[{{@{value}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{value})/5)]]}} {{critical=[[round(@{value}/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{passion}}}"  >
+				<button type="roll" class="sheet-hide-advancement" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{value}]]}} {{fumble=[[{(100-(round((100-@{value}d1)/20))),99d1}kl1]]}} {{failure=[[{{@{value}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{value})/5)]]}} {{critical=[[round(@{value}/20)+1]]}} {{roll=[[1d100]]}} {{skillname=@{passion}}}"  >
 				</button>
+          <button type="roll" class="sheet-show-advancement sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=@{passion} Advancement}} {{target=[[@{value}]]}} {{roll=[[1d100]]}} {{rollOver=1}} {{rollOnSuccess=[[@{display_advancement_amount_in_roll}]]}} {{successRoll=[[@{skill_advancement_amount}]]}} {{successText=Gained}}">{</button>
       </div>
     </fieldset>
   </div>

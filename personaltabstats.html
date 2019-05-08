@@ -65,7 +65,8 @@
       </div>
     </div>
     <div class="pos-rel sheet-d-fl sheet-fl-col sheet-ai-c sheet-w-14p">
-			<input type="checkbox" class="sheet-pos-abs sheet-t-0s sheet-l-0s" name="attr_pow_check" title="POW check"/>								
+			<input type="checkbox" class="sheet-trigger-advancement sheet-pos-abs sheet-t-0s sheet-l-0s" name="attr_pow_check" title="POW check"/>								
+      <button type="roll" class="sheet-show-advancement sheet-pos-abs sheet-t-0s sheet-l-1s sheet-font-pictos sheet-ta-c sheet-br-4" value="&{template:simple-roll} {{rollname=POW Advancement}} {{target=[[(@{species_max_pow}-@{curpow})*5]]}} {{roll=[[1d100]]}} {{rollUnder=1}} {{rollOnSuccess=[[@{display_advancement_amount_in_roll}]]}} {{successRoll=[[@{pow_advancement_amount}]]}} {{successText=Gained}}">{</button>
       <input type="text" class="sheet-ta-c sheet-w-90p sheet-bgc-transparent sheet-c-white sheet-fs-24 sheet-p-5 sheet-fw-bold" name="attr_basepow" value="0"/>
       <div class="sheet-pos-rel sheet-w-100p sheet-ta-c">
         <span class="sheet-fs-16 sheet-td-u-h sheet-curs-p">POW</span>
