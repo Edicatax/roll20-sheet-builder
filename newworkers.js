@@ -1646,3 +1646,11 @@ categories.forEach((category) => {
 		});
 	});	
 });
+
+on("change:selected_sheet_type", function() {
+  getAttrs(["selected_sheet_type"], function(values) {
+    const selection = values["selected_sheet_type"];
+    console.log('Parsing newly selected sheet type: ' + selection);
+    setAttrs({"sheet_type": selection});
+  });
+});

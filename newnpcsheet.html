@@ -1,0 +1,294 @@
+<div class="sheet-tab6 sheet-d-no sheet-p-5">
+  <input type="text" class="sheet-w-100p sheet-ta-c sheet-fs-24 sheet-c-dorange" placeholder="name" name="attr_character_name" />
+  <div class="sheet-d-fl sheet-fl-col sheet-mb-1s">
+    <div class="sheet-d-fl sheet-jc-fe sheet-ai-c">
+      <input type="checkbox" name="attr_whisper"/>
+      <span>Whisper rolls</span>
+      <input type="text"style="display:none" name="attr_whispSet" value=""/> 
+    </div>
+    <textarea rows="2" class="sheet-h-a sheet-bb sheet-bgc-gray" type="text" name="attr_npc1_desc"></textarea>							
+  </div>
+  <div class="sheet-d-fl sheet-bb sheet-mb-1s">
+    <div class="sheet-d-fl sheet-fl-col sheet-w-25p sheet-mr-1s">
+      <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-1s">
+        <span>STR</span>
+        <div class="sheet-d-fl sheet-jc-fe sheet-ai-c">
+          <input class="sheet-ta-c sheet-w-50p sheet-bb sheet-p-5" value="0" name="attr_basestr" type="text"/>
+          <button type="roll" value="@{whispSet} &{template:skill-2} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{skillvalue=[[(@{basestr}*?{multiplier|5})]]}} {{fumble=[[{(100-(round((100-(@{basestr}*?{multiplier|5})d1)/20))),99d1}kl1]]}} {{failure=[[{{(@{basestr}*?{multiplier|5})d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round(((@{basestr}*?{multiplier|5}))/5)]]}} {{critical=[[round((@{basestr}*?{multiplier|5})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Strength}}"  >
+          </button>
+        </div>
+      </div>
+      <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-1s">
+        <span>CON</span>
+        <div class="sheet-d-fl sheet-jc-fe sheet-ai-c">
+          <input class="sheet-ta-c sheet-w-50p sheet-bb sheet-p-5" value="0" name="attr_basecon" type="text" />
+          <button type="roll" value="@{whispSet} &{template:skill-2} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{skillvalue=[[(@{basecon}*?{multiplier|5})]]}} {{fumble=[[{(100-(round((100-(@{basecon}*?{multiplier|5})d1)/20))),99d1}kl1]]}} {{failure=[[{{(@{basecon}*?{multiplier|5})d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round(((@{basecon}*?{multiplier|5}))/5)]]}} {{critical=[[round((@{basecon}*?{multiplier|5})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Constitution}}"  >
+          </button>
+        </div>
+      </div>
+      <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-1s">
+        <span>SIZ</span>
+        <div class="sheet-d-fl sheet-jc-fe sheet-ai-c">
+          <input class="sheet-ta-c sheet-w-50p sheet-bb sheet-p-5" value="0" name="attr_basesiz" type="text"/>
+          <button type="roll" value="@{whispSet} &{template:skill-2} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{skillvalue=[[(@{basesiz}*?{multiplier|5})]]}} {{fumble=[[{(100-(round((100-(@{basesiz}*?{multiplier|5})d1)/20))),99d1}kl1]]}} {{failure=[[{{(@{basesiz}*?{multiplier|5})d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round(((@{basesiz}*?{multiplier|5}))/5)]]}} {{critical=[[round((@{basesiz}*?{multiplier|5})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Size}}"  >
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="sheet-d-fl sheet-fl-col sheet-w-25p sheet-mr-1s">
+      <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-1s">
+        <span>INT</span>
+        <div class="sheet-d-fl sheet-jc-fe sheet-ai-c">
+          <input class="sheet-ta-c sheet-w-50p sheet-bb sheet-p-5" value="0" name="attr_baseint" type="text"/>
+          <button type="roll" value="@{whispSet} &{template:skill-2} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{skillvalue=[[(@{baseint}*?{multiplier|5})]]}} {{fumble=[[{(100-(round((100-(@{baseint}*?{multiplier|5})d1)/20))),99d1}kl1]]}} {{failure=[[{{(@{baseint}*?{multiplier|5})d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round(((@{baseint}*?{multiplier|5}))/5)]]}} {{critical=[[round((@{baseint}*?{multiplier|5})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Intelligence}}"  >
+          </button>
+        </div>
+      </div>
+      <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-1s">
+        <span>POW</span>
+        <div class="sheet-d-fl sheet-jc-fe sheet-ai-c">
+          <input class="sheet-ta-c sheet-w-50p sheet-bb sheet-p-5" value="0" name="attr_basepow" type="text" />
+          <button type="roll" value="@{whispSet} &{template:skill-2} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{skillvalue=[[(@{basepow}*?{multiplier|5})]]}} {{fumble=[[{(100-(round((100-(@{basepow}*?{multiplier|5})d1)/20))),99d1}kl1]]}} {{failure=[[{{(@{basepow}*?{multiplier|5})d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round(((@{basepow}*?{multiplier|5}))/5)]]}} {{critical=[[round((@{basepow}*?{multiplier|5})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Power}}"  >
+          </button>
+        </div>
+      </div>
+      <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-1s">
+        <span>DEX</span>
+        <div class="sheet-d-fl sheet-jc-fe sheet-ai-c">
+          <input class="sheet-ta-c sheet-w-50p sheet-bb sheet-p-5" value="0" name="attr_basedex" type="text"/>
+          <button type="roll" value="@{whispSet} &{template:skill-2} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{skillvalue=[[(@{basedex}*?{multiplier|5})]]}} {{fumble=[[{(100-(round((100-(@{basedex}*?{multiplier|5})d1)/20))),99d1}kl1]]}} {{failure=[[{{(@{basedex}*?{multiplier|5})d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round(((@{basedex}*?{multiplier|5}))/5)]]}} {{critical=[[round((@{basedex}*?{multiplier|5})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Dexterity}}"  >
+          </button>
+        </div>
+      </div>
+      <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-1s">
+        <span>CHA</span>
+        <div class="sheet-d-fl sheet-jc-fe sheet-ai-c">
+          <input class="sheet-ta-c sheet-w-50p sheet-bb sheet-p-5" value="0" name="attr_basechr" type="text"/>
+          <button type="roll" value="@{whispSet} &{template:skill-2} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{skillvalue=[[(@{basechr}*?{multiplier|5})]]}} {{fumble=[[{(100-(round((100-(@{basechr}*?{multiplier|5})d1)/20))),99d1}kl1]]}} {{failure=[[{{(@{basechr}*?{multiplier|5})d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round(((@{basechr}*?{multiplier|5}))/5)]]}} {{critical=[[round((@{basechr}*?{multiplier|5})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Charisma}}"  >
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="sheet-d-fl sheet-fl-col sheet-w-25p sheet-mr-1s">
+      <div class="sheet-d-fl sheet-ai-c sheet-mb-1s">
+        <div>HP</div>
+        <div class="sheet-d-fl sheet-jc-fe sheet-ai-c">
+          <input type="number" class="sheet-w-25p sheet-bb sheet-p-5 sheet-ta-c" value="0" name="attr_hp_cur" />
+          <span>/</span>
+          <input type="text" class="sheet-w-25p sheet-bb sheet-p-5 sheet-ta-c" name="attr_hp_max" value="0" />
+        </div>
+      </div>
+      <div class="sheet-d-fl sheet-ai-c sheet-mb-1s">
+        <div>MP</div>
+        <div class="sheet-d-fl sheet-jc-fe sheet-ai-c">
+          <input type="number" class="sheet-w-25p sheet-bb sheet-p-5 sheet-ta-c" value="0" name="attr_curmp" />
+          <span>/</span>
+          <input type="text" class="sheet-w-25p sheet-bb sheet-p-5 sheet-ta-c" name="attr_basepow" value="0" />
+        </div>
+      </div>
+      <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+        <div>Rune Points</div>
+        <div class="sheet-d-fl sheet-jc-fe sheet-ai-c">
+          <input type="number" class="sheet-w-25p sheet-bb sheet-p-5 sheet-ta-c" value="0" name="attr_runePts_cur" />
+          <span>/</span>
+          <input type="text" class="sheet-w-25p sheet-bb sheet-p-5 sheet-ta-c" name="attr_runePts_max" value="0" />
+        </div>
+      </div>
+    </div>
+    <div class="sheet-d-fl sheet-fl-col sheet-w-25p">
+      <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-1s">
+        <div>DSR</div>
+        <input type="text" class="sheet-w-25p sheet-bb sheet-p-5 sheet-ta-c" name="attr_dex_srm" value="0" />
+      </div>										
+      <div class="sheet-d-fl sheet-ai-c sheet-jc-sb sheet-mb-1s">
+        <div>Move</div>
+        <input type="text" class="sheet-w-25p sheet-bb sheet-p-5 sheet-ta-c" name="attr_move_rate" value="0" />
+      </div>
+    </div>
+  </div>
+  <div class="sheet-d-fl sheet-bb sheet-pb-1s sheet-mb-1s">
+    <div class="sheet-w-50p sheet-mr-1s">
+      <fieldset class="repeating_melee2">
+        <div class="sheet-pos-rel sheet-bb sheet-mb-10">
+          <input type="checkbox" value="1" class="sheet-toggle-visible sheet-pos-abs sheet-t-5 sheet-l-0s sheet-curs-p sheet-op-0 sheet-z-1" name="attr_weapon_expanded" />
+          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-1 sheet-c-orange sheet-font-pictos">J</span>
+          <span class="sheet-pos-abs sheet-t-5 sheet-l-0s sheet-toggle-child-2 sheet-c-orange sheet-font-pictos">`</span>
+          <div class="sheet-d-fl sheet-w-a sheet-ml-2s sheet-mb-10 sheet-jc-sb">
+            <input type="text" class="sheet-w-50p sheet-p-5 sheet-bb" name="attr_weapon_type"  />
+            <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" name="attr_total_wpn_sr" value="[[@{wpn_sr}]]" disabled />
+            <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" name="attr_skillTotal" />
+            <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" name="attr_skillWpnMod" value="0" />
+            <button type="roll" class="sheet-no-die sheet-font-pictos" title="Add to turn order" value="@{add_sr}" >t</button>
+            <button type="roll" class="sheet-no-die sheet-font-pictos-custom" value="@{melee_value}" >t</button>
+          </div>
+          <div class="sheet-expand-child-1 sheet-d-fl sheet-fl-col sheet-w-100p sheet-jc-sb sheet-p-5 sheet-br-4 sheet-bgc-dgray">
+            <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-10">
+              <div>HP</div>
+              <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" value="0" name="attr_wpn_hp" />
+              <div>/</div>
+              <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" value="0" name="attr_wpn_hpmax" />
+              <div>Weapon SR</div>
+              <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" name="attr_wpn_sr" value="0" />
+            </div>
+            <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-10">
+              <div>Damage</div>
+              <input type="text" class="sheet-w-33p sheet-p-5 sheet-ta-c" name="attr_wpn_damage" />
+              <select class="sheet-w-33p sheet-p-5 sheet-ta-c" name="attr_wpn_spl">
+                <option value="0">Impaling</option>
+                <option value="1">Slashing</option>
+                <option value="2">Crushing</option>
+              </select>
+            </div>
+          </div>
+          <textarea class="sheet-d-no" name="attr_add_sr">
+            /em --
+
+            Add @{character_name} to turn order
+            @{weapon_type} SR [[@{total_wpn_sr} &{tracker}]]
+          </textarea>
+          <textarea class="sheet-d-no" name="attr_melee_value">&{template:attack-roll} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{tot=[[@{wpn_damage}+@{damagebonus}]]}} {{skillvalue=[[ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod}]]}} {{fumble=[[{(100-(round((100-ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod}d1)/20))),99d1}kl1]]}} {{failure=[[{{ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod})/5)]]}} {{critical=[[round((ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod})/20)+1]]}} {{spclDam=[[@{spcldamage}+@{damagebonus}]]}} {{crshDam=[[@{wpn_damage}+@{maxDb}+@{damagebonus}]]}} {{critCrsh=[[@{critdamage}+@{maxDb}+@{damagebonus}]]}} {{critSI=[[@{critdamage}+@{damagebonus}]]}} {{type=[[@{wpn_spl}]]}} {{roll=[[1d100]]}} {{skillname=@{weapon_type}}} {{mntTogVal=[[0]]}}
+
+            &{template:@{creature_hit_location}-Hit-Locations}} {{showName=[[0]]}} {{characterName=@{character_name}}} {{roll=[[@{selected_die_roll}]]}}</textarea>
+          <input type="text" class="sheet-d-no" value="0" name="attr_minmod" readonly />
+          <input type="text" class="sheet-d-no" value="1" name="attr_skillReduct" />
+          <input type="text" class="sheet-d-no" name="attr_spcldamage" />
+          <input type="text" class="sheet-d-no" name="attr_critdamage" />
+          <input type="text" class="sheet-d-no" name="attr_maxdamage" />
+        </div>
+      </fieldset>
+    </div>
+    <div class="sheet-d-fl sheet-fl-col sheet-w-50p">
+      <div class="sheet-d-fl sheet-jc-sb sheet-pb-1s">
+        <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-50p">
+          <div>Dodge</div>
+          <input type="text" class="sheet-w-50p sheet-p-5 sheet-ta-c" name="attr_dodge" readonly />
+          <button type="roll" value="&{template:skill-2} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{skillvalue=[[@{dodge}]]}} {{fumble=[[{(100-(round((100-@{dodge}d1)/20))),99d1}kl1]]}} {{failure=[[{{@{dodge}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{dodge})/5)]]}} {{critical=[[round(@{dodge}/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Dodge}}"  >
+          </button>
+        </div>
+        <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-20p">
+          <div>Fumble</div>
+          <button type="roll" value="&{template:RQG-Fumble} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{roll=[[1d100]]}}">
+          </button>
+        </div>
+      </div>
+      <div class="sheet-d-fl sheet-jc-sb">
+        <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-60p">
+          <div>Hit Location</div>
+          <select class="sheet-w-50p sheet-bb" name="attr_creature_hit_location">
+            <option value="Four-Legged">Four-Legged</option>
+            <option value="Humanoid" selected>Humanoid</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-33p">
+          <div>Die</div>
+          <select class="sheet-w-50p sheet-bb" name="attr_selected_die_roll">
+            <option value="1d20">1d20</option>
+            <option value="1d10+10">1d10+10</option>
+            <option value="1d8+12">1d8+12</option>
+            <option value="1d10">1d10</option>
+            <option value="1d8">1d8</option>			   			   
+          </select>
+          <button type="roll" value="&{template:@{creature_hit_location}-Hit-Locations} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{roll=[[@{selected_die_roll}]]}}" >
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sheet-d-fl sheet-mb-1s">
+    <div class="sheet-w-50p sheet-mr-1s">
+      <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+        <span>Runes</span>
+        <button type="roll" value="@{whispSet} &{template:skill-2} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{skillvalue=[[?{Rune score (including modifiers)|0}]]}} {{fumble=[[{(100-(round((100-?{Rune score (including modifiers)|0}d1)/20))),99d1}kl1]]}} {{failure=[[{{?{Rune score (including modifiers)|0}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((?{Rune score (including modifiers)|0})/5)]]}} {{critical=[[round(?{Rune score (including modifiers)|0}/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Rune}}"  >
+        </button>
+      </div>
+      <textarea rows="2" class="sheet-h-a sheet-bb sheet-bgc-gray" type="text" name="attr_npc1_runes"></textarea>							
+    </div>
+    <div class="sheet-w-50p">
+      <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+        <span>Magic</span>
+        <div class="sheet-d-fl sheet-jc-fe sheet-ai-c">
+          <span>Modifier</span>
+          <input type="text" class="sheet-w-33p sheet-p-5 sheet-bb" name="attr_magic_mod" title="Modifier" placeholder="Magic modifier" />
+          <button type="roll" value="@{whispSet} &{template:skill-2} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{skillvalue=[[((@{basepow}*5)+@{magic_mod})]]}} {{fumble=[[{(100-(round((100-((@{basepow}*5)+@{magic_mod})d1)/20))),99d1}kl1]]}} {{failure=[[{{((@{basepow}*5)+@{magic_mod})d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((((@{basepow}*5)+@{magic_mod}))/5)]]}} {{critical=[[round(((@{basepow}*5)+@{magic_mod})/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Magic}}"  >
+          </button>
+        </div>
+      </div>
+      <textarea rows="2" class="sheet-h-a sheet-bb sheet-bgc-gray" type="text" name="attr_npc1_spells"></textarea>							
+    </div>
+  </div>
+  <div class="sheet-d-fl sheet-mb-1s">
+    <div class="sheet-w-50p sheet-mr-1s">
+      <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+        <span>Passions</span>
+        <button type="roll" value="@{whispSet} &{template:skill-2} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{skillvalue=[[?{Passion score (including modifiers)|0}]]}} {{fumble=[[{(100-(round((100-?{Passion score (including modifiers)|0}d1)/20))),99d1}kl1]]}} {{failure=[[{{?{Passion score (including modifiers)|0}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((?{Passion score (including modifiers)|0})/5)]]}} {{critical=[[round(?{Passion score (including modifiers)|0}/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Passion}}"  >
+        </button>
+      </div>
+      <textarea rows="2" class="sheet-h-a sheet-bb sheet-bgc-gray" type="text" name="attr_npc1_passions"></textarea>
+    </div>
+    <div class="sheet-w-50p">
+      <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+        <span>Skills</span>
+        <button type="roll" value="@{whispSet} &{template:skill-2} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{skillvalue=[[?{Skill score (including modifiers)|0}]]}} {{fumble=[[{(100-(round((100-?{Skill score (including modifiers)|0}d1)/20))),99d1}kl1]]}} {{failure=[[{{?{Skill score (including modifiers)|0}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((?{Skill score (including modifiers)|0})/5)]]}} {{critical=[[round(?{Skill score (including modifiers)|0}/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Skill}}"  >
+        </button>
+      </div>
+      <textarea rows="2" class="sheet-h-a sheet-bb sheet-bgc-gray" type="text" name="attr_npc1_skills"></textarea>							
+    </div>
+  </div>
+  <div class="sheet-d-fl sheet-mb-1s">
+    <div class="sheet-w-50p sheet-mr-1s">
+      <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+        <span>Hit Locations</span>
+        <select class="sheet-bb" name="attr_select_hitloc">
+          <option value="D20	Result         AP/HP
+          1-3	Right Leg	0/0
+          3-6 	Left Leg	0/0
+          7-11	Abdomen		0/0
+          12 	Chest 		0/0
+          13-15 	Right Arm	0/0
+          16-18 	Left Arm	0/0
+          19-20 	Head        	0/0
+          THP 0/0
+          MP 0/0
+          wpn 1 HP 12
+          wpn 2 HP 12
+          wpn 3 HP 12">Human</option>
+          <option value="D20	Result         AP/HP
+          1-2	Right hind-leg	0/0
+          3-4 	Left hind-leg	0/0
+          5-7 	Hindquarters	0/0
+          8-10 	Forequarters 	0/0
+          11-13 	Right fore-leg	0/0
+          14-16 	Left fore-leg	0/0
+          17-20 	Head        	0/0
+          THP 0/0
+          MP 0/0
+          wpn 1 HP 12
+          wpn 2 HP 12
+          wpn 3 HP 12">Four Legged</option>
+        </select>
+      </div>							
+      <textarea rows="2" class="sheet-h-a sheet-bb sheet-bgc-gray" name="attr_npc1_hitloc" >
+  D20	Result         AP/HP
+  1-3	Right Leg	0/0
+  3-6 	Left Leg	0/0
+  7-11	Abdomen		0/0
+  12 	Chest 		0/0
+  13-15 	Right Arm	0/0
+  16-18 	Left Arm	0/0
+  19-20 	Head        	0/0
+  THP 0/0
+  MP 0/0
+  wpn 1 HP 12
+  wpn 2 HP 12
+  wpn 3 HP 12
+      </textarea>
+    </div>
+    <div class="sheet-w-50p">
+      <div class="sheet-d-fl sheet-jc-sb sheet-ai-c">
+        <span>Equipment / Treasure / Magic Items</span>
+      </div>
+      <textarea rows="2" class="sheet-h-a sheet-bb sheet-bgc-gray" name="attr_equipment" ></textarea>						
+    </div>
+  </div>
+</div>

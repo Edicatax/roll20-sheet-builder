@@ -13,6 +13,7 @@ source=(
     combattab.html
     geartab.html
     settingstab.html
+    newnpcsheet.html
     divend.html
     rolltemplates.html
 	workerstart.html

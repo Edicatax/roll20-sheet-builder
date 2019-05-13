@@ -1,6 +1,14 @@
 <rolltemplate class="sheet-rolltemplate-skill-2">
 <div style="width:100%;background:#f5f5f5;border-radius:4px 4px 0 0">
-  <div style="font-size:2.2rem;text-align:center;padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">{{skillname}}</div>
+  {{#rollTotal() showName 1}}
+  <div style="padding:.5rem 0 1.5rem;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">
+    <div style="font-size:1rem;text-align:center;margin-bottom:.5rem">{{characterName}}</div>
+  {{/rollTotal() showName 1}}
+  {{#^rollTotal() showName 1}}
+  <div style="padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">
+  {{/^rollTotal() showName 1}}
+    <div style="font-size:2.2rem;text-align:center">{{skillname}}</div>
+  </div>
   <div style="float:left;background:#feb624;color:#fff6e5;font-size:2.4rem;font-weight:bold;text-align:center;padding:1.5rem 0;width:25%">
 	{{roll}}</div><div style="display:inline-block;background:#fed084;font-size:2.4rem;font-weight:bold;padding:1.5rem;box-sizing:border-box;width:75%;color:#fff6e5">
     {{#rollGreater() roll fumble}}Fumble{{/rollGreater() roll fumble}}
@@ -34,7 +42,15 @@
 
 <rolltemplate class="sheet-rolltemplate-simple-roll">
 <div style="width:100%;background:#f5f5f5;border-radius:4px 4px 0 0">
-  <div style="font-size:2.2rem;text-align:center;padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">{{rollname}}</div>
+  {{#rollTotal() showName 1}}
+  <div style="padding:.5rem 0 1.5rem;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">
+    <div style="font-size:1rem;text-align:center;margin-bottom:.5rem">{{characterName}}</div>
+  {{/rollTotal() showName 1}}
+  {{#^rollTotal() showName 1}}
+  <div style="padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">
+  {{/^rollTotal() showName 1}}
+    <div style="font-size:2.2rem;text-align:center">{{rollname}}</div>
+  </div>
   <div style="float:left;background:#feb624;color:#fff6e5;font-size:2.4rem;font-weight:bold;text-align:center;padding:1.5rem 0;width:25%">
 	{{roll}}</div><div style="display:inline-block;background:#fed084;font-size:2.4rem;font-weight:bold;padding:1.5rem;box-sizing:border-box;width:75%;color:#fff6e5">
     {{#rollGreater() roll target}}{{#rollOver}}Success{{/rollOver}}{{#rollUnder}}Failure{{/rollUnder}}{{/rollGreater() roll target}}
@@ -65,7 +81,15 @@
 
 <rolltemplate class="sheet-rolltemplate-Humanoid-Hit-Locations">
 <div style="width:100%;background:#f5f5f5;border-radius:4px 4px 0 0">
-  <div style="font-size:2.2rem;text-align:center;padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">Humanoid hit location</div>
+  {{#rollTotal() showName 1}}
+  <div style="padding:.5rem 0 1.5rem;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">
+    <div style="font-size:1rem;text-align:center;margin-bottom:.5rem">{{characterName}}</div>
+  {{/rollTotal() showName 1}}
+  {{#^rollTotal() showName 1}}
+  <div style="padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">
+  {{/^rollTotal() showName 1}}
+    <div style="font-size:2.2rem;text-align:center">Humanoid hit location</div>
+  </div>
   <div style="float:left;background:#feb624;color:#fff6e5;font-size:2.4rem;font-weight:bold;text-align:center;padding:1.5rem 0;width:25%">
 	{{roll}}</div><div style="display:inline-block;background:#fed084;font-size:2.4rem;font-weight:bold;padding:1.5rem;box-sizing:border-box;width:75%;color:#fff6e5">
     {{#rollBetween() roll 1 4}}Left Leg{{/rollBetween() roll 1 4}}
@@ -81,7 +105,15 @@
 
 <rolltemplate class="sheet-rolltemplate-Four-Legged-Hit-Locations">
 <div style="width:100%;background:#f5f5f5;border-radius:4px 4px 0 0">
-  <div style="font-size:2.2rem;text-align:center;padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">Four-legged hit location</div>
+  {{#rollTotal() showName 1}}
+  <div style="padding:.5rem 0 1.5rem;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">
+    <div style="font-size:1rem;text-align:center;margin-bottom:.5rem">{{characterName}}</div>
+  {{/rollTotal() showName 1}}
+  {{#^rollTotal() showName 1}}
+  <div style="padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">
+  {{/^rollTotal() showName 1}}
+    <div style="font-size:2.2rem;text-align:center">Four-legged hit location</div>
+  </div>
   <div style="float:left;background:#feb624;color:#fff6e5;font-size:2.4rem;font-weight:bold;text-align:center;padding:1.5rem 0;width:25%">
 	{{roll}}</div><div style="display:inline-block;background:#fed084;font-size:2.4rem;font-weight:bold;padding:1.5rem;box-sizing:border-box;width:75%;color:#fff6e5">
     {{#rollBetween() roll 1 2}}Right Hind Leg{{/rollBetween() roll 1 2}}
@@ -97,7 +129,15 @@
 
 <rolltemplate class="sheet-rolltemplate-Other-Hit-Locations">
 <div style="width:100%;background:#f5f5f5;border-radius:4px 4px 0 0">
-  <div style="font-size:2.2rem;text-align:center;padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">Other hit location</div>
+  {{#rollTotal() showName 1}}
+  <div style="padding:.5rem 0 1.5rem;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">
+    <div style="font-size:1rem;text-align:center;margin-bottom:.5rem">{{characterName}}</div>
+  {{/rollTotal() showName 1}}
+  {{#^rollTotal() showName 1}}
+  <div style="padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">
+  {{/^rollTotal() showName 1}}
+    <div style="font-size:2.2rem;text-align:center">Other hit location</div>
+  </div>
   <div style="float:left;background:#feb624;color:#fff6e5;font-size:2.4rem;font-weight:bold;text-align:center;padding:1.5rem 0;width:25%">
 	{{roll}}</div><div style="display:inline-block;background:#fed084;font-size:2.4rem;font-weight:bold;padding:1.5rem;box-sizing:border-box;width:75%;color:#fff6e5">
     ?</div>
@@ -108,7 +148,15 @@
 
 <rolltemplate class="sheet-rolltemplate-spell">
 <div style="width:100%;background:#f5f5f5;border-radius:4px 4px 0 0">
-  <div style="font-size:2.2rem;text-align:center;padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">{{name}}</div>
+  {{#rollTotal() showName 1}}
+  <div style="padding:.5rem 0 1.5rem;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">
+    <div style="font-size:1rem;text-align:center;margin-bottom:.5rem">{{characterName}}</div>
+  {{/rollTotal() showName 1}}
+  {{#^rollTotal() showName 1}}
+  <div style="padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">
+  {{/^rollTotal() showName 1}}
+    <div style="font-size:2.2rem;text-align:center">{{name}}</div>
+  </div>
   <div style="font-size:1.6rem;text-align:center;margin-top:1rem">{{keywords}}</div>
   <div style="text-align:center">{{cost}} {{point_type}} point(s)</div>
   <div style="padding:0.5rem">{{description}}</div>
@@ -118,9 +166,19 @@
 
 <rolltemplate class="sheet-rolltemplate-RQG-Fumble">
 <div style="width:100%;background:#f5f5f5;border-radius:4px 4px 0 0">
+  {{#rollTotal() showName 1}}
+  <div style="padding:.5rem 0 .5rem;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">
+    <div style="font-size:1rem;text-align:center">{{characterName}}</div>
+  </div>
+  <div style="float:left;background:#feb624;color:#fff6e5;font-size:2.4rem;font-weight:bold;text-align:center;padding:1.5rem 0;width:25%">
+	{{roll}}</div><div style="display:inline-block;background:#fed084;font-size:2.4rem;font-weight:bold;padding:1.5rem;box-sizing:border-box;width:75%;color:#fff6e5">
+    Fumble</div>
+  {{/rollTotal() showName 1}}
+  {{#^rollTotal() showName 1}}
   <div style="float:left;background:#feb624;color:#fff6e5;font-size:2.4rem;font-weight:bold;text-align:center;padding:1.5rem 0;width:25%;border-radius:4px 0 0 0">
 	{{roll}}</div><div style="display:inline-block;background:#fed084;font-size:2.4rem;font-weight:bold;padding:1.5rem;box-sizing:border-box;width:75%;color:#fff6e5;border-radius:0 4px 0 0">
     Fumble</div>
+  {{/^rollTotal() showName 1}}
   <div style="padding:0.5rem">
 	{{#rollBetween() roll 1 5}}Lose next parry{{/rollBetween() roll 1 5}}
 	{{#rollBetween() roll 6 10}}Lose next attack{{/rollBetween() roll 6 10}}
@@ -177,7 +235,15 @@ until three other results are achieved.{{/rollTotal() roll 100}}
 {{#^rollLess() roll failure}}
 <div style="width:100%;background:#f5f5f5;border-radius:4px 4px 0 0">
 {{/^rollLess() roll failure}}
-  <div style="font-size:2.2rem;text-align:center;padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">{{skillname}}</div>
+  {{#rollTotal() showName 1}}
+  <div style="padding:.5rem 0 1.5rem;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">
+    <div style="font-size:1rem;text-align:center;margin-bottom:.5rem">{{characterName}}</div>
+  {{/rollTotal() showName 1}}
+  {{#^rollTotal() showName 1}}
+  <div style="padding:1.5rem 0;width:100%;background:#b5b5b5;color:white;border-radius:4px 4px 0 0;">
+  {{/^rollTotal() showName 1}}
+    <div style="font-size:2.2rem;text-align:center">{{skillname}}</div>
+  </div>
   <div style="float:left;background:#feb624;color:#fff6e5;font-size:2.4rem;font-weight:bold;text-align:center;padding:1.5rem 0;width:25%">
 	{{roll}}</div><div style="display:inline-block;background:#fed084;font-size:2.4rem;font-weight:bold;padding:1.5rem;box-sizing:border-box;width:75%;color:#fff6e5">
     {{#rollGreater() roll fumble}}Fumble{{/rollGreater() roll fumble}}

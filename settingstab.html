@@ -1,21 +1,32 @@
 <div class="sheet-tab-settings sheet-d-no sheet-p-5">
-  <div>Settings</div>
-  <div class="sheet-d-fl sheet-ai-c">
+  <div class="sheet-fs-18 sheet-ta-c sheet-p-5">Settings</div>
+  <label>
+    <span>Sheet style</span>
+    <select class="sheet-bb" name="attr_selected_sheet_type">
+      <option value="pcsheet">Full</option>
+      <option value="npcsheet">Npc</option>
+    </select>
+  </label>
+  <label class="sheet-d-fl sheet-ai-c">
+    <input type="checkbox" name="attr_display_name_in_rolls" value="1" />
+    <div>Display character name in roll templates</div>
+  </label>
+  <label class="sheet-d-fl sheet-ai-c">
     <input type="checkbox" name="attr_display_advancement_amount_in_roll" value="1" />
     <div>Display advancement amount on success:</div>
-  </div>
+  </label>
   <div class="sheet-br-4 sheet-bgc-gray sheet-p-1s">
-    <div class="sheet-d-fl sheet-ai-c">
+    <label class="sheet-d-fl sheet-ai-c">
       <input type="text" name="attr_skill_advancement_amount" value="1d6" class="sheet-p-5 sheet-bb" />
       <div>Skill / Passion gain</div>
-    </div>
-    <div class="sheet-d-fl sheet-ai-c">
+    </label>
+    <label class="sheet-d-fl sheet-ai-c">
       <input type="text" name="attr_pow_advancement_amount" value="1d3-1" class="sheet-p-5 sheet-bb" />
       <div>POW gain</div>
-    </div>
+    </label>
   </div>
-  <div class="sheet-d-fl sheet-ai-c">
+  <label class="sheet-d-fl sheet-ai-c">
     <input type="text" name="attr_species_max_pow" value="21" class="sheet-p-5 sheet-bb" />
     <div>Species max POW</div>
-  </div>
+  </label>
 </div>

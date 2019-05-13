@@ -202,12 +202,12 @@
           <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-50p">
             <div>Dodge</div>
             <input type="text" class="sheet-w-50p sheet-p-5 sheet-ta-c" name="attr_dodge" readonly />
-            <button type="roll" value="&{template:skill-2} {{name=@{character_name}}} {{skillvalue=[[@{dodge}]]}} {{fumble=[[{(100-(round((100-@{dodge}d1)/20))),99d1}kl1]]}} {{failure=[[{{@{dodge}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{dodge})/5)]]}} {{critical=[[round(@{dodge}/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Dodge}}"  >
+            <button type="roll" value="&{template:skill-2} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{skillvalue=[[@{dodge}]]}} {{fumble=[[{(100-(round((100-@{dodge}d1)/20))),99d1}kl1]]}} {{failure=[[{{@{dodge}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((@{dodge})/5)]]}} {{critical=[[round(@{dodge}/20)+1]]}} {{roll=[[1d100]]}} {{skillname=Dodge}}"  >
             </button>
           </div>
           <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-w-20p">
             <div>Fumble</div>
-            <button type="roll" value="&{template:RQG-Fumble} {{roll=[[1d100]]}}">
+            <button type="roll" value="&{template:RQG-Fumble} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{roll=[[1d100]]}}">
             </button>
           </div>
         </div>
@@ -229,7 +229,7 @@
               <option value="1d10">1d10</option>
               <option value="1d8">1d8</option>			   			   
             </select>
-            <button type="roll" value="&{template:@{creature_hit_location}-Hit-Locations} {{roll=[[@{selected_die_roll}]]}}" >
+            <button type="roll" value="&{template:@{creature_hit_location}-Hit-Locations} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{roll=[[@{selected_die_roll}]]}}" >
             </button>
           </div>
         </div>
@@ -256,8 +256,8 @@
             <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" name="attr_total_wpn_sr" value="[[@{wpn_sr}+@{melee_srm}]]" disabled />
             <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" name="attr_skillTotal" readonly />
             <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c" name="attr_skillWpnMod" value="0" />
-            <button type="roll" title="Add to turn order" value="@{add_sr}" ></button>
-            <button type="roll" value="@{melee_value}" ></button>
+            <button type="roll" class="sheet-no-die sheet-font-pictos" title="Add to turn order" value="@{add_sr}" >t</button>
+            <button type="roll" class="sheet-no-die sheet-font-pictos-custom" value="@{melee_value}" >t</button>
           </div>
           <div class="sheet-expand-child-1 sheet-d-fl sheet-fl-col sheet-w-100p sheet-jc-sb sheet-p-5 sheet-br-4 sheet-bgc-dgray">
             <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-10">
@@ -297,9 +297,9 @@
 Add @{character_name} to turn order
 @{weapon_type} SR [[@{total_wpn_sr} &{tracker}]]
           </textarea>
-          <textarea class="sheet-d-no" name="attr_melee_value">&{template:attack-roll} {{name=@{character_name}}} {{tot=[[@{wpn_damage}+@{damagebonus}]]}} {{skillvalue=[[ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod}]]}} {{fumble=[[{(100-(round((100-ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod}d1)/20))),99d1}kl1]]}} {{failure=[[{{ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod})/5)]]}} {{critical=[[round((ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod})/20)+1]]}} {{spclDam=[[@{spcldamage}+@{damagebonus}]]}} {{crshDam=[[@{wpn_damage}+@{maxDb}+@{damagebonus}]]}} {{critCrsh=[[@{critdamage}+@{maxDb}+@{damagebonus}]]}} {{critSI=[[@{critdamage}+@{damagebonus}]]}} {{type=[[@{wpn_spl}]]}} {{roll=[[1d100]]}} {{skillname=@{weapon_type}}} {{mntTogVal=[[@{mntTogVal}]]}} {{mntTot=[[@{wpn_damage}+@{mountDB}]]}} {{mntSpcl=[[@{spcldamage}+@{mountDB}]]}} {{mntCrit=[[@{critdamage}+@{mountDB}]]}}
+          <textarea class="sheet-d-no" name="attr_melee_value">&{template:attack-roll} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{tot=[[@{wpn_damage}+@{damagebonus}]]}} {{skillvalue=[[ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod}]]}} {{fumble=[[{(100-(round((100-ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod}d1)/20))),99d1}kl1]]}} {{failure=[[{{ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod})/5)]]}} {{critical=[[round((ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod})/20)+1]]}} {{spclDam=[[@{spcldamage}+@{damagebonus}]]}} {{crshDam=[[@{wpn_damage}+@{maxDb}+@{damagebonus}]]}} {{critCrsh=[[@{critdamage}+@{maxDb}+@{damagebonus}]]}} {{critSI=[[@{critdamage}+@{damagebonus}]]}} {{type=[[@{wpn_spl}]]}} {{roll=[[1d100]]}} {{skillname=@{weapon_type}}} {{mntTogVal=[[@{mntTogVal}]]}} {{mntTot=[[@{wpn_damage}+@{mountDB}]]}} {{mntSpcl=[[@{spcldamage}+@{mountDB}]]}} {{mntCrit=[[@{critdamage}+@{mountDB}]]}}
 
-&{template:@{creature_hit_location}-Hit-Locations}} {{roll=[[@{selected_die_roll}]]}}</textarea>
+&{template:@{creature_hit_location}-Hit-Locations}} {{showName=[[0]]}} {{characterName=@{character_name}}} {{roll=[[@{selected_die_roll}]]}}</textarea>
           <input type="text" class="sheet-d-no" value="0" name="attr_minmod" readonly />
           <input type="text" class="sheet-d-no" value="1" name="attr_skillReduct" />
           <input type="text" class="sheet-d-no" name="attr_spcldamage" />
@@ -322,7 +322,7 @@ Add @{character_name} to turn order
             <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c sheet-bb" value="0" name="attr_skillWpnMod" />
             <input type="text" class="sheet-w-10p sheet-p-5 sheet-ta-c sheet-bb" name="attr_wpn_rate" placeholder="S/MR" />
             <input type="number" class="sheet-w-10p sheet-p-5 sheet-ta-c sheet-bb" value="0" name="attr_wpn_ammo" />
-            <button type="roll" value="@{melee_value}" ></button>
+            <button type="roll" class="sheet-no-die sheet-font-pictos-custom" value="@{melee_value}" >[</button>
           </div>
           <div class="sheet-expand-child-1 sheet-d-fl sheet-fl-col sheet-w-100p sheet-jc-sb sheet-p-5 sheet-br-4 sheet-bgc-dgray">
             <div class="sheet-d-fl sheet-jc-sb sheet-ai-c sheet-mb-10">
@@ -351,9 +351,9 @@ Add @{character_name} to turn order
               <input type="checkbox" name="attr_mdbtoggle" />
             </div>
           </div>
-          <textarea class="sheet-d-no" name="attr_melee_value">&{template:attack-roll} {{name=@{character_name}}} {{tot=[[@{wpn_damage}+@{wpnmdb}]]}} {{skillvalue=[[ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod}]]}} {{fumble=[[{(100-(round((100-ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod}d1)/20))),99d1}kl1]]}} {{failure=[[{{ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod})/5)]]}} {{critical=[[round((ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod})/20)+1]]}} {{spclDam=[[@{spcldamage}+@{wpnmdb}]]}} {{crshDam=[[@{wpn_damage}+@{maxwpnmdb}+@{wpnmdb}]]}} {{critCrsh=[[@{critdamage}+@{maxwpnmdb}+@{wpnmdb}]]}} {{critSI=[[@{critdamage}+@{wpnmdb}]]}} {{type=[[@{wpn_spl}]]}} {{roll=[[1d100]]}} {{skillname=@{weapon_type}}} {{mntTogVal=[[0]]}}
+          <textarea class="sheet-d-no" name="attr_melee_value">&{template:attack-roll} {{showName=[[@{display_name_in_rolls}]]}} {{characterName=@{character_name}}} {{tot=[[@{wpn_damage}+@{wpnmdb}]]}} {{skillvalue=[[ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod}]]}} {{fumble=[[{(100-(round((100-ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod}d1)/20))),99d1}kl1]]}} {{failure=[[{{ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod}d1+1, 6d1}kh1, 95d1}kl1]]}} {{special=[[round((ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod})/5)]]}} {{critical=[[round((ceil(@{skillTotal}*@{skillReduct})+@{skillWpnMod})/20)+1]]}} {{spclDam=[[@{spcldamage}+@{wpnmdb}]]}} {{crshDam=[[@{wpn_damage}+@{maxwpnmdb}+@{wpnmdb}]]}} {{critCrsh=[[@{critdamage}+@{maxwpnmdb}+@{wpnmdb}]]}} {{critSI=[[@{critdamage}+@{wpnmdb}]]}} {{type=[[@{wpn_spl}]]}} {{roll=[[1d100]]}} {{skillname=@{weapon_type}}} {{mntTogVal=[[0]]}}
 
-&{template:@{creature_hit_location}-Hit-Locations}} {{roll=[[@{selected_die_roll}]]}}</textarea>
+&{template:@{creature_hit_location}-Hit-Locations}} {{showName=[[0]]}} {{characterName=@{character_name}}} {{roll=[[@{selected_die_roll}]]}}</textarea>
           <input type="text" class="sheet-d-no" value="0" name="attr_minmod" readonly />
           <input type="text" class="sheet-d-no" value="1" name="attr_skillReduct" />
           <input type="text" class="sheet-d-no" name="attr_spcldamage" />

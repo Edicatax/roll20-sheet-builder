@@ -260,6 +260,9 @@ b,strong {
 .sheet-mr-5 {
     margin-right:.5rem
 }
+.sheet-ml-n90p {
+    margin-left:-90%
+}
 .sheet-ml-n18p {
     margin-left:-18%
 }
@@ -437,6 +440,10 @@ b,strong {
 /**
  *  Utilities
  */
+input.sheet-toggle-pcsheet:checked ~ div .sheet-pcsheet,
+input.sheet-toggle-npcsheet:checked ~ div .sheet-npcsheet {
+    display: block;
+}
 a.repcontrol_move,
 button.repcontrol_del,
 button.repcontrol_add,
@@ -454,11 +461,12 @@ input.sheet-tab2:checked ~ div.sheet-tab2,
 input.sheet-tab3:checked ~ div.sheet-tab3,
 input.sheet-tab4:checked ~ div.sheet-tab4,
 input.sheet-tab5:checked ~ div.sheet-tab5,
+input.sheet-tab6:checked ~ div.sheet-tab6,
 input.sheet-toggle-settings:checked ~ div.sheet-tab-settings {
     display: block;
 }
 
-input.sheet-tab:checked + span {
+input.sheet-tab:checked + span div {
     border-bottom-color: transparent;
     border-top: 1px solid #d8d8d8;
     border-left: 1px solid #d8d8d8;
@@ -466,8 +474,8 @@ input.sheet-tab:checked + span {
     border-radius: 4px 4px 0 0;
 }
 
-input.sheet-toggle-advancement + span + span,
-input.sheet-toggle-advancement + span {
+input.sheet-toggle-advancement + span + span div,
+input.sheet-toggle-advancement + span div {
     border-radius: 4px 4px 0 0;
 }
 
@@ -539,7 +547,7 @@ input.sheet-h-30 {
 .charsheet button[type="roll"].sheet-show-advancement {
     padding: 0 4px;
 }
-.charsheet button[type="roll"].sheet-show-advancement:before {
+.charsheet button[type="roll"].sheet-no-die:before {
     content:"";
 }
 
